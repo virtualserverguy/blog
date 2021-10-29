@@ -4,4 +4,4 @@ title = 'blog... stuff...'
 copyright = '{year} copyright. all rights reserved.'
 paginate = 25
 author.name = 'Tom Ralph'
-
+theme = 'hugo-theme-bootstrap'
