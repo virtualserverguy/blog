@@ -1,15 +1,15 @@
-baseURL = "https://example.com"
-title = "Hugo Bootstrap"
+baseURL = "https://blog.thevsg.co"
+title = "blog... things..."
 theme = "hugo-theme-bootstrap"
-copyright = "Copyright © 2016-{year} Razon Yang. All Rights Reserved."
+copyright = "Copyright © 2020-{year} Tom Ralph. All Rights Reserved."
 
 # Multilingual mode
 defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = true # If you use only one language comment this option
+#defaultContentLanguageInSubdir = true # If you use only one language comment this option
 #disableLanguages = ["fr", "zh-cn" ,"zh-tw"] # For disable one or more language
 
 # Pagination
-paginate = 5
+paginate = 25
 # paginatePath = "page"
 
 # Disqus
