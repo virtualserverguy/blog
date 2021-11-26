@@ -6,7 +6,7 @@ description = "blog for things... mostly notes for myself"
 keywords = "virtual server, vmware, esx, vsphere, networking, nsx"
 # images = ["site-feature-image.jpg"]
 
-# logo = "images/logo.png" # Logo image. Default to "images/logo.webp".
+logo = "images/logo.png" # Logo image. Default to "images/logo.webp".
 # logo = false # Disable Logo
 # brand = "BOOTSTRAP"
 
