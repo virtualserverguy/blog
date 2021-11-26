@@ -26,9 +26,6 @@ enableEmoji = true
 
 pygmentsUseClasses = true
 
-[blackfriday]
-  hrefTargetBlank = true
-
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 

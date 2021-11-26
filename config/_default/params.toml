@@ -26,7 +26,7 @@ googleAdsense = ""
 
 # math = true # Enable math globally.
 # toc = false # Disable TOC globally.
-# breadcrumb = false # Disable breadcrumb
+breadcrumb = true # Disable breadcrumb
 # diagram = true
 
 # poweredBy = false # Whether to show powered by.
@@ -60,8 +60,8 @@ viewer = true # Image Viewer
   lineNos = true # true/false represents that show/hide the line numbers by default.
 
 [post]
-  # excerpt = "description"
-  # excerptMaxLength = 120
+  excerpt = "description"
+  excerptMaxLength = 120
 
 [archive]
   paginate = 100 # Archive pagination. Default to 100.
