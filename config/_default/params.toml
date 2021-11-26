@@ -1,8 +1,8 @@
-# mainSections = ["post", "posts"] # Default to ["posts"].
+mainSections = ["post", "posts"] # Default to ["posts"].
 
-# titleSeparator = "|" # Title separator. Default to "-".
+titleSeparator = "|" # Title separator. Default to "-".
 
-description = "blog for things... mostly note for myself"
+description = "blog for things... mostly notes for myself"
 keywords = "virtual server, vmware, esx, vsphere, networking, nsx"
 # images = ["site-feature-image.jpg"]
 
@@ -115,7 +115,9 @@ viewer = true # Image Viewer
   #addThis = "" # AddThis pubid.
 
 [fontSize] # Comment or remove this settings to disable font size switcher.
-  # extraSmall = ".8rem"
-  # small = ".9rem"
-  # large = "1.1rem"
-  # extraLarge = "1.2rem"
+  extraSmall = ".8rem"
+  small = ".9rem"
+  large = "1.1rem"
+  extraLarge = "1.2rem"
+[permalinks]
+  posts = '/:year/:month/:title/'

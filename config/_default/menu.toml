@@ -1,13 +1,13 @@
 [[main]]
-  name = "Dropdown"
+  name = "menu"
   identifier = "dropdown"
   pre = '<i class="fas fa-fw fa-chevron-circle-down"></i>'
-# [[main]]
-#   id = "github"
-#   parent = "dropdown"
-#   name = "Github"
-#   url = "https://github.com/razonyang/hugo-theme-bootstrap"
-#   pre = '<i class="fab fa-fw fa-github"></i>'
+[[main]]
+  id = "github"
+  parent = "dropdown"
+  name = "Github"
+  url = "https://github.com/virtualserverguy"
+  pre = '<i class="fab fa-fw fa-github"></i>'
 # [[main]]
 #   id = "manual"
 #   parent = "dropdown"
