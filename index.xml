@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
-    <lastBuildDate>Thu, 28 Oct 2021 21:17:07 -0600</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Nov 2021 21:17:07 -0600</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Second post</title>
+      <link>/posts/secondpost/</link>
+      <pubDate>Fri, 26 Nov 2021 21:17:07 -0600</pubDate>
+      
+      <guid>/posts/secondpost/</guid>
+      <description>This is a GH page test</description>
+    </item>
+    
     <item>
       <title>Firstpost</title>
       <link>/posts/firstpost/</link>
