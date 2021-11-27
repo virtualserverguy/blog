@@ -29,8 +29,8 @@ jobs:
       - name: Checkout pages branch
         uses: actions/checkout@v2
         with:
-          ref: pages
-          path: pages
+          ref: gh-pages
+          path: gh-pages
 
       - name: Hugo Build
         run: cd main && hugo
