@@ -36,11 +36,11 @@ jobs:
         run: cd main && hugo
 
       - name: Copy files
-        run: cp -rf main/public/* pages/
+        run: cp -rf main/public/* gh-pages/
 
       - name: Commit changes
         run: |
-          cd pages
+          cd gh-pages
 
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Action"
