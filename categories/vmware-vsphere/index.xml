@@ -288,7 +288,7 @@ XXX has been reserved for your defense. Please confirm that this date works for 
       
       <guid>/posts/2010-07-13-2010713vcenter-installation-tips-html/</guid>
       <description>Since the vCenter now requires a 64 bit operating system to install, the DSN must be upgraded as well to support the 64bit application. Currently vCenter 4.0 and older all required a 32 bit DSN. To change to the proper DSN you will need to remove the old one from the 32-bit DSN application and create a new DSN.
-  Remove the old DSN if it exists from: %windir%SysWoW64ODBCAD32.exe</description>
+  Remove the old DSN if it exists from: %windir%\SysWoW64\ODBCAD32.exe</description>
     </item>
     
   </channel>

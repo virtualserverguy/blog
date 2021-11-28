@@ -12,7 +12,7 @@
 <meta name="description" content="" /><meta itemprop="name" content="vSphere 4.1 ESX(i) Major Security Flaw">
 <meta itemprop="description" content="About a week ago while testing vSphere 4.1 upgrades and deployment methods, I signed into a host&rsquo;s service console as root, and I could have swore that I typed the password incorrectly. So I signed back out and tried it again, and it let me in with an extra digit at the end of the password. Some more testing led me to see that the PAM software was only checking the first 8 characters of the password and ignoring the rest of it."><meta itemprop="datePublished" content="2010-07-21T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2010-07-21T00:00:00+00:00" />
-<meta itemprop="wordCount" content="287">
+<meta itemprop="wordCount" content="291">
 <meta itemprop="keywords" content="" /><meta property="og:title" content="vSphere 4.1 ESX(i) Major Security Flaw" />
 <meta property="og:description" content="About a week ago while testing vSphere 4.1 upgrades and deployment methods, I signed into a host&rsquo;s service console as root, and I could have swore that I typed the password incorrectly. So I signed back out and tried it again, and it let me in with an extra digit at the end of the password. Some more testing led me to see that the PAM software was only checking the first 8 characters of the password and ignoring the rest of it." />
 <meta property="og:type" content="article" />
@@ -212,51 +212,27 @@ blog... things...
 <h4 id="vmwares-solution">VMware&rsquo;s Solution</h4>
 <p><strong>For ESX</strong>:<br>
 Add md5 to the file /etc/pam.d/system-auth.</p>
-<ol start="2">
-<li>
-<p>Log in to the service console and acquire root privileges.</p>
-</li>
-<li>
-<p>Change to the directory /etc/pam.d/.</p>
-</li>
-<li>
-<p>Use a text editor to open the file system-auth.</p>
-</li>
-<li>
-<p>Add md5 to the following line, as shown:</p>
-</li>
+<ol>
+<li>Log in to the service console and acquire root privileges.</li>
+<li>Change to the directory /etc/pam.d/.</li>
+<li>Use a text editor to open the file system-auth.</li>
+<li>Add md5 to the following line, as shown:</li>
 </ol>
-<blockquote>
-<p>password sufficient /lib/security/$ISA/pam_unix.so use_authtok nullok shadow md5</p>
-</blockquote>
-<p>Optionally, you can use the following sed command to accomplish this:</p>
-<blockquote>
-<p>sed -e /password.*pam_unix.so/s/$/ md5/ -i /etc/pam.d/system-auth</p>
-</blockquote>
-<p><strong>For ESX</strong>i:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="ln">1</span> password sufficient /lib/security/<span class="nv">$ISA</span>/pam<span class="se">\_</span>unix.so use<span class="se">\_</span>authtok nullok shadow md5
+</code></pre></div><p>Optionally, you can use the following sed command to accomplish this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="ln">1</span>&gt; sed -e /password.<span class="se">\*</span>pam<span class="se">\_</span>unix.so/s/$/ md5/ -i /etc/pam.d/system-auth
+</code></pre></div><p><strong>For ESXi</strong>:</p>
 <p>Add md5 to the file /etc/pam.d/system-auth.</p>
-<ol start="2">
-<li>
-<p>Access tech support mode.</p>
-</li>
-<li>
-<p>Change to the directory /etc/pam.d/.</p>
-</li>
-<li>
-<p>Use a text editor to open the file system-auth.</p>
-</li>
-<li>
-<p>Add md5 to the following line, as shown:</p>
-</li>
+<ol>
+<li>Access tech support mode.</li>
+<li>Change to the directory /etc/pam.d/.</li>
+<li>Use a text editor to open the file system-auth.</li>
+<li>Add md5 to the following line, as shown:</li>
 </ol>
-<blockquote>
-<p>password sufficient /lib/security/$ISA/pam_unix.so use_authtok nullok shadow md5</p>
-</blockquote>
-<p>(Optional) If you want the change to persist when you restart ESXi, you must add the following line to the file /etc/rc.local:</p>
-<blockquote>
-<p>sed -e &lsquo;/password.*pam_unix.so.* md5/q&rsquo; -e &lsquo;/password.*pam_unix.so/s/$/ md5/&rsquo; -i /etc/pam.d/system-auth</p>
-</blockquote>
-<p>VMware expects to release a permanent solution to this issue sometime in the future. We recommend that you remove the workaround from ESXi systems when you install the permanent solution.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="ln">1</span>&gt; password sufficient /lib/security/<span class="nv">$ISA</span>/pam<span class="se">\_</span>unix.so use<span class="se">\_</span>authtok nullok shadow md5  
+</code></pre></div><p>(Optional) If you want the change to persist when you restart ESXi, you must add the following line to the file /etc/rc.local:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="ln">1</span>&gt; sed -e <span class="s1">&#39;/password.\*pam\_unix.so.\* md5/q&#39;</span> -e <span class="s1">&#39;/password.\*pam\_unix.so/s/$/ md5/&#39;</span> -i /etc/pam.d/system-auth
+</code></pre></div><p>VMware expects to release a permanent solution to this issue sometime in the future. We recommend that you remove the workaround from ESXi systems when you install the permanent solution.</p>
 </div><hr /><div class="post-navs d-flex mb-3 justify-content-evenly">
   <div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
     <a href="/posts/2010-07-20-2010720vcdx-application-status-html/">VCDX Application Status
