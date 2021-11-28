@@ -13,75 +13,42 @@ The good news is that VMware is aware of the issue and has a work around to corr
 
 #### VMware's Solution
 
-  
-
 **For ESX**:  
 Add md5 to the file /etc/pam.d/system-auth.  
 
-  
-2. Log in to the service console and acquire root privileges.
-  
-4. Change to the directory /etc/pam.d/.
-  
-6. Use a text editor to open the file system-auth.
-  
-8. Add md5 to the following line, as shown:
-  
+1. Log in to the service console and acquire root privileges. 
+1. Change to the directory /etc/pam.d/. 
+1. Use a text editor to open the file system-auth.
+1. Add md5 to the following line, as shown:
 
-  
-
->   
-> 
-> password sufficient /lib/security/$ISA/pam\_unix.so use\_authtok nullok shadow md5
-
-  
+```Shell
+ password sufficient /lib/security/$ISA/pam\_unix.so use\_authtok nullok shadow md5
+```
 
 Optionally, you can use the following sed command to accomplish this:
 
-  
-
->   
-> 
+```Shell
 > sed -e /password.\*pam\_unix.so/s/$/ md5/ -i /etc/pam.d/system-auth
-
+```
   
 
-**For ESX**i:
-
-  
+**For ESXi**:
 
 Add md5 to the file /etc/pam.d/system-auth.
 
+1. Access tech support mode.
+1. Change to the directory /etc/pam.d/.
+1. Use a text editor to open the file system-auth.
+1. Add md5 to the following line, as shown:
   
-
-  
-2. Access tech support mode.
-  
-4. Change to the directory /etc/pam.d/.
-  
-6. Use a text editor to open the file system-auth.
-  
-8. Add md5 to the following line, as shown:
-  
-
-  
-
->   
-> 
+```shell
 > password sufficient /lib/security/$ISA/pam\_unix.so use\_authtok nullok shadow md5  
-
-  
-
-  
+```
 
 (Optional) If you want the change to persist when you restart ESXi, you must add the following line to the file /etc/rc.local:
 
-  
-
->   
-> 
+```Shell
 > sed -e '/password.\*pam\_unix.so.\* md5/q' -e '/password.\*pam\_unix.so/s/$/ md5/' -i /etc/pam.d/system-auth
-
-  
+```
 
 VMware expects to release a permanent solution to this issue sometime in the future. We recommend that you remove the workaround from ESXi systems when you install the permanent solution.
