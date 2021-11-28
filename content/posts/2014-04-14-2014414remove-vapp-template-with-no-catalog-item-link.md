@@ -14,18 +14,18 @@ Well I guess you could. If you manage to get one of those, you will want to foll
 
 Okay back to detecting if you have a vApp Template that is not mapped to a Catalog Item. To detect these 'hung' vApp Templates run the following script as a 'system administrator'
 
-> $VappTemplates = Search-Cloud -QueryType AdminVappTemplate
-> 
-> foreach ( $VappT in $VappTemplates ) { $vAppTemplate = Get-CIVAppTemplate -ID $VappT.Id
-> 
-> ```
->  $vapptid = $vapptemplate.id
->  $CatItem = Search-Cloud -QueryType AdminCatalogItem -Filter Entity==$VappTId
->  if ( !$CatItem ) { Write-Host "Get-CIVappTemplate -ID $($vAppTemplate.Id) " }
-> ```
-> 
-> }
+```Powershell
+$VappTemplates = Search-Cloud -QueryType AdminVappTemplate
+
+foreach ( $VappT in $VappTemplates ) { $vAppTemplate = Get-CIVAppTemplate -ID $VappT.Id
+  $vapptid = $vapptemplate.id
+  $CatItem = Search-Cloud -QueryType AdminCatalogItem -Filter Entity==$VappTId
+  if ( !$CatItem ) { Write-Host "Get-CIVappTemplate -ID $($vAppTemplate.Id) " }
+}
+```
 
 This will procduce an out put of 'Get-CIVappTemplate' and the ID of the hung vApp Template. It is up to you to pick what to do with that hung vApp Template. I recommend removing them and re-creating whatever they were. To do that append this to the output and run it in the same PowerShell window:
 
-> | Remove-CIVappTemplate -RemoveCatalogItem $False
+```PowerShell
+Remove-CIVappTemplate -RemoveCatalogItem $False
+```

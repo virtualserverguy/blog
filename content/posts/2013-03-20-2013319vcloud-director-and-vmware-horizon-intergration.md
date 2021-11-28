@@ -23,10 +23,8 @@ While the only required field is UserName it is recommended that all fields be r
 
 In vCloud director you will first need to enable the use of a SAML Identity provider.
 
-1. Once logged in as a Organization Administrator or System Administrator go to the organization Administration page, click on Federation, then enable the ‘Use of SAML Identity Provider’
-    
-2. The XML metadata file that you got from your SAML/SSO provider should be downloaded to the machine these actions are running from. Due to the use of special characters and copy/paste issues it is not recommended to paste in a value into the field. Instead use the upload function to upload the XML file in whole.
-    
+1. Once logged in as a Organization Administrator or System Administrator go to the organization Administration page, click on Federation, then enable the ‘Use of SAML Identity Provider’ 
+1. The XML metadata file that you got from your SAML/SSO provider should be downloaded to the machine these actions are running from. Due to the use of special characters and copy/paste issues it is not recommended to paste in a value into the field. Instead use the upload function to upload the XML file in whole.
 
 > In the case of VMware's Horizon Product the metadata can be found here: https:///SAAS/API/1.0/GET/metadata/idp.xml
 
@@ -47,12 +45,10 @@ It will prompt you with a warning about changing the certificate. If you have al
 First you will need to login to the administrator interface for Horizon and create a new Application, then follow these configuration items for that application.
 
 1. Configure the Login Redirection URL to be the organization URL in vCloud Director. This is required for vCloud Director to work properly, since the authentication sequence must start with vCloud Director and not Horizon.
-    
-2. Check the ‘Include the Destination in the response’
-    
-3. Check the Sign the entire response.
-4. Check the ‘Sign the assertion’
-5. Remove the ‘Include Cert’ checkbox
-6. Select the configure via Meta-data XML option. Then upload the certificate (copy/paste) the certificate in to the text box given.
-7. Click on ‘Populate Attribute Mapping’
-8. Configure the Attribute Mapping to match your deployment of Hoizon.
+1. Check the ‘Include the Destination in the response’
+1. Check the Sign the entire response.
+1. Check the ‘Sign the assertion’
+1. Remove the ‘Include Cert’ checkbox
+1. Select the configure via Meta-data XML option. Then upload the certificate (copy/paste) the certificate in to the text box given.
+1. Click on ‘Populate Attribute Mapping’
+1. Configure the Attribute Mapping to match your deployment of Hoizon.

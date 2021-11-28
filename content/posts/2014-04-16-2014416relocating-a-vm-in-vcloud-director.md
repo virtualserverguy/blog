@@ -16,30 +16,23 @@ Instead run this tid-bit of code in a PowerShell window.
 
 To move a vApp:
 
-> $destDatastoreName = “LUN NAME"
-> 
-> $vm\_names = Get-CIVApp "VAPP NAME" | get-civm
-> 
-> foreach ($vm in $vm\_names) {
-> 
-> $dsQuery = Search-Cloud -QueryType Datastore -Name $destDatastoreName
-> 
-> $dsRef = New-Object vmware.vimautomation.cloud.views.reference
-> 
-> $dsRef.Href = "https://$($global:DefaultCIServers\[0\].name)/api/admin/extension/datastore/$($dsquery.id.split(':')\[-1\])" $vm.ExtensionData.Relocate($dsRef)
-> 
-> }
+```PowerShell
+$destDatastoreName = “LUN NAME"
+$vm\_names = Get-CIVApp "VAPP NAME" | get-civm
+foreach ($vm in $vm\_names) {
+  $dsQuery = Search-Cloud -QueryType Datastore -Name $destDatastoreName
+  $dsRef = New-Object vmware.vimautomation.cloud.views.reference
+  $dsRef.Href = "https://$($global:DefaultCIServers\[0\].name)/api/admin/extension/datastore/$($dsquery.id.split(':')\[-1\])" $vm.ExtensionData.Relocate($dsRef)
+}
+```
 
 To move a single VM:
 
-> $destDatastoreName = “LUN NAME"
-> 
-> $vm\_name = get-civm "VM NAME"
-> 
-> $dsQuery = Search-Cloud -QueryType Datastore -Name $destDatastoreName
-> 
-> $dsRef = New-Object vmware.vimautomation.cloud.views.reference
-> 
-> $dsRef.Href = "https://$($global:DefaultCIServers\[0\].name)/api/admin/extension/datastore/$($dsquery.id.split(':')\[-1\])" $vm.ExtensionData.Relocate($dsRef)
-
+```PowerShell
+$destDatastoreName = “LUN NAME"
+$vm\_name = get-civm "VM NAME"
+$dsQuery = Search-Cloud -QueryType Datastore -Name $destDatastoreName
+$dsRef = New-Object vmware.vimautomation.cloud.views.reference
+$dsRef.Href = "https://$($global:DefaultCIServers\[0\].name)/api/admin/extension/datastore/$($dsquery.id.split(':')\[-1\])" $vm.ExtensionData.Relocate($dsRef)
+```
 An important rule to remember... a VM can only live on 1 datastore, this means all VMDK's and the VMX of that VM must exist on the same datasore. Executing the above will make sure that happens. If you fell like breaking things and use the vSphere Client, keep this in mind.

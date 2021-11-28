@@ -14,14 +14,16 @@ One method I have found that works is to disable the LUN you want the media move
 
 Below is a script to mass update media entries to allow them to move easier.
 
+```PowerShell
 $MediaToUpdate = Get-Catalog -Org NAME | Get-Media 
 Foreach ( $Media in $MediaToUpdate ) { 
-$RefMedia = Get-Media -Id $Media.Id
-Write-Host “Updating “ $RefMedia.Name 
-$OldDescription = $RefMedia.Description 
-$OldDescription += "." 
-$Media.ExtensionData.Description = $OldDescription 
-$Media.ExtensionData.UpdateServerData 
+  $RefMedia = Get-Media -Id $Media.Id
+  Write-Host “Updating “ $RefMedia.Name 
+  $OldDescription = $RefMedia.Description 
+  $OldDescription += "." 
+  $Media.ExtensionData.Description = $OldDescription 
+  $Media.ExtensionData.UpdateServerData 
 }
+```
 
 Just make sure the LUN you want cleaned off is 'disabled' and you have enough space on the other LUNs for the newly copied/moved media.

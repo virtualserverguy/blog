@@ -22,13 +22,13 @@ Add md5 to the file /etc/pam.d/system-auth.
 1. Add md5 to the following line, as shown:
 
 ```Shell
- password sufficient /lib/security/$ISA/pam\_unix.so use\_authtok nullok shadow md5
+password sufficient /lib/security/$ISA/pam_unix.so use_authtok nullok shadow md5
 ```
 
 Optionally, you can use the following sed command to accomplish this:
 
 ```Shell
-> sed -e /password.\*pam\_unix.so/s/$/ md5/ -i /etc/pam.d/system-auth
+sed -e /password.*pam_unix.so/s/$/ md5/ -i /etc/pam.d/system-auth
 ```
   
 
@@ -42,13 +42,13 @@ Add md5 to the file /etc/pam.d/system-auth.
 1. Add md5 to the following line, as shown:
   
 ```shell
-> password sufficient /lib/security/$ISA/pam\_unix.so use\_authtok nullok shadow md5  
+password sufficient /lib/security/$ISA/pam\_unix.so use\_authtok nullok shadow md5  
 ```
 
 (Optional) If you want the change to persist when you restart ESXi, you must add the following line to the file /etc/rc.local:
 
 ```Shell
-> sed -e '/password.\*pam\_unix.so.\* md5/q' -e '/password.\*pam\_unix.so/s/$/ md5/' -i /etc/pam.d/system-auth
+sed -e '/password.*pam_unix.so.* md5/q' -e '/password.*pam_unix.so/s/$/ md5/' -i /etc/pam.d/system-auth
 ```
 
 VMware expects to release a permanent solution to this issue sometime in the future. We recommend that you remove the workaround from ESXi systems when you install the permanent solution.

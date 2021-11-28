@@ -12,12 +12,11 @@ After you run vCloud for a while, heck run any management product for a while, a
 
 With vCloud Director you can run the below to find those items and remove them.
 
-> $badvapp = Search-Cloud -QueryType AdminVapp | Where-Object { $\_.Status -eq “UNRESOLVED" }
-> 
-> foreach ( $id in $badvapp ) {
-> 
-> Get-CIVApp -Id $id.id | Remove-CIVApp
-> 
-> }
+```PowerShell
+$badvapp = Search-Cloud -QueryType AdminVapp | Where-Object { $\_.Status -eq “UNRESOLVED" }
+foreach ( $id in $badvapp ) {
+  Get-CIVApp -Id $id.id | Remove-CIVApp
+}
+```
 
-This probably wont remove everything, those items that are left, generally can only be removed via editing the database (I would not recommend that).
+This probably wont remove everything, those items that are left, generally can only be removed via editing the database though, I would not recommend that.

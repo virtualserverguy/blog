@@ -26,19 +26,15 @@ You will also need to install iSQL for CentOS, to write your data to a SQL serve
 
 After you have the above installed and ready, you can run the following to get a report on the status of your VMs performance:
 
-> sysbench --num-threads=16 --max-requests=10000 --test=oltp --oltp-table-size=500000 --mysql-socket=/var/lib/mysql/mysql.sock --oltp-test-mode=complex --mysql-user=root --mysql-password=VMware1! run > mysql.sysbench
-> 
-> $testvaule = cat mysql.sysbench | egrep " cat|transactions:" | awk {'print substr($3,2) '}
-> 
-> $date = date -u "+%F %R"
-> 
-> $machine = ifconfig eth0 | grep inet | awk '{ print substr($2,6) }’
-> 
-> $hostname = hostname
-> 
-> inssql="insert into TABLENAME VALUES (‘$date', ‘$machine', ‘$testvalue’,’$hostname')"
-> 
-> echo $inssql | isql HOSTNAME USERNAME PASSWORD
+```Shell
+sysbench --num-threads=16 --max-requests=10000 --test=oltp --oltp-table-size=500000 --mysql-socket=/var/lib/mysql/mysql.sock --oltp-test-mode=complex --mysql-user=root --mysql-password=VMware1! run > mysql.sysbench
+$testvaule = cat mysql.sysbench | egrep " cat|transactions:" | awk {'print substr($3,2) '}
+$date = date -u "+%F %R"
+$machine = ifconfig eth0 | grep inet | awk '{ print substr($2,6) }’
+$hostname = hostname
+inssql="insert into TABLENAME VALUES (‘$date', ‘$machine', ‘$testvalue’,’$hostname')"
+echo $inssql | isql HOSTNAME USERNAME PASSWORD
+```
 
 The above will insert the data in to a SQL table, for later reporting.
 

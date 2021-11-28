@@ -12,6 +12,8 @@ With vCloud Director 5.1 every once in a while a CD will refuse to eject, or wor
 
 To get around this with PowerCLI connected to the vCenter use this command:
 
-> get-folder | get-VM | Get-CDDrive | Set-CDDrive -NoMedia -Confirm:$false
+```PowerShell
+get-folder | get-VM | Get-CDDrive | Set-CDDrive -NoMedia -Confirm:$false
+```
 
 This will allow the CD to be ejected without having to Deploy, Eject, Re-Capture the vApp Template. To use for a normal vApp use the vApp Name/UUID.
