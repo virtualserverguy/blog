@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vmware-vsphere on blog... things...</title>
+    <link>/categories/vmware-vsphere/</link>
+    <description>Recent content in vmware-vsphere on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 30 Aug 2017 00:00:00 +0000</lastBuildDate><atom:link href="/categories/vmware-vsphere/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vSphere 6.5 - Top KB Articles for Upgrade Prep</title>
+      <link>/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/</guid>
+      <description>Here are the top KB articles for upgrading to vSphere 6.5:
+KB 2146420 – Estimating vCenter Server 5.5 to vCenter Server Appliance 6.x migration time KB 2147711 – Estimating vCenter Server 5.5 or 6.0 to vCenter Server Appliance 6.5 migration time KB 2112283 – Regenerate vCenter Certificates KB 2147548 – Important information before upgrading to vSphere 6.5 KB 2147686 – vCenter Server 6.5 upgrade best practices KB 2147824 – Migrating VMFS 5 datastore to VMFS 6 datastore KB 2147289 – Update Sequence for vSphere 6.</description>
+    </item>
+    
+    <item>
+      <title>Monitoring Compute Performance of a VM</title>
+      <link>/posts/2014-03-31-2014331monitoring-compute-performance-of-a-vm/</link>
+      <pubDate>Mon, 31 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-03-31-2014331monitoring-compute-performance-of-a-vm/</guid>
+      <description>Even when using vC Ops from VMware, vCenter metrics, vCloud Metrics, and Hyperic Montoring there are things that can be missed.
+What if the datastore shows 1ms latency on the vSphere host, the CPU usage is low, the Memory is not being swapped, but a user insists it is just &amp;lsquo;slow&amp;rsquo;. What would you check?
+In our cloud deployment (25,000 VMs in a single vCloud instance, and we have 4); I have deployed 4 - 6 VMs per vCenter across differnet datastores, on different hosts.</description>
+    </item>
+    
+    <item>
+      <title>Recovering the Embedded DB Password on VCVA</title>
+      <link>/posts/2013-01-23-2013123recovering-the-embedded-db-password-on-vcva/</link>
+      <pubDate>Wed, 23 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2013-01-23-2013123recovering-the-embedded-db-password-on-vcva/</guid>
+      <description>Here is how to recover the embedded DB password on the VMware vCenter Virtual Appliance (VCVA):
+From the console (or SSH) of the VCVA run this command:
+ grep EMB_DB_PASSWORD /etc/vmware-vpx/embedded_db.cfg
+ From: http://kb.vmware.com/selfservice/microsites/search.do?language=en _US&amp;amp;cmd=displayKC&amp;amp;externalId=2004506</description>
+    </item>
+    
+    <item>
+      <title>Host Isolation Response Settings</title>
+      <link>/posts/2012-10-14-20121014host-isolation-response-settings/</link>
+      <pubDate>Sun, 14 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-10-14-20121014host-isolation-response-settings/</guid>
+      <description>Over the past few weeks I have had some people ask what I would recommend for host isolation addresses and responses, when using vSphere x.x with high availability (HA) enabled.
+First off as with most everything in computers &amp;lsquo;It depends&amp;rsquo;.
+Items to consider with host isolation response is what type of storage is being utilized? Is it considered an outage if the vSphere hosts can talk to each other but the virtual machines (VMs) cannot?</description>
+    </item>
+    
+    <item>
+      <title>vCenter Server Appliance Database</title>
+      <link>/posts/2012-02-24-2012223vcenter-server-appliance-database-html/</link>
+      <pubDate>Fri, 24 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-02-24-2012223vcenter-server-appliance-database-html/</guid>
+      <description>The vCenter Server Appliance comes with a built-in DB2 database for use as an all-in-one solution for small lab environments. The sizing is supposed to be less than 5 hosts and 50 VMs. But it can work much higher than that if given enough resources, :-).
+One issue that occurs when using this appliance is that the DB2 log settings are too small for any extended operation. This is due to stat roll-up jobs taking more log space to complete than the DB2 instanace is set for.</description>
+    </item>
+    
+    <item>
+      <title>netstat for ESXi</title>
+      <link>/posts/2012-01-31-2012131netstat-for-esxi-html/</link>
+      <pubDate>Tue, 31 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-01-31-2012131netstat-for-esxi-html/</guid>
+      <description>With the removal of the service console with vSphere 5, in the form of ESXi, netstat went by the way side. The way to get that information is by executing this on the console. Either in tech support mode (SSH) or at the console.
+ esxcli network ip connection list
+ </description>
+    </item>
+    
+    <item>
+      <title>Nesting Resource Pools; Good Idea or Bad?</title>
+      <link>/posts/2011-12-15-20111215nesting-resource-pools-good-idea-or-bad-html/</link>
+      <pubDate>Thu, 15 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-12-15-20111215nesting-resource-pools-good-idea-or-bad-html/</guid>
+      <description>I was asked recently on my opinion on nesting resource pools with VMs inter-mixed, well what should you do?
+Well here is an easy example; if I have a Resource Pool with 9 VMs and 1 nested Resource Pool, what level of resources are each given? 10% each.
+Think about that, each of the VMs have 10% of the resources and the ENTIRE nested Resource Pool has 10% of the resources.</description>
+    </item>
+    
+    <item>
+      <title>Importing vApp from vCenter Error</title>
+      <link>/posts/2011-08-24-2011824importing-vapp-from-vcenter-error-html/</link>
+      <pubDate>Wed, 24 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-08-24-2011824importing-vapp-from-vcenter-error-html/</guid>
+      <description>When importing a VM or vApp from vCenter into vCloud you may see an error like this:
+  A specified parameter was not correct.
+ spec.deviceChange.device.port.switchUuid
+ This can happen when comign from a Cisco Nexus 1000v Portgroup, to solve this either remove the network adapter for importing into the cloud, or move the network card to a portgroup that is not a Nexus 1000v Portgroup.
+If you are using a dVS and see this error move the NIC to a standard vSwitch or delete the NIC and re-add it once it is in the cloud.</description>
+    </item>
+    
+    <item>
+      <title>vSphere 5 vRam Licensing Changes</title>
+      <link>/posts/2011-08-03-201183vsphere-5-vram-licensing-changes-html/</link>
+      <pubDate>Wed, 03 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-08-03-201183vsphere-5-vram-licensing-changes-html/</guid>
+      <description>When VMware released the vRam pricing models and limits last week there was quite an uproar over the limitations being set to low. It appears that VMware was listening and has responded with a hefty increase in vRam allocations.
+That is nearly double the entitlements.
+Also changing is how the usage is calculated for a high water mark (think bursting for a day) to a rolling 12 month average!
+Finally the last news and some major news at that, is that a single VM can only consume 96GB of vRam, no matter how you set the VM up!</description>
+    </item>
+    
+    <item>
+      <title>How to change the UUID of a VM via the PowerCLI</title>
+      <link>/posts/2011-02-18-2011218how-to-change-the-uuid-of-a-vm-via-the-powercli-html/</link>
+      <pubDate>Fri, 18 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-02-18-2011218how-to-change-the-uuid-of-a-vm-via-the-powercli-html/</guid>
+      <description>In vCloud director it may be necessary to deploy an identical vApp, when this happens everything is identical (including UUID&amp;rsquo;s), to help vSM differentiate the VMs changing the UUID may help.
+$date = get-date -format &amp;ldquo;dd hh mm ss&amp;rdquo;
+$newUuid = &amp;ldquo;56 4d 50 2e 9e df e5 e4-a7 f4 21 3b &amp;quot; + $date
+$spec = New-Object VMware.Vim.VirtualMachineConfigSpec
+$spec.uuid = $newUuid
+$vm = get-vm echo &amp;ldquo;VM: &amp;quot; $VM.name &amp;ldquo;New UUID: &amp;quot; $newuuid</description>
+    </item>
+    
+    <item>
+      <title>Limiting vCenter TomCat Usage</title>
+      <link>/posts/2011-02-11-2011211limiting-vcenter-tomcat-usage-html/</link>
+      <pubDate>Fri, 11 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-02-11-2011211limiting-vcenter-tomcat-usage-html/</guid>
+      <description>Here is how to limit the memory usage for VMware&amp;rsquo;s vCenter&amp;hellip;
+First vCenter relies on a customized Apache Tomcat to run its vCenter product (mostly graphs, Web Interface and other items), while limiting the memory hasn&amp;rsquo;t proven to have a negative effect this procedure should be done with caution. This can cause slowness in portions of the application since it will no longer be able to store large amounts of data in RAM and will have to access the database for this information.</description>
+    </item>
+    
+    <item>
+      <title>vSphere 4.1 Update 1</title>
+      <link>/posts/2011-02-11-2011211vsphere-41-update-1-html/</link>
+      <pubDate>Fri, 11 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-02-11-2011211vsphere-41-update-1-html/</guid>
+      <description>Just released from VMware vSphere 4.1 Update 1 is now out and ready for download from VMware.com.
+Or click here .
+Here is a list of the bugs and items fixed/corrected in the newest release. ESXi, ESX (with Service Console) and vCenter all have updates!
+The number of patch definitions downloaded (15 critical/28 total):
+ID: ESX410-201101201-SG Impact: HostSecurity Release date: 2011-02-10 Products: esx 4.1.0 Updates ESX 4.1 Core and CIM components</description>
+    </item>
+    
+    <item>
+      <title>vCenter Database Optimization Thoughts...</title>
+      <link>/posts/2010-10-20-20101020vcenter-database-optimization-thoughts-html/</link>
+      <pubDate>Wed, 20 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-10-20-20101020vcenter-database-optimization-thoughts-html/</guid>
+      <description>For the past few weeks I have been working on an issue with a vCenter 4.1 database to work properly and to complete stat roll-ups without error. Here are some of the tricks and things that I have found to help identify the problem and possibly fix it for some.
+ Check the HIST_STAT tables for fragmented indexes and possible performance issues (execute the following in the SQL Management Studio targeting your vCenter database):</description>
+    </item>
+    
+    <item>
+      <title>Modify vSphere Path Selection Policy in Bulk</title>
+      <link>/posts/2010-09-22-2010922modify-vsphere-path-selection-policy-in-bulk-html/</link>
+      <pubDate>Wed, 22 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-09-22-2010922modify-vsphere-path-selection-policy-in-bulk-html/</guid>
+      <description>Recently, we upgraded a customer from ESX 4.0 update 2 to ESX 4.1 – except they didn’t want to upgrade, they insisted on clean installs. Kickstart makes the deployment of new hosts easy, but they had around 40 of their hosts connected to 15 LUNs on an IBM XiV array. Best practice for the XiV suggests a “round robin” path selection policy, but it defaults to MRU (Most Recently Used) on install – so they all needed to be changed.</description>
+    </item>
+    
+    <item>
+      <title>vCenter 4.1 ADAM_VMwareVCMSDS Error</title>
+      <link>/posts/2010-09-21-2010921vcenter-41-adam_vmwarevcmsds-error-html/</link>
+      <pubDate>Tue, 21 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-09-21-2010921vcenter-41-adam_vmwarevcmsds-error-html/</guid>
+      <description>Recently after upgrading to vCenter for a few customers the following started to appear in their Windows Event logs:
+Active Directory Web Services encountered an error while reading the settings for the specified Active Directory Lightweight Directory Services instance. Active Directory Web Services will retry this operation periodically. In the meantime, this instance will be ignored. Instance name: ADAM_VMwareVCMSDS
+To correct this you need to add the following to the registry:</description>
+    </item>
+    
+    <item>
+      <title>vCenter 4.1 Upgrade Woes</title>
+      <link>/posts/2010-09-09-201099vcenter-41-upgrade-woes-html/</link>
+      <pubDate>Thu, 09 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-09-09-201099vcenter-41-upgrade-woes-html/</guid>
+      <description>Recently while upgrading a customers vCenter database to 4.1 from 4.0 I ran in to this gem of a problem. The problem is created when you change the schema of the account that accesses the database. So if you have a user that is in the dbo schema then you change that user to something like VPXAdmin for the schema the upgrade will break on you. When using the regular installer we received a message that the schema&amp;rsquo;s did not match.</description>
+    </item>
+    
+    <item>
+      <title>VCDX 51</title>
+      <link>/posts/2010-09-07-201097vcdx-51-html/</link>
+      <pubDate>Tue, 07 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-09-07-201097vcdx-51-html/</guid>
+      <description>I came back from a good lunch with HP talking about the G7 servers that should be released any month now to find:
+Congratulations! You have achieved the VMware Certified Design Expert on VI3 (VCDX3) certification.
+Your VCDX number is: VCDX51
+After I stopped jumping up and down cheering and causing quite a scare, I was able to really grasp what this means.
+I would like to thank everyone that has helped me along with this certification, from my manager to my former supervisor and of course previous employers that allowed me to experiment with VMware while saving them vast sums of money in hardware.</description>
+    </item>
+    
+    <item>
+      <title>VMware&#39;s New License Structure</title>
+      <link>/posts/2010-09-03-201093vmwares-new-license-structure-html/</link>
+      <pubDate>Fri, 03 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-09-03-201093vmwares-new-license-structure-html/</guid>
+      <description>As they announced in early August, they are now licensing SRM (as of Sept 1st, 2010) as a per protected VM model. Meaning that you no longer have to license the entire cluster of VM&amp;rsquo;s for SRM, you can select individual VM&amp;rsquo;s to be protected by SRM. So with that and the introduction of DRS Affinity inside of vSphere 4.1.
+DRS Affinity allows you to select which hosts the VM is allowed to be on inside the cluster (think DRS rules but super-fied)</description>
+    </item>
+    
+    <item>
+      <title>VMworld 2010 is over... So?</title>
+      <link>/posts/2010-09-03-201093vmworld-2010-is-over-so-html/</link>
+      <pubDate>Fri, 03 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-09-03-201093vmworld-2010-is-over-so-html/</guid>
+      <description>As you know VMworld 2010 is all over, they are ripping doing the signs in the Mascone Center. The hotels are emptying out of the geeks, nerds and technology enthusiasts, and promptly refilling with vacationing Labor Day weekend get-a-ways. So what was learned in this 4 day conference where VMware took center stage and did a dance in the spot light? Well&amp;hellip;
+  VMware View 4.5 was released
+  VMware ThinApp 4.</description>
+    </item>
+    
+    <item>
+      <title>How to test vmKernel connectivity</title>
+      <link>/posts/2010-08-19-2010819how-to-test-vmkernel-connectivity-html/</link>
+      <pubDate>Thu, 19 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-08-19-2010819how-to-test-vmkernel-connectivity-html/</guid>
+      <description>In case you are ever stuck trying to get our iSCSI Initiator to link up to the target or just troubleshooting some vMotion problems you can do the following:
+From the console or terminal on a ESX host (CLI will work for ESXi as well) do teh following:
+ vmkping  This will use the vmk port groups to test connectivity to the iSCSI or other vSphere servers. A good ping will result in a result like this:</description>
+    </item>
+    
+    <item>
+      <title>vMotion Changes in vSphere 4.1</title>
+      <link>/posts/2010-08-19-2010819vmotion-changes-in-vsphere-41-html/</link>
+      <pubDate>Thu, 19 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-08-19-2010819vmotion-changes-in-vsphere-41-html/</guid>
+      <description>From VMware:
+ In vSphere 4.1:
+VMDirectPath and USB Device Passthrough with vMotion is supported
+Migration with vMotion and DRS for virtual machines configured with USB device passthrough from an ESX/ESXi host is supported
+Fault Tolerant (FT) protected virtual machines can now vMotion via DRS. However, Storage vMotion is unsupported at this time.
+Note: Ensure that the ESX hosts are at the same version and build.
+In addition to the above, vSphere 4.</description>
+    </item>
+    
+    <item>
+      <title>vSphere 4.x iSCSI Heap Usage</title>
+      <link>/posts/2010-08-19-2010819vsphere-4x-iscsi-heap-usage-html/</link>
+      <pubDate>Thu, 19 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-08-19-2010819vsphere-4x-iscsi-heap-usage-html/</guid>
+      <description>When using more than 64 devices with the software iSCSI initiator the vmkernel logs will start to produce errors such as:
+ Jul 19 08:01:01 esx vmkernel: 0:03:38:54.053 cpu2:1039)iSCSI: bus 0 target 46 cannot allocate new session (size %Zu) at 10464
+Jul 19 08:01:01 esx vmkernel: 0:03:38:54.054 cpu4:1040)WARNING: Heap: 1419: Heap vmk-iscsi (6288144/6291456): Maximum allowed growth (3320) too small for size (20480)
+ I most recently saw this problem crop up with a customer and a large XIV deployment to 32 vSphere hosts.</description>
+    </item>
+    
+    <item>
+      <title>vSphere 4.1 ESX(i) Major Security Flaw</title>
+      <link>/posts/2010-07-21-2010721vsphere-41-esxi-major-security-flaw-html/</link>
+      <pubDate>Wed, 21 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-07-21-2010721vsphere-41-esxi-major-security-flaw-html/</guid>
+      <description>About a week ago while testing vSphere 4.1 upgrades and deployment methods, I signed into a host&amp;rsquo;s service console as root, and I could have swore that I typed the password incorrectly. So I signed back out and tried it again, and it let me in with an extra digit at the end of the password. Some more testing led me to see that the PAM software was only checking the first 8 characters of the password and ignoring the rest of it.</description>
+    </item>
+    
+    <item>
+      <title>VCDX Application Status</title>
+      <link>/posts/2010-07-20-2010720vcdx-application-status-html/</link>
+      <pubDate>Tue, 20 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-07-20-2010720vcdx-application-status-html/</guid>
+      <description>The best news a guy could get&amp;hellip;
+Thomas,
+Congratulations! We have completed a preliminary technical review of your VCDX Application, and you have been accepted to advance to the next and final step: the VCDX Defense.
+The VCDX Defense will be conducted at the VMware headquarters:
+3401 Hillview Ave
+Palo Alto, CA 94304
+XXX has been reserved for your defense. Please confirm that this date works for you, an a specific timeslot will be communicated to you at a later time.</description>
+    </item>
+    
+    <item>
+      <title>vCenter Installation Tips</title>
+      <link>/posts/2010-07-13-2010713vcenter-installation-tips-html/</link>
+      <pubDate>Tue, 13 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-07-13-2010713vcenter-installation-tips-html/</guid>
+      <description>Since the vCenter now requires a 64 bit operating system to install, the DSN must be upgraded as well to support the 64bit application. Currently vCenter 4.0 and older all required a 32 bit DSN. To change to the proper DSN you will need to remove the old one from the 32-bit DSN application and create a new DSN.
+  Remove the old DSN if it exists from: %windir%SysWoW64ODBCAD32.exe</description>
+    </item>
+    
+  </channel>
+</rss>

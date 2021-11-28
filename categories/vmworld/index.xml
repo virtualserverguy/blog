@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vmworld on blog... things...</title>
+    <link>/categories/vmworld/</link>
+    <description>Recent content in vmworld on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 30 Aug 2017 00:00:00 +0000</lastBuildDate><atom:link href="/categories/vmworld/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vSphere 6.5 - Top KB Articles for Upgrade Prep</title>
+      <link>/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/</guid>
+      <description>Here are the top KB articles for upgrading to vSphere 6.5:
+KB 2146420 – Estimating vCenter Server 5.5 to vCenter Server Appliance 6.x migration time KB 2147711 – Estimating vCenter Server 5.5 or 6.0 to vCenter Server Appliance 6.5 migration time KB 2112283 – Regenerate vCenter Certificates KB 2147548 – Important information before upgrading to vSphere 6.5 KB 2147686 – vCenter Server 6.5 upgrade best practices KB 2147824 – Migrating VMFS 5 datastore to VMFS 6 datastore KB 2147289 – Update Sequence for vSphere 6.</description>
+    </item>
+    
+  </channel>
+</rss>

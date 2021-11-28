@@ -1,0 +1,384 @@
+<!doctype html><html lang="en"
+   data-mode="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>vCloud Director and VMware Horizon Intergration | blog... things...</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="icon" href="/images/favicons/favicon.ico">
+<meta name="keywords" content="" />
+<meta name="description" content="" /><meta itemprop="name" content="vCloud Director and VMware Horizon Intergration">
+<meta itemprop="description" content="Requirements for SSO in vCloud Director The SAML process and parties using them have formal roles and responsibilities:
+ Service Provider – An entity that receives the SAML Message from an Idenity Provider (vCloud Director ) Identity Provider – An entity that authenticates an user (Horizon)  The Identity provider must provide these fields in the response (case sensitive):
+ UserName EmailAddress FullName Groups  While the only required field is UserName it is recommended that all fields be returned with proper information to allow for ease of management and administration of the users and their rights."><meta itemprop="datePublished" content="2013-03-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2013-03-20T00:00:00+00:00" />
+<meta itemprop="wordCount" content="560">
+<meta itemprop="keywords" content="" /><meta property="og:title" content="vCloud Director and VMware Horizon Intergration" />
+<meta property="og:description" content="Requirements for SSO in vCloud Director The SAML process and parties using them have formal roles and responsibilities:
+ Service Provider – An entity that receives the SAML Message from an Idenity Provider (vCloud Director ) Identity Provider – An entity that authenticates an user (Horizon)  The Identity provider must provide these fields in the response (case sensitive):
+ UserName EmailAddress FullName Groups  While the only required field is UserName it is recommended that all fields be returned with proper information to allow for ease of management and administration of the users and their rights." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/2013-03-20-2013319vcloud-director-and-vmware-horizon-intergration/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2013-03-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2013-03-20T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="vCloud Director and VMware Horizon Intergration"/>
+<meta name="twitter:description" content="Requirements for SSO in vCloud Director The SAML process and parties using them have formal roles and responsibilities:
+ Service Provider – An entity that receives the SAML Message from an Idenity Provider (vCloud Director ) Identity Provider – An entity that authenticates an user (Horizon)  The Identity provider must provide these fields in the response (case sensitive):
+ UserName EmailAddress FullName Groups  While the only required field is UserName it is recommended that all fields be returned with proper information to allow for ease of management and administration of the users and their rights."/>
+<link rel="preload" href="/css/bundle.min.56f818f19e58c97481c8333650e24bf131abfada62c954646a72ae940adb3bf5.css" integrity="sha256-VvgY8Z5YyXSByDM2UOJL8TGr&#43;tpiyVRkanKulArbO/U=" crossorigin="anonymous" as="style" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/bundle.min.56f818f19e58c97481c8333650e24bf131abfada62c954646a72ae940adb3bf5.css" integrity="sha256-VvgY8Z5YyXSByDM2UOJL8TGr&#43;tpiyVRkanKulArbO/U=" crossorigin="anonymous"></noscript></head>
+  <body><script src="/js/bootstrap.min.b5d86dd3a5f60c90be38a252bb65fc1a2732f32e71dc12c051720f0c7aef3cde.js" integrity="sha256-tdht06X2DJC&#43;OKJSu2X8Gicy8y5x3BLAUXIPDHrvPN4=" crossorigin="anonymous"></script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button><a class="navbar-brand me-3" href="/"><img class="logo" alt="Logo" src="/images/logo.png" loading="lazy"
+   width="400" height="400"
+   />
+blog... things...
+    </a>
+    <button class="navbar-social-share" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSocialShare"
+  aria-controls="offcanvasSocialShare" aria-label="Toggle social share">
+  <i class="fas fa-share-alt"></i>
+</button>
+
+<div class="offcanvas offcanvas-bottom surface" tabindex="-1" id="offcanvasSocialShare" aria-labelledby="offcanvasSocialShare">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Share</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=vCloud%20Director%20and%20VMware%20Horizon%20Intergration&url=%2fposts%2f2013-03-20-2013319vcloud-director-and-vmware-horizon-intergration%2f">
+      <i class="fab fa-fw fa-twitter"></i> Twitter
+    </a>
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button"
+      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=%2fposts%2f2013-03-20-2013319vcloud-director-and-vmware-horizon-intergration%2f">
+      <i class="fab fa-fw fa-facebook-f"></i> Facebook
+    </a>
+  </div>
+</div>
+
+    <button class="navbar-settings" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings"
+  aria-controls="offcanvasSettings" aria-label="Toggle settings">
+  <i class="fas fa-ellipsis-v"></i>
+</button>
+
+<div class="offcanvas offcanvas-end surface h-100" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettings">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Settings</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+
+
+
+<section class="setting">
+  <form class="font-size-switcher-form row">
+    <div class="col-auto">
+      <label for="fontSize" class="form-label"><i class="fas fa-fw fa-font"></i> Font Size</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+    </div>
+  </form>
+</section>
+
+
+<section class="setting palettes">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-palette"></i> Palette</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <a id="btnPalette" class="btn btn-sm btn-outline-primary" role="button" aria-label="palettePicker">
+        <i class="fas fa-eye-dropper"></i>
+      </a>
+    </div>
+  </form>
+  <div class="mt-2 d-flex visually-hidden" id="palettePicker"><button type="button" id="palette-blue" aria-label="Blue"
+        class="btn btn-sm palette" data-palette="blue">
+      </button><button type="button" id="palette-blue-gray" aria-label="Blue Gray"
+        class="btn btn-sm palette" data-palette="blue-gray">
+      </button><button type="button" id="palette-brown" aria-label="Brown"
+        class="btn btn-sm palette" data-palette="brown">
+      </button><button type="button" id="palette-cyan" aria-label="Cyan"
+        class="btn btn-sm palette" data-palette="cyan">
+      </button><button type="button" id="palette-green" aria-label="Green"
+        class="btn btn-sm palette" data-palette="green">
+      </button><button type="button" id="palette-indigo" aria-label="Indigo"
+        class="btn btn-sm palette" data-palette="indigo">
+      </button><button type="button" id="palette-orange" aria-label="Orange"
+        class="btn btn-sm palette" data-palette="orange">
+      </button><button type="button" id="palette-pink" aria-label="Pink"
+        class="btn btn-sm palette" data-palette="pink">
+      </button><button type="button" id="palette-purple" aria-label="Purple"
+        class="btn btn-sm palette" data-palette="purple">
+      </button><button type="button" id="palette-red" aria-label="Red"
+        class="btn btn-sm palette" data-palette="red">
+      </button><button type="button" id="palette-teal" aria-label="Teal"
+        class="btn btn-sm palette" data-palette="teal">
+      </button><button type="button" id="palette-yellow" aria-label="Yellow"
+        class="btn btn-sm palette" data-palette="yellow">
+      </button></div>
+</section>
+</div>
+</div>
+
+    <div class="collapse navbar-collapse" tabindex="-1" id="navbarSupportedContent" aria-labelledby="navbarSupportedContent">
+      <form class="search-bar my-1" action="/search">
+  <div class="input-group input-group-sm">
+    <span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+    <input class="form-control rounded-pill" name="q" type="search" aria-label="Search">
+  </div>
+</form>
+
+      <ul class="navbar-nav ms-auto"><li class="nav-item dropdown">
+          <a class="nav-link" id="navbarDropdown-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-fw fa-chevron-circle-down"></i>menu
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+              <a class="dropdown-item"
+                href="https://github.com/virtualserverguy" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-fw fa-github"></i>Github
+              </a>
+            </li></ul>
+        </li></ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-lg-8">
+  <div class="container"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body">
+    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="/">Home</a></li><li class="breadcrumb-item"><a href="/posts/">Posts</a></li><li class="breadcrumb-item active">vCloud Director and VMware Horizon Intergration</li></ol>
+  </div>
+</nav>    <article class="row card component mb-4 post"><div class="post-panel-wrapper">
+  <div class="d-flex flex-column component rounded post-panel">
+    
+    <a id="sidebarToggler" class="action d-none d-lg-block" role="button">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+  
+    
+
+    
+    <a class="action" data-bs-container="body" data-bs-toggle="popover" data-bs-html="true" data-bs-placement="bottom"
+  data-bs-trigger="focus" tabindex="0" role="button" aria-label="Copyright" 
+  data-bs-content="&lt;a target=&#34;_blank&#34; rel=&#34;license noopener noreferrer&#34; href=&#34;https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en&#34;&gt;CC BY-NC-ND 4.0 &lt;i class=&#34;fab fa-fw fa-creative-commons&#34;&gt;&lt;/i&gt;&lt;i class=&#34;fab fa-fw fa-creative-commons-by&#34;&gt;&lt;/i&gt;&lt;i class=&#34;fab fa-fw fa-creative-commons-nc&#34;&gt;&lt;/i&gt;&lt;i class=&#34;fab fa-fw fa-creative-commons-nd&#34;&gt;&lt;/i&gt;&lt;/a&gt;
+">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action" data-bs-toggle="offcanvas" href="#offcanvasTOC" aria-controls="offcanvasTOC" role="button">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    
+  </div>
+</div>
+<div class="card-body">
+        <h1 class="card-title my-3">vCloud Director and VMware Horizon Intergration
+</h1><div class="post-meta"><span class="post-date" title="created on">
+    <i class="fas fa-fw fa-calendar-alt"></i>Mar 20, 2013
+  </span><span class="post-reading-time" title="reading time">
+    <i class="fas fa-fw fa-coffee"></i>3 min read
+  </span></div>
+<div class="offcanvas offcanvas-end surface h-100" tabindex="-1" id="offcanvasTOC" aria-labelledby="offcanvasTOCLabel">
+  <div class="offcanvas-header">
+    <h2 class="offcanvas-title" id="offcanvasTOCLabel">Table Of Contents</h5>
+      <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+  </div>
+  <div class="offcanvas-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#exporting-xml-metadata-from-vcloud-director">Exporting XML Metadata from vCloud Director</a></li>
+  </ul>
+</nav>
+  </div>
+</div><div class="post-content mb-3"><h1 id="requirements-for-sso-in-vcloud-director">Requirements for SSO in vCloud Director</h1>
+<p>The SAML process and parties using them have formal roles and responsibilities:</p>
+<ul>
+<li>Service Provider – An entity that receives the SAML Message from an Idenity Provider (vCloud Director )</li>
+<li>Identity Provider – An entity that authenticates an user (Horizon)</li>
+</ul>
+<p>The Identity provider must provide these fields in the response (case sensitive):</p>
+<ul>
+<li>UserName</li>
+<li>EmailAddress</li>
+<li>FullName</li>
+<li>Groups</li>
+</ul>
+<p>While the only required field is UserName it is recommended that all fields be returned with proper information to allow for ease of management and administration of the users and their rights.</p>
+<h1 id="configuring-vcloud-director">Configuring vCloud Director</h1>
+<p>In vCloud director you will first need to enable the use of a SAML Identity provider.</p>
+<ol>
+<li>
+<p>Once logged in as a Organization Administrator or System Administrator go to the organization Administration page, click on Federation, then enable the ‘Use of SAML Identity Provider’</p>
+</li>
+<li>
+<p>The XML metadata file that you got from your SAML/SSO provider should be downloaded to the machine these actions are running from. Due to the use of special characters and copy/paste issues it is not recommended to paste in a value into the field. Instead use the upload function to upload the XML file in whole.</p>
+</li>
+</ol>
+<blockquote>
+<p>In the case of VMware&rsquo;s Horizon Product the metadata can be found here: https:///SAAS/API/1.0/GET/metadata/idp.xml</p>
+</blockquote>
+<ol>
+<li>Now close the organization tab or log out and back into the UI to get the ‘Groups’ and Import from SAML options in the UI. After that is completed you can now import users into vCloud Director.</li>
+</ol>
+<p>Since SAML users and groups are not searchable users will have to be added one per line for each role. Another option for granting access to the organization is through the use of groups.</p>
+<p>At this point the configuration of vCloud Director is complete.</p>
+<h2 id="exporting-xml-metadata-from-vcloud-director">Exporting XML Metadata from vCloud Director</h2>
+<p>We now need to export a file much like what we imported from the SAML provider, so that the SAML provider will trust and validate requests coming from vCloud Director. This file and related certificates are controlled on the Federation page where we imported the SAML XML file. At the bottom of the page click on the ‘Regenerate’ button to create a new certificate with a validity of 1 year.</p>
+<p>It will prompt you with a warning about changing the certificate. If you have already setup a SAML provider relationship, changing this certificate will break that relationship until the SAML provider replaces their current information with the new certificate. Once the certificate is generated you can download it via this weblink: https://./cloud/org//saml/metadata/alias/vcd Save this file as an XML file, then provide this to your SAML provider for the next section.</p>
+<h1 id="configuring-horizon-for-vcloud-director-sso">Configuring Horizon for vCloud Director SSO</h1>
+<p>First you will need to login to the administrator interface for Horizon and create a new Application, then follow these configuration items for that application.</p>
+<ol>
+<li>
+<p>Configure the Login Redirection URL to be the organization URL in vCloud Director. This is required for vCloud Director to work properly, since the authentication sequence must start with vCloud Director and not Horizon.</p>
+</li>
+<li>
+<p>Check the ‘Include the Destination in the response’</p>
+</li>
+<li>
+<p>Check the Sign the entire response.</p>
+</li>
+<li>
+<p>Check the ‘Sign the assertion’</p>
+</li>
+<li>
+<p>Remove the ‘Include Cert’ checkbox</p>
+</li>
+<li>
+<p>Select the configure via Meta-data XML option. Then upload the certificate (copy/paste) the certificate in to the text box given.</p>
+</li>
+<li>
+<p>Click on ‘Populate Attribute Mapping’</p>
+</li>
+<li>
+<p>Configure the Attribute Mapping to match your deployment of Hoizon.</p>
+</li>
+</ol>
+</div><hr /><div class="post-navs d-flex mb-3 justify-content-evenly">
+  <div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+    <a href="/posts/2013-02-23-2013222enabling-saml-providers-in-vcloud-51/">Enabling SAML Providers in vCloud 5.1
+</a>
+  </div><div class="post-nav post-next">
+    <a href="/posts/2014-03-28-2014327ejecting-cd-isos-in-vcloud-director/">Ejecting CD ISO&#39;s in vCloud Director
+</a>
+    <i class="fas fa-fw fa-chevron-right"></i>
+  </div></div><section class="related-posts-wrapper">
+    <h3>Related Posts</h3>
+    <ul class="related-posts"><li><a href="/posts/2013-02-23-2013222enabling-saml-providers-in-vcloud-51/">Enabling SAML Providers in vCloud 5.1
+</a></li><li><a href="/posts/2013-02-08-201328vcloud-network-security-512a-release/">vCloud Network Security 5.1.2a Release
+</a></li><li><a href="/posts/2013-01-23-2013123recovering-the-embedded-db-password-on-vcva/">Recovering the Embedded DB Password on VCVA
+</a></li><li><a href="/posts/2013-01-01-20121231new-year-brings-changes/">New Year... Brings Changes
+</a></li><li><a href="/posts/2012-12-19-20121219symform-security-analysis/">Symform Security Analysis
+</a></li></ul>
+  </section></div>
+    </article><div class="card component row post-comments">
+  <div class="card-body"></div>
+</div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container">
+    
+    <section class="card row text-center profile component">
+  <div class="card-body">
+    <div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Tom Ralph" src="" loading="lazy"
+  
+   />
+</div>
+    <div class="col-12 profile-meta"><div class="profile-name">Tom Ralph</div><div class="profile-bio">things</div></div>
+  </div>
+</section>
+  <section class="recent-posts row card component">
+  <div class="card-body">
+    <h2 class="card-title">Recent Posts</h2>
+    <ul><li><a href="/posts/secondpost/">Second post
+</a></li><li><a href="/posts/firstpost/">Firstpost
+</a></li><li><a href="/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/">vSphere 6.5 - Top KB Articles for Upgrade Prep
+</a></li><li><a href="/posts/2014-04-21-2014421mass-update-media-in-vcloud-dicrector/">Mass Update Media in vCloud Dicrector
+</a></li><li><a href="/posts/2014-04-16-2014416relocating-a-vm-in-vcloud-director/">Relocating a VM in vCloud Director
+</a></li></ul>
+  </div>
+</section><section class="taxonomies row card component">
+      <div class="card-body">
+        <h2 class="card-title">
+          <a href="/categories">Categories</a>
+        </h2>
+        <div><a href="/categories/vmware-vsphere/" class="badge bg-primary text-white rounded post-taxonomy" title="vmware-vsphere">
+            vmware-vsphere
+          </a><a href="/categories/vmware-vcloud/" class="badge bg-primary text-white rounded post-taxonomy" title="vmware-vcloud">
+            vmware-vcloud
+          </a><a href="/categories/technology/" class="badge bg-primary text-white rounded post-taxonomy" title="technology">
+            technology
+          </a><a href="/categories/microsoft-hyper-v/" class="badge bg-primary text-white rounded post-taxonomy" title="microsoft-hyper-v">
+            microsoft-hyper-v
+          </a><a href="/categories/personal/" class="badge bg-primary text-white rounded post-taxonomy" title="personal">
+            personal
+          </a><a href="/categories/vcdx-process/" class="badge bg-primary text-white rounded post-taxonomy" title="vcdx-process">
+            vcdx-process
+          </a><a href="/categories/apple-ios/" class="badge bg-primary text-white rounded post-taxonomy" title="apple-ios">
+            apple-ios
+          </a><a href="/categories/vmware-vc-ops/" class="badge bg-primary text-white rounded post-taxonomy" title="vmware-vc-ops">
+            vmware-vc-ops
+          </a><a href="/categories/vmware-vcm/" class="badge bg-primary text-white rounded post-taxonomy" title="vmware-vcm">
+            vmware-vcm
+          </a><a href="/categories/vmworld/" class="badge bg-primary text-white rounded post-taxonomy" title="vmworld">
+            vmworld
+          </a></div>
+      </div>
+    </section><section class="taxonomies row card component">
+      <div class="card-body">
+        <h2 class="card-title">
+          <a href="/tags">Tags</a>
+        </h2>
+        <div><a href="/tags/vcloud/" class="badge bg-primary text-white rounded post-taxonomy" title="vcloud">
+            vcloud
+          </a><a href="/tags/powershell/" class="badge bg-primary text-white rounded post-taxonomy" title="powershell">
+            powershell
+          </a><a href="/tags/vsphere/" class="badge bg-primary text-white rounded post-taxonomy" title="vsphere">
+            vsphere
+          </a><a href="/tags/vcenter/" class="badge bg-primary text-white rounded post-taxonomy" title="vcenter">
+            vcenter
+          </a><a href="/tags/security/" class="badge bg-primary text-white rounded post-taxonomy" title="security">
+            security
+          </a><a href="/tags/vcdx/" class="badge bg-primary text-white rounded post-taxonomy" title="vcdx">
+            vcdx
+          </a><a href="/tags/vmware/" class="badge bg-primary text-white rounded post-taxonomy" title="vmware">
+            vmware
+          </a><a href="/tags/vshield/" class="badge bg-primary text-white rounded post-taxonomy" title="vshield">
+            vshield
+          </a><a href="/tags/vsphere-5/" class="badge bg-primary text-white rounded post-taxonomy" title="vsphere-5">
+            vsphere-5
+          </a><a href="/tags/change/" class="badge bg-primary text-white rounded post-taxonomy" title="change">
+            change
+          </a></div>
+      </div>
+    </section>
+    
+  </div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><a class="nav-link social-link" href="mailto:tom@thevsg.co" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope"></i>
+    </a></nav>
+<div class="copyright mb-2">
+  Copyright © 2020-2021 Tom Ralph. All Rights Reserved.
+</div>
+<div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">Bootstrap</a> theme.
+</div></footer>
+<script src="/js/bundle.min.425550fc2a278561fe029578aa420a6953a8c62479f57ea3cbd6b0fc8557b403.js" integrity="sha256-QlVQ/ConhWH&#43;ApV4qkIKaVOoxiR59X6jy9aw/IVXtAM=" crossorigin="anonymous" defer></script><script defer src="/js/viewer.min.2f6511f1e2b87cdacb7bdeedeadc1dcf2fc9f22db69f89b70fd5d91224f892a4.js" integrity="sha256-L2UR8eK4fNrLe97t6twdzy/J8i22n4m3D9XZEiT4kqQ=" crossorigin="anonymous"></script>
+</body>
+</html>

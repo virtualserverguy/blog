@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vc-ops on blog... things...</title>
+    <link>/tags/vc-ops/</link>
+    <description>Recent content in vc-ops on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 18 Apr 2012 00:00:00 +0000</lastBuildDate><atom:link href="/tags/vc-ops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vCenter Operations Manager 5 Guides</title>
+      <link>/posts/2012-04-18-2012417vcenter-operations-manager-5-guides-html/</link>
+      <pubDate>Wed, 18 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-04-18-2012417vcenter-operations-manager-5-guides-html/</guid>
+      <description>Here is a compliation of links for vCenter Operations Manager 5 or Vc Ops for short.
+Official VMware Documentation http://www.vmware.com/support/pubs/vcops-pubs.html &amp;hellip;especially the Advanced Getting Started guide http://www.vmware.com/pdf/vcops-5-getting-started-guide.pdf VMware Community Site http://communities.vmware.com/community/vmtn/server/vcenter/vcops VMware TV on YouTube - several videos: VMware vCenter Operations 5.0 - Introduction Video http://www.youtube.com/watch?v=Z-DJuTiqKag VMware vCenter Operations Manager 5.0 - Install and Configure http://www.youtube.com/watch?v=pwRdGDhI0lc&amp;amp;feature=relmfu TheSaffaGeek.co.uk http://thesaffageek.co.uk/tag/vcenter-operations-manager/ vExperienced.co.uk http://www.vexperienced.co.uk/2012/04/10/vcenter-operations-v5-intro/ http://www.vexperienced.co.uk/2012/04/12/using-vcenter-operations-v5-crazy-cool/ http://www.vexperienced.co.uk/2012/04/16/using-vcenter-operations-v5-capacity-features-and-conclusions-33/ Iwan Rahabok technical deep-dive @ Community site (large PPT) http://communities.</description>
+    </item>
+    
+  </channel>
+</rss>

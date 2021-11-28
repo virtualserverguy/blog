@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>esxi on blog... things...</title>
+    <link>/tags/esxi/</link>
+    <description>Recent content in esxi on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 31 Jan 2012 00:00:00 +0000</lastBuildDate><atom:link href="/tags/esxi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>netstat for ESXi</title>
+      <link>/posts/2012-01-31-2012131netstat-for-esxi-html/</link>
+      <pubDate>Tue, 31 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-01-31-2012131netstat-for-esxi-html/</guid>
+      <description>With the removal of the service console with vSphere 5, in the form of ESXi, netstat went by the way side. The way to get that information is by executing this on the console. Either in tech support mode (SSH) or at the console.
+ esxcli network ip connection list
+ </description>
+    </item>
+    
+  </channel>
+</rss>

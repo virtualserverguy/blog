@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>networking on blog... things...</title>
+    <link>/tags/networking/</link>
+    <description>Recent content in networking on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 12 Sep 2012 00:00:00 +0000</lastBuildDate><atom:link href="/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Network as a Service</title>
+      <link>/posts/2012-09-12-2012912network-as-a-service/</link>
+      <pubDate>Wed, 12 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-09-12-2012912network-as-a-service/</guid>
+      <description>What the heck is Network as a Service (NaaS)?
+Wait I know&amp;hellip; it is one of those catchy new jargons that the marketing people use.
+Actually, they will; someday.
+Right now though I am referring to the idea that what was done for compute, virtualization, can be done for networking. Think quickly of how networking is tied to the physical.
+If you want to add a new server to your datacenter&amp;hellip; You have to rack it, power it, and connect it to the physical network.</description>
+    </item>
+    
+  </channel>
+</rss>

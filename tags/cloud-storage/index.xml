@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cloud-storage on blog... things...</title>
+    <link>/tags/cloud-storage/</link>
+    <description>Recent content in cloud-storage on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Fri, 27 Apr 2012 00:00:00 +0000</lastBuildDate><atom:link href="/tags/cloud-storage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpiderOak v. Sugar Sync</title>
+      <link>/posts/2012-04-27-2012427spideroak-v-sugar-sync-html/</link>
+      <pubDate>Fri, 27 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-04-27-2012427spideroak-v-sugar-sync-html/</guid>
+      <description>I recently moved from Sugar Sync with over 60GB stored to SpiderOak for cloud based storage of documents, pictures and other data. Before I explain why here is a quick overview on how they work differently (based on the documentation on their web sites).
+SugarSync Data is transmitted unencrypted to SugarSync through a encrypted SSL/TLS connection to the SugarSync servers. The data is then encrypted and stored on the SugarSync servers for later retrieval.</description>
+    </item>
+    
+  </channel>
+</rss>

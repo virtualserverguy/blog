@@ -6,6 +6,322 @@
     <description>Recent content in Tags on blog... things...</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 30 Aug 2017 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vmwonvmw</title>
+      <link>/tags/vmwonvmw/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vmwonvmw/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmworld2017</title>
+      <link>/tags/vmworld2017/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vmworld2017/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vsphere-upgrades</title>
+      <link>/tags/vsphere-upgrades/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vsphere-upgrades/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>powershell</title>
+      <link>/tags/powershell/</link>
+      <pubDate>Mon, 21 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/powershell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vcloud</title>
+      <link>/tags/vcloud/</link>
+      <pubDate>Mon, 21 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vcloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>monitoring</title>
+      <link>/tags/monitoring/</link>
+      <pubDate>Mon, 31 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>performance</title>
+      <link>/tags/performance/</link>
+      <pubDate>Mon, 31 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/performance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>/tags/security/</link>
+      <pubDate>Sat, 23 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vcenter</title>
+      <link>/tags/vcenter/</link>
+      <pubDate>Wed, 23 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vcenter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jobs</title>
+      <link>/tags/jobs/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/jobs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vsphere</title>
+      <link>/tags/vsphere/</link>
+      <pubDate>Sun, 14 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vsphere/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>privacy</title>
+      <link>/tags/privacy/</link>
+      <pubDate>Tue, 25 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/privacy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vcloud-network-security</title>
+      <link>/tags/vcloud-network-security/</link>
+      <pubDate>Tue, 25 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vcloud-network-security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vshield</title>
+      <link>/tags/vshield/</link>
+      <pubDate>Tue, 25 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vshield/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>change</title>
+      <link>/tags/change/</link>
+      <pubDate>Wed, 12 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/change/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>job</title>
+      <link>/tags/job/</link>
+      <pubDate>Wed, 12 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/job/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>networking</title>
+      <link>/tags/networking/</link>
+      <pubDate>Wed, 12 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/networking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>virtual-network</title>
+      <link>/tags/virtual-network/</link>
+      <pubDate>Wed, 12 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/virtual-network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vcdx</title>
+      <link>/tags/vcdx/</link>
+      <pubDate>Fri, 31 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vcdx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gtd</title>
+      <link>/tags/gtd/</link>
+      <pubDate>Thu, 16 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/gtd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmware</title>
+      <link>/tags/vmware/</link>
+      <pubDate>Wed, 30 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vmware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmworld</title>
+      <link>/tags/vmworld/</link>
+      <pubDate>Wed, 30 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vmworld/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloud-storage</title>
+      <link>/tags/cloud-storage/</link>
+      <pubDate>Fri, 27 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/cloud-storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vc-ops</title>
+      <link>/tags/vc-ops/</link>
+      <pubDate>Wed, 18 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vc-ops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>configuration-manger</title>
+      <link>/tags/configuration-manger/</link>
+      <pubDate>Thu, 12 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/configuration-manger/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vcm</title>
+      <link>/tags/vcm/</link>
+      <pubDate>Thu, 12 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vcm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vcenter-appliance</title>
+      <link>/tags/vcenter-appliance/</link>
+      <pubDate>Fri, 24 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vcenter-appliance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vsphere-5</title>
+      <link>/tags/vsphere-5/</link>
+      <pubDate>Fri, 24 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vsphere-5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cli</title>
+      <link>/tags/cli/</link>
+      <pubDate>Tue, 31 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>esxi</title>
+      <link>/tags/esxi/</link>
+      <pubDate>Tue, 31 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/esxi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>resource-pools</title>
+      <link>/tags/resource-pools/</link>
+      <pubDate>Thu, 15 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/resource-pools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>guest-customization</title>
+      <link>/tags/guest-customization/</link>
+      <pubDate>Thu, 15 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/guest-customization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>disk</title>
+      <link>/tags/disk/</link>
+      <pubDate>Thu, 01 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/disk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>san</title>
+      <link>/tags/san/</link>
+      <pubDate>Thu, 01 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/san/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cisco-nexus</title>
+      <link>/tags/cisco-nexus/</link>
+      <pubDate>Wed, 24 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/cisco-nexus/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

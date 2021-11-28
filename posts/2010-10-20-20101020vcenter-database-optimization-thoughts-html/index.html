@@ -1,0 +1,361 @@
+<!doctype html><html lang="en"
+   data-mode="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>vCenter Database Optimization Thoughts... | blog... things...</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="icon" href="/images/favicons/favicon.ico">
+<meta name="keywords" content="" />
+<meta name="description" content="" /><meta itemprop="name" content="vCenter Database Optimization Thoughts...">
+<meta itemprop="description" content="For the past few weeks I have been working on an issue with a vCenter 4.1 database to work properly and to complete stat roll-ups without error. Here are some of the tricks and things that I have found to help identify the problem and possibly fix it for some.
+ Check the HIST_STAT tables for fragmented indexes and possible performance issues (execute the following in the SQL Management Studio targeting your vCenter database):"><meta itemprop="datePublished" content="2010-10-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2010-10-20T00:00:00+00:00" />
+<meta itemprop="wordCount" content="744">
+<meta itemprop="keywords" content="" /><meta property="og:title" content="vCenter Database Optimization Thoughts..." />
+<meta property="og:description" content="For the past few weeks I have been working on an issue with a vCenter 4.1 database to work properly and to complete stat roll-ups without error. Here are some of the tricks and things that I have found to help identify the problem and possibly fix it for some.
+ Check the HIST_STAT tables for fragmented indexes and possible performance issues (execute the following in the SQL Management Studio targeting your vCenter database):" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/2010-10-20-20101020vcenter-database-optimization-thoughts-html/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2010-10-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2010-10-20T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="vCenter Database Optimization Thoughts..."/>
+<meta name="twitter:description" content="For the past few weeks I have been working on an issue with a vCenter 4.1 database to work properly and to complete stat roll-ups without error. Here are some of the tricks and things that I have found to help identify the problem and possibly fix it for some.
+ Check the HIST_STAT tables for fragmented indexes and possible performance issues (execute the following in the SQL Management Studio targeting your vCenter database):"/>
+<link rel="preload" href="/css/bundle.min.56f818f19e58c97481c8333650e24bf131abfada62c954646a72ae940adb3bf5.css" integrity="sha256-VvgY8Z5YyXSByDM2UOJL8TGr&#43;tpiyVRkanKulArbO/U=" crossorigin="anonymous" as="style" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/bundle.min.56f818f19e58c97481c8333650e24bf131abfada62c954646a72ae940adb3bf5.css" integrity="sha256-VvgY8Z5YyXSByDM2UOJL8TGr&#43;tpiyVRkanKulArbO/U=" crossorigin="anonymous"></noscript></head>
+  <body><script src="/js/bootstrap.min.b5d86dd3a5f60c90be38a252bb65fc1a2732f32e71dc12c051720f0c7aef3cde.js" integrity="sha256-tdht06X2DJC&#43;OKJSu2X8Gicy8y5x3BLAUXIPDHrvPN4=" crossorigin="anonymous"></script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button><a class="navbar-brand me-3" href="/"><img class="logo" alt="Logo" src="/images/logo.png" loading="lazy"
+   width="400" height="400"
+   />
+blog... things...
+    </a>
+    <button class="navbar-social-share" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSocialShare"
+  aria-controls="offcanvasSocialShare" aria-label="Toggle social share">
+  <i class="fas fa-share-alt"></i>
+</button>
+
+<div class="offcanvas offcanvas-bottom surface" tabindex="-1" id="offcanvasSocialShare" aria-labelledby="offcanvasSocialShare">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Share</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=vCenter%20Database%20Optimization%20Thoughts...&url=%2fposts%2f2010-10-20-20101020vcenter-database-optimization-thoughts-html%2f">
+      <i class="fab fa-fw fa-twitter"></i> Twitter
+    </a>
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button"
+      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=%2fposts%2f2010-10-20-20101020vcenter-database-optimization-thoughts-html%2f">
+      <i class="fab fa-fw fa-facebook-f"></i> Facebook
+    </a>
+  </div>
+</div>
+
+    <button class="navbar-settings" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings"
+  aria-controls="offcanvasSettings" aria-label="Toggle settings">
+  <i class="fas fa-ellipsis-v"></i>
+</button>
+
+<div class="offcanvas offcanvas-end surface h-100" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettings">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Settings</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+
+
+
+<section class="setting">
+  <form class="font-size-switcher-form row">
+    <div class="col-auto">
+      <label for="fontSize" class="form-label"><i class="fas fa-fw fa-font"></i> Font Size</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+    </div>
+  </form>
+</section>
+
+
+<section class="setting palettes">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-palette"></i> Palette</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <a id="btnPalette" class="btn btn-sm btn-outline-primary" role="button" aria-label="palettePicker">
+        <i class="fas fa-eye-dropper"></i>
+      </a>
+    </div>
+  </form>
+  <div class="mt-2 d-flex visually-hidden" id="palettePicker"><button type="button" id="palette-blue" aria-label="Blue"
+        class="btn btn-sm palette" data-palette="blue">
+      </button><button type="button" id="palette-blue-gray" aria-label="Blue Gray"
+        class="btn btn-sm palette" data-palette="blue-gray">
+      </button><button type="button" id="palette-brown" aria-label="Brown"
+        class="btn btn-sm palette" data-palette="brown">
+      </button><button type="button" id="palette-cyan" aria-label="Cyan"
+        class="btn btn-sm palette" data-palette="cyan">
+      </button><button type="button" id="palette-green" aria-label="Green"
+        class="btn btn-sm palette" data-palette="green">
+      </button><button type="button" id="palette-indigo" aria-label="Indigo"
+        class="btn btn-sm palette" data-palette="indigo">
+      </button><button type="button" id="palette-orange" aria-label="Orange"
+        class="btn btn-sm palette" data-palette="orange">
+      </button><button type="button" id="palette-pink" aria-label="Pink"
+        class="btn btn-sm palette" data-palette="pink">
+      </button><button type="button" id="palette-purple" aria-label="Purple"
+        class="btn btn-sm palette" data-palette="purple">
+      </button><button type="button" id="palette-red" aria-label="Red"
+        class="btn btn-sm palette" data-palette="red">
+      </button><button type="button" id="palette-teal" aria-label="Teal"
+        class="btn btn-sm palette" data-palette="teal">
+      </button><button type="button" id="palette-yellow" aria-label="Yellow"
+        class="btn btn-sm palette" data-palette="yellow">
+      </button></div>
+</section>
+</div>
+</div>
+
+    <div class="collapse navbar-collapse" tabindex="-1" id="navbarSupportedContent" aria-labelledby="navbarSupportedContent">
+      <form class="search-bar my-1" action="/search">
+  <div class="input-group input-group-sm">
+    <span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+    <input class="form-control rounded-pill" name="q" type="search" aria-label="Search">
+  </div>
+</form>
+
+      <ul class="navbar-nav ms-auto"><li class="nav-item dropdown">
+          <a class="nav-link" id="navbarDropdown-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-fw fa-chevron-circle-down"></i>menu
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+              <a class="dropdown-item"
+                href="https://github.com/virtualserverguy" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-fw fa-github"></i>Github
+              </a>
+            </li></ul>
+        </li></ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-lg-8">
+  <div class="container"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body">
+    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="/">Home</a></li><li class="breadcrumb-item"><a href="/posts/">Posts</a></li><li class="breadcrumb-item active">vCenter Database Optimization Thoughts...</li></ol>
+  </div>
+</nav>    <article class="row card component mb-4 post"><div class="post-panel-wrapper">
+  <div class="d-flex flex-column component rounded post-panel">
+    
+    <a id="sidebarToggler" class="action d-none d-lg-block" role="button">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+  
+    
+
+    
+    <a class="action" data-bs-container="body" data-bs-toggle="popover" data-bs-html="true" data-bs-placement="bottom"
+  data-bs-trigger="focus" tabindex="0" role="button" aria-label="Copyright" 
+  data-bs-content="&lt;a target=&#34;_blank&#34; rel=&#34;license noopener noreferrer&#34; href=&#34;https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en&#34;&gt;CC BY-NC-ND 4.0 &lt;i class=&#34;fab fa-fw fa-creative-commons&#34;&gt;&lt;/i&gt;&lt;i class=&#34;fab fa-fw fa-creative-commons-by&#34;&gt;&lt;/i&gt;&lt;i class=&#34;fab fa-fw fa-creative-commons-nc&#34;&gt;&lt;/i&gt;&lt;i class=&#34;fab fa-fw fa-creative-commons-nd&#34;&gt;&lt;/i&gt;&lt;/a&gt;
+">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    
+    
+  </div>
+</div>
+<div class="card-body">
+        <h1 class="card-title my-3">vCenter Database Optimization Thoughts...
+</h1><div class="post-meta"><span class="post-date" title="created on">
+    <i class="fas fa-fw fa-calendar-alt"></i>Oct 20, 2010
+  </span><span class="post-reading-time" title="reading time">
+    <i class="fas fa-fw fa-coffee"></i>4 min read
+  </span><a href="/categories/vmware-vsphere/" class="badge rounded-pill text-white bg-primary post-taxonomy">vmware-vsphere</a></div>
+<div class="post-content mb-3"><p>For the past few weeks I have been working on an issue with a vCenter 4.1 database to work properly and to complete stat roll-ups without error. Here are some of the tricks and things that I have found to help identify the problem and possibly fix it for some.</p>
+<ol start="2">
+<li>
+<p>Check the HIST_STAT tables for fragmented indexes and possible performance issues (execute the following in the SQL Management Studio targeting your vCenter database):</p>
+<p>dbcc showcontig (VPX_HIST_STAT1)<br>
+dbcc showcontig (VPX_HIST_STAT2)<br>
+dbcc showcontig (VPX_HIST_STAT3)<br>
+dbcc showcontig (VPX_HIST_STAT4)<br>
+go</p>
+<p>The results will look like this:</p>
+<blockquote>
+<p>DBCC SHOWCONTIG scanning &lsquo;VPX_HIST_STAT1&rsquo; table&hellip;<br>
+Table: &lsquo;VPX_HIST_STAT1&rsquo; (882102183); index ID: 1, database ID: 7<br>
+TABLE level scan performed.<br>
+- Pages Scanned&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..: 534985<br>
+- Extents Scanned&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;: 67439<br>
+- Extent Switches&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;: 311950<br>
+- Avg. Pages per Extent&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;: 7.9<br>
+- Scan Density [Best Count:Actual Count]&hellip;&hellip;.: 21.44% [66874:311951]<br>
+- Logical Scan Fragmentation &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;: 53.34%<br>
+- Extent Scan Fragmentation &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.: 11.30%<br>
+- Avg. Bytes Free per Page&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;: 3433.6<br>
+- Avg. Page Density (full)&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;: 57.58%</p>
+</blockquote>
+<p>The two critical lines are the Scan Density and the Logical Scan Fragmentation (from MSDN):</p>
+<blockquote>
+<p>Scan Density</p>
+<p>[Best Count: Actual Count] Best count is the ideal number of extent changes if everything is contiguously linked. Actual count is the actual number of extent changes. The number in scan density is 100 if everything is contiguous; if it is less than 100, some fragmentation exists. Scan density is a percentage.</p>
+</blockquote>
+<blockquote>
+<p>Logical Scan Fragmentation Percentage of out-of-order pages returned from scanning the leaf pages of an index. This number is not relevant to heaps and text indexes. An out of order page is one for which the next page indicated in an IAM is a different page than the page pointed to by the next page pointer in the leaf page.</p>
+</blockquote>
+<p>If the Scan density is below 50% and/or if the logical scan fragmentation is above 50% then you should complete step 2 to help optimize those tables. (Scan Density will quickly drift in a vCenter installation with more than 50 hosts or 500 VMs)</p>
+</li>
+<li>
+<p>If your table indexes are approaching below 50% Scan Density or above 50% Logical Scan Fragmentation, do the following in the SQL Management Studio:</p>
+<p>dbcc dbreindex( &lsquo;vpx_hist_stat1&rsquo;,&lsquo;pk_vpx_hist_stat1&rsquo;, 70)<br>
+dbcc dbreindex( &lsquo;vpx_hist_stat2&rsquo;,&lsquo;pk_vpx_hist_stat2&rsquo;, 70)<br>
+dbcc dbreindex( &lsquo;vpx_hist_stat3&rsquo;,&lsquo;pk_vpx_hist_stat3&rsquo;, 70)<br>
+dbcc dbreindex( &lsquo;vpx_hist_stat4&rsquo;,&lsquo;pk_vpx_hist_stat4&rsquo;, 70)</p>
+<p>The above commands will re-index each of the primary indexes on the table. This process may take a few minutes depending on the load on the SQL server, this does lock the index on the table while completing, so do it during a slow time.</p>
+</li>
+<li>
+<p>Determining table sizes:In the SQL Management Studio you can execute the following to show exactly what tables are growing larger and possibly causing problems with performance.</p>
+<p><a href="https://thevsgco.files.wordpress.com/2010/10/811b5-sqlcode2.png" target="_blank" rel="noopener noreferrer"><img class="img-fluid" alt="" src="" loading="lazy"
+  
+   />
+
+</a>
+</p>
+<p>If your vCenter has been around for a while or just has a lot of use the VPX_EVENT or VPX_EVENT_ARG tables will be large (millions of rows), you can reduce the size of these by setting the &lsquo;Database Retention Policy&rsquo; in vCenter to around 180 days or what your organization feels is needed for accurate logging.</p>
+<p>The tables vpx_hist_stat1, and vpx_hist_stat2 will contain many, many, many rows; this is where vCenter stores the performance metrics for daily and weekly stats (3 is for monthly and 4 is yearly). If your retention for the daily is above 1 day or your detail setting is set high (3 or higher), you will have more rows than others. These tables operate fine until they reach ~100 million rows (although performance issues can start around 50 million, depending on the SQL server hardware).</p>
+<p>If your vpx_hist_stat1 table is approaching 100 million rows or possibly even higher, chances are good that the rollup procedure will start to fail soon, you can reduce this size by reducing the amount of data that is logged. To do this fire up vCenter and set the statistics logging for &lsquo;Day&rsquo; to 3 or lower and retention for 1 day. Then give vCenter a day or two and check again, the table will have shrunk.</p>
+<p>If the stats rollup job is already failing with &lsquo;unable to lock row&rsquo; or other errors you may need to correct the jobs that were installed with vCenter, follow these steps to complete that: <a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=1009857" title="VMware KB100905" target="_blank" rel="noopener noreferrer">VMware KB100905</a>
+</p>
+<p>If you are still having issues after completing those steps you can then truncate the tables and get back to a fresh hist_stat table. To complete this follow these steps: <a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=100745" title="VMware KB1007453" target="_blank" rel="noopener noreferrer">VMware KB1007453</a>
+ (To avoid losing all the performance stats that have been gathered, just truncate the hist_stat1 table).</p>
+</li>
+</ol>
+</div><hr /><div class="post-navs d-flex mb-3 justify-content-evenly">
+  <div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+    <a href="/posts/2010-09-22-2010922modify-vsphere-path-selection-policy-in-bulk-html/">Modify vSphere Path Selection Policy in Bulk
+</a>
+  </div><div class="post-nav post-next">
+    <a href="/posts/2011-01-27-2011127new-job-html/">New Job...
+</a>
+    <i class="fas fa-fw fa-chevron-right"></i>
+  </div></div><section class="related-posts-wrapper">
+    <h3>Related Posts</h3>
+    <ul class="related-posts"><li><a href="/posts/2010-09-22-2010922modify-vsphere-path-selection-policy-in-bulk-html/">Modify vSphere Path Selection Policy in Bulk
+</a></li><li><a href="/posts/2010-09-21-2010921vcenter-41-adam_vmwarevcmsds-error-html/">vCenter 4.1 ADAM_VMwareVCMSDS Error
+</a></li><li><a href="/posts/2010-09-09-201099vcenter-41-upgrade-woes-html/">vCenter 4.1 Upgrade Woes
+</a></li><li><a href="/posts/2010-09-07-201097vcdx-51-html/">VCDX 51
+</a></li><li><a href="/posts/2010-09-03-201093vmwares-new-license-structure-html/">VMware&#39;s New License Structure
+</a></li></ul>
+  </section></div>
+    </article><div class="card component row post-comments">
+  <div class="card-body"></div>
+</div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container">
+    
+    <section class="card row text-center profile component">
+  <div class="card-body">
+    <div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Tom Ralph" src="" loading="lazy"
+  
+   />
+</div>
+    <div class="col-12 profile-meta"><div class="profile-name">Tom Ralph</div><div class="profile-bio">things</div></div>
+  </div>
+</section>
+  <section class="recent-posts row card component">
+  <div class="card-body">
+    <h2 class="card-title">Recent Posts</h2>
+    <ul><li><a href="/posts/secondpost/">Second post
+</a></li><li><a href="/posts/firstpost/">Firstpost
+</a></li><li><a href="/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/">vSphere 6.5 - Top KB Articles for Upgrade Prep
+</a></li><li><a href="/posts/2014-04-21-2014421mass-update-media-in-vcloud-dicrector/">Mass Update Media in vCloud Dicrector
+</a></li><li><a href="/posts/2014-04-16-2014416relocating-a-vm-in-vcloud-director/">Relocating a VM in vCloud Director
+</a></li></ul>
+  </div>
+</section><section class="taxonomies row card component">
+      <div class="card-body">
+        <h2 class="card-title">
+          <a href="/categories">Categories</a>
+        </h2>
+        <div><a href="/categories/vmware-vsphere/" class="badge bg-primary text-white rounded post-taxonomy" title="vmware-vsphere">
+            vmware-vsphere
+          </a><a href="/categories/vmware-vcloud/" class="badge bg-primary text-white rounded post-taxonomy" title="vmware-vcloud">
+            vmware-vcloud
+          </a><a href="/categories/technology/" class="badge bg-primary text-white rounded post-taxonomy" title="technology">
+            technology
+          </a><a href="/categories/microsoft-hyper-v/" class="badge bg-primary text-white rounded post-taxonomy" title="microsoft-hyper-v">
+            microsoft-hyper-v
+          </a><a href="/categories/personal/" class="badge bg-primary text-white rounded post-taxonomy" title="personal">
+            personal
+          </a><a href="/categories/vcdx-process/" class="badge bg-primary text-white rounded post-taxonomy" title="vcdx-process">
+            vcdx-process
+          </a><a href="/categories/apple-ios/" class="badge bg-primary text-white rounded post-taxonomy" title="apple-ios">
+            apple-ios
+          </a><a href="/categories/vmware-vc-ops/" class="badge bg-primary text-white rounded post-taxonomy" title="vmware-vc-ops">
+            vmware-vc-ops
+          </a><a href="/categories/vmware-vcm/" class="badge bg-primary text-white rounded post-taxonomy" title="vmware-vcm">
+            vmware-vcm
+          </a><a href="/categories/vmworld/" class="badge bg-primary text-white rounded post-taxonomy" title="vmworld">
+            vmworld
+          </a></div>
+      </div>
+    </section><section class="taxonomies row card component">
+      <div class="card-body">
+        <h2 class="card-title">
+          <a href="/tags">Tags</a>
+        </h2>
+        <div><a href="/tags/vcloud/" class="badge bg-primary text-white rounded post-taxonomy" title="vcloud">
+            vcloud
+          </a><a href="/tags/powershell/" class="badge bg-primary text-white rounded post-taxonomy" title="powershell">
+            powershell
+          </a><a href="/tags/vsphere/" class="badge bg-primary text-white rounded post-taxonomy" title="vsphere">
+            vsphere
+          </a><a href="/tags/vcenter/" class="badge bg-primary text-white rounded post-taxonomy" title="vcenter">
+            vcenter
+          </a><a href="/tags/security/" class="badge bg-primary text-white rounded post-taxonomy" title="security">
+            security
+          </a><a href="/tags/vcdx/" class="badge bg-primary text-white rounded post-taxonomy" title="vcdx">
+            vcdx
+          </a><a href="/tags/vmware/" class="badge bg-primary text-white rounded post-taxonomy" title="vmware">
+            vmware
+          </a><a href="/tags/vshield/" class="badge bg-primary text-white rounded post-taxonomy" title="vshield">
+            vshield
+          </a><a href="/tags/vsphere-5/" class="badge bg-primary text-white rounded post-taxonomy" title="vsphere-5">
+            vsphere-5
+          </a><a href="/tags/change/" class="badge bg-primary text-white rounded post-taxonomy" title="change">
+            change
+          </a></div>
+      </div>
+    </section>
+    
+  </div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><a class="nav-link social-link" href="mailto:tom@thevsg.co" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope"></i>
+    </a></nav>
+<div class="copyright mb-2">
+  Copyright © 2020-2021 Tom Ralph. All Rights Reserved.
+</div>
+<div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">Bootstrap</a> theme.
+</div></footer>
+<script src="/js/bundle.min.425550fc2a278561fe029578aa420a6953a8c62479f57ea3cbd6b0fc8557b403.js" integrity="sha256-QlVQ/ConhWH&#43;ApV4qkIKaVOoxiR59X6jy9aw/IVXtAM=" crossorigin="anonymous" defer></script><script defer src="/js/viewer.min.2f6511f1e2b87cdacb7bdeedeadc1dcf2fc9f22db69f89b70fd5d91224f892a4.js" integrity="sha256-L2UR8eK4fNrLe97t6twdzy/J8i22n4m3D9XZEiT4kqQ=" crossorigin="anonymous"></script>
+</body>
+</html>

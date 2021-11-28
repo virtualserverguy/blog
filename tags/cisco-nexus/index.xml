@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cisco-nexus on blog... things...</title>
+    <link>/tags/cisco-nexus/</link>
+    <description>Recent content in cisco-nexus on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 24 Aug 2011 00:00:00 +0000</lastBuildDate><atom:link href="/tags/cisco-nexus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Importing vApp from vCenter Error</title>
+      <link>/posts/2011-08-24-2011824importing-vapp-from-vcenter-error-html/</link>
+      <pubDate>Wed, 24 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-08-24-2011824importing-vapp-from-vcenter-error-html/</guid>
+      <description>When importing a VM or vApp from vCenter into vCloud you may see an error like this:
+  A specified parameter was not correct.
+ spec.deviceChange.device.port.switchUuid
+ This can happen when comign from a Cisco Nexus 1000v Portgroup, to solve this either remove the network adapter for importing into the cloud, or move the network card to a portgroup that is not a Nexus 1000v Portgroup.
+If you are using a dVS and see this error move the NIC to a standard vSwitch or delete the NIC and re-add it once it is in the cloud.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vsphere-5 on blog... things...</title>
+    <link>/tags/vsphere-5/</link>
+    <description>Recent content in vsphere-5 on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Fri, 24 Feb 2012 00:00:00 +0000</lastBuildDate><atom:link href="/tags/vsphere-5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vCenter Server Appliance Database</title>
+      <link>/posts/2012-02-24-2012223vcenter-server-appliance-database-html/</link>
+      <pubDate>Fri, 24 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-02-24-2012223vcenter-server-appliance-database-html/</guid>
+      <description>The vCenter Server Appliance comes with a built-in DB2 database for use as an all-in-one solution for small lab environments. The sizing is supposed to be less than 5 hosts and 50 VMs. But it can work much higher than that if given enough resources, :-).
+One issue that occurs when using this appliance is that the DB2 log settings are too small for any extended operation. This is due to stat roll-up jobs taking more log space to complete than the DB2 instanace is set for.</description>
+    </item>
+    
+    <item>
+      <title>Removing the vCloud agent from ESXi hosts</title>
+      <link>/posts/2011-08-29-2011829removing-the-vcloud-agent-from-esxi-hosts-html/</link>
+      <pubDate>Mon, 29 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-08-29-2011829removing-the-vcloud-agent-from-esxi-hosts-html/</guid>
+      <description>In order to remove the vCloud agents from vSphere 5 hosts you need to execute the following command on the console:
+ esxcli software vib remove –n vcloud-agent
+ This can be ran by the PowerCLI or the vSphereCLI or on the SSH console with tech support mode enabled.
+Reboot the hosts after this step to complete the removal.</description>
+    </item>
+    
+  </channel>
+</rss>

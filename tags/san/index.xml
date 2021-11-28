@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>san on blog... things...</title>
+    <link>/tags/san/</link>
+    <description>Recent content in san on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 01 Sep 2011 00:00:00 +0000</lastBuildDate><atom:link href="/tags/san/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vSphere Disk Write Process</title>
+      <link>/posts/2011-09-01-201191vsphere-disk-write-process-html/</link>
+      <pubDate>Thu, 01 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-09-01-201191vsphere-disk-write-process-html/</guid>
+      <description>Recently I have seen quite a bit of question and discussion of how vSphere handles disk writes from the guest OS and performance questions about limiting the writes.
+The question started off innocently as &amp;ldquo;How can we gaurantee vSphere disk writes happen and are not cached?&amp;rdquo;
+First lets analyze where this may have started SQL Solutions posted this article , in which they tested SQL server on a VMware virtual machine and tested the write caching of the DB and the virtual machine.</description>
+    </item>
+    
+  </channel>
+</rss>

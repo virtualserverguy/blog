@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>personal on blog... things...</title>
+    <link>/categories/personal/</link>
+    <description>Recent content in personal on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 01 Jan 2013 00:00:00 +0000</lastBuildDate><atom:link href="/categories/personal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New Year... Brings Changes</title>
+      <link>/posts/2013-01-01-20121231new-year-brings-changes/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2013-01-01-20121231new-year-brings-changes/</guid>
+      <description>With the New Year brings some new changes; I am transferring inside of VMware to a new group that is focusing on Cloud Consumption.
+Cloud Consumption&amp;hellip; WTH is that?
+For the past, well as long as I have been in IT, I have been doing &amp;lsquo;Ping, Power and Pipe&amp;rsquo;. With IaaS it is in my opinion it has been done, most any experienced IT person could stand up IaaS.
+In my new role I will be focusing on methods to consume the cloud offerings.</description>
+    </item>
+    
+    <item>
+      <title>Time for a change... Well a new direction at least</title>
+      <link>/posts/2012-09-12-2012912time-for-a-change-well-a-new-direction-at-least/</link>
+      <pubDate>Wed, 12 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-09-12-2012912time-for-a-change-well-a-new-direction-at-least/</guid>
+      <description>I started working at VMware just under two years ago. In that time I have gone for a Cloud Practice, where we developed the services and solutions that are being implemented today. Which transitioned into a group developing bleeding edge documentation, processes, and ultimately &amp;lsquo;making the marketing world a reality&amp;rsquo;.
+Since then I have transitioned to a more security in the cloud role. For example, how can a workload in the cloud be secured and audited against, no matter where it is running?</description>
+    </item>
+    
+  </channel>
+</rss>

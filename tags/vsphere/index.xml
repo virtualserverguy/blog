@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vsphere on blog... things...</title>
+    <link>/tags/vsphere/</link>
+    <description>Recent content in vsphere on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Sun, 14 Oct 2012 00:00:00 +0000</lastBuildDate><atom:link href="/tags/vsphere/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Host Isolation Response Settings</title>
+      <link>/posts/2012-10-14-20121014host-isolation-response-settings/</link>
+      <pubDate>Sun, 14 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-10-14-20121014host-isolation-response-settings/</guid>
+      <description>Over the past few weeks I have had some people ask what I would recommend for host isolation addresses and responses, when using vSphere x.x with high availability (HA) enabled.
+First off as with most everything in computers &amp;lsquo;It depends&amp;rsquo;.
+Items to consider with host isolation response is what type of storage is being utilized? Is it considered an outage if the vSphere hosts can talk to each other but the virtual machines (VMs) cannot?</description>
+    </item>
+    
+    <item>
+      <title>netstat for ESXi</title>
+      <link>/posts/2012-01-31-2012131netstat-for-esxi-html/</link>
+      <pubDate>Tue, 31 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-01-31-2012131netstat-for-esxi-html/</guid>
+      <description>With the removal of the service console with vSphere 5, in the form of ESXi, netstat went by the way side. The way to get that information is by executing this on the console. Either in tech support mode (SSH) or at the console.
+ esxcli network ip connection list
+ </description>
+    </item>
+    
+    <item>
+      <title>Nesting Resource Pools; Good Idea or Bad?</title>
+      <link>/posts/2011-12-15-20111215nesting-resource-pools-good-idea-or-bad-html/</link>
+      <pubDate>Thu, 15 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-12-15-20111215nesting-resource-pools-good-idea-or-bad-html/</guid>
+      <description>I was asked recently on my opinion on nesting resource pools with VMs inter-mixed, well what should you do?
+Well here is an easy example; if I have a Resource Pool with 9 VMs and 1 nested Resource Pool, what level of resources are each given? 10% each.
+Think about that, each of the VMs have 10% of the resources and the ENTIRE nested Resource Pool has 10% of the resources.</description>
+    </item>
+    
+    <item>
+      <title>How to become a VCDX... Or at least have a less painful defense</title>
+      <link>/posts/2011-09-10-201199how-to-become-a-vcdx-or-at-least-have-a-less-painful-defense-html/</link>
+      <pubDate>Sat, 10 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-09-10-201199how-to-become-a-vcdx-or-at-least-have-a-less-painful-defense-html/</guid>
+      <description>I have been asked many times about the VCDX Defense process. Especially, what to do and what not to do? What is the defense really like? Are the panelists really mean? Do they throw flaming daggers at candidates? and the such&amp;hellip; So here are some pointers, tips and other information.
+Design Defense First off, the panelists do NOT have flaming daggers that get thrown at the candidates. The panelists use soft squishy Nerf balls.</description>
+    </item>
+    
+    <item>
+      <title>vCloud 1.5 Bios.UUID Changes</title>
+      <link>/posts/2011-09-08-201198vcloud-15-biosuuid-changes-html/</link>
+      <pubDate>Thu, 08 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-09-08-201198vcloud-15-biosuuid-changes-html/</guid>
+      <description>With vCloud 1.x and even back in Lab Manager 3.x and 4.x the default behavior for capturing and deploying VMs to the Library (LM term) or Catalog (vCloud term) has been to keep the BIOS.UUID the same for all subsequent VMs. This allows those products that tie their license to the machine serial number to keep workign when re-deployed on vCloud or LM. Let&amp;rsquo;s back up what is the BIOS.UUID? The BIOS.</description>
+    </item>
+    
+    <item>
+      <title>vSphere Disk Write Process</title>
+      <link>/posts/2011-09-01-201191vsphere-disk-write-process-html/</link>
+      <pubDate>Thu, 01 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-09-01-201191vsphere-disk-write-process-html/</guid>
+      <description>Recently I have seen quite a bit of question and discussion of how vSphere handles disk writes from the guest OS and performance questions about limiting the writes.
+The question started off innocently as &amp;ldquo;How can we gaurantee vSphere disk writes happen and are not cached?&amp;rdquo;
+First lets analyze where this may have started SQL Solutions posted this article , in which they tested SQL server on a VMware virtual machine and tested the write caching of the DB and the virtual machine.</description>
+    </item>
+    
+    <item>
+      <title>vSphere 5 vRam Licensing Changes</title>
+      <link>/posts/2011-08-03-201183vsphere-5-vram-licensing-changes-html/</link>
+      <pubDate>Wed, 03 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-08-03-201183vsphere-5-vram-licensing-changes-html/</guid>
+      <description>When VMware released the vRam pricing models and limits last week there was quite an uproar over the limitations being set to low. It appears that VMware was listening and has responded with a hefty increase in vRam allocations.
+That is nearly double the entitlements.
+Also changing is how the usage is calculated for a high water mark (think bursting for a day) to a rolling 12 month average!
+Finally the last news and some major news at that, is that a single VM can only consume 96GB of vRam, no matter how you set the VM up!</description>
+    </item>
+    
+    <item>
+      <title>Error in vCenter when creating a PvDC in vCloud Director</title>
+      <link>/posts/2011-07-22-2011722error-in-vcenter-when-creating-a-pvdc-in-vcloud-director-1-html/</link>
+      <pubDate>Fri, 22 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-07-22-2011722error-in-vcenter-when-creating-a-pvdc-in-vcloud-director-1-html/</guid>
+      <description>If your vCloud Director machine is on the same vCenter as the Compute Clusters are (not a best practice but it does work), you can not have the same vCloud Director machine name in vCenter as you named the vCloud installation during installation.
+This will produce an error such as “The already exists.”
+This is because vCenter Folders and Virtual Machines can not have identical names. Can the host name be the same?</description>
+    </item>
+    
+  </channel>
+</rss>

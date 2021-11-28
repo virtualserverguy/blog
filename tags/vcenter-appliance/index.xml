@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vcenter-appliance on blog... things...</title>
+    <link>/tags/vcenter-appliance/</link>
+    <description>Recent content in vcenter-appliance on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Fri, 24 Feb 2012 00:00:00 +0000</lastBuildDate><atom:link href="/tags/vcenter-appliance/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vCenter Server Appliance Database</title>
+      <link>/posts/2012-02-24-2012223vcenter-server-appliance-database-html/</link>
+      <pubDate>Fri, 24 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-02-24-2012223vcenter-server-appliance-database-html/</guid>
+      <description>The vCenter Server Appliance comes with a built-in DB2 database for use as an all-in-one solution for small lab environments. The sizing is supposed to be less than 5 hosts and 50 VMs. But it can work much higher than that if given enough resources, :-).
+One issue that occurs when using this appliance is that the DB2 log settings are too small for any extended operation. This is due to stat roll-up jobs taking more log space to complete than the DB2 instanace is set for.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vmware-vcm on blog... things...</title>
+    <link>/categories/vmware-vcm/</link>
+    <description>Recent content in vmware-vcm on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 12 Apr 2012 00:00:00 +0000</lastBuildDate><atom:link href="/categories/vmware-vcm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vCenter Configuration Manager Split Install Issues</title>
+      <link>/posts/2012-04-12-2012411vcenter-configuration-manager-split-install-issues-html/</link>
+      <pubDate>Thu, 12 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-04-12-2012411vcenter-configuration-manager-split-install-issues-html/</guid>
+      <description>vCM or vCenter Configuration Manager 5.5 was released in March by VMware with a few new features. First of all and the topic of this blog post, is the re-inclusion of a split install. Split install being the database, application and web page can be on different servers.You ask didn&amp;rsquo;t vCM or SCM or ECM (depending on when you used vCM last) have this feature before? It did back in the 5.</description>
+    </item>
+    
+  </channel>
+</rss>

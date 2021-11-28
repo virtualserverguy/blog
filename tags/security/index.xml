@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security on blog... things...</title>
+    <link>/tags/security/</link>
+    <description>Recent content in security on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Sat, 23 Feb 2013 00:00:00 +0000</lastBuildDate><atom:link href="/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Enabling SAML Providers in vCloud 5.1</title>
+      <link>/posts/2013-02-23-2013222enabling-saml-providers-in-vcloud-51/</link>
+      <pubDate>Sat, 23 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2013-02-23-2013222enabling-saml-providers-in-vcloud-51/</guid>
+      <description>As a system or organization administrator head to the &amp;lsquo;Administration&amp;rsquo; page, and then the federation tab. Paste or upload the SAML configuration XML. Ensure the certificate at the bottom of the page is recent, if not click re-generate certificate. It will produce a certificate for 1 year.
+After the certificate is re-newed enter this URL in to the web browser: cloud/org/[orgName]/saml/metadata/alias/vcd ; save the XML file on that page. This is the file you will need to provide the SAML or 3rd party authentication service with in order to authenticate you.</description>
+    </item>
+    
+    <item>
+      <title>iOS 6 - Ad Tracking</title>
+      <link>/posts/2012-09-25-2012924ios-6-ad-tracking/</link>
+      <pubDate>Tue, 25 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-09-25-2012924ios-6-ad-tracking/</guid>
+      <description>You can disable (well limit) the ad tracking that is done in iOS 6. This setting turns off the ability for advertisers to use what is called the &amp;lsquo;Advertising Identifier&amp;rsquo;. This replaces the devices UUID which is a non-anonymous way of tracking usage. The advertising identifier is &amp;lsquo;anonymous&amp;rsquo; (though further research needs to be done).
+Here is how to disable the ability for advertisers to track you at all (once they move from the old deprecated UUID model).</description>
+    </item>
+    
+  </channel>
+</rss>

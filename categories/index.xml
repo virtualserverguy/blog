@@ -6,6 +6,97 @@
     <description>Recent content in Categories on blog... things...</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 30 Aug 2017 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>technology</title>
+      <link>/categories/technology/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/technology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmware-vsphere</title>
+      <link>/categories/vmware-vsphere/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/vmware-vsphere/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmworld</title>
+      <link>/categories/vmworld/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/vmworld/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmware-vcloud</title>
+      <link>/categories/vmware-vcloud/</link>
+      <pubDate>Mon, 21 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/vmware-vcloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>personal</title>
+      <link>/categories/personal/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/personal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>apple-ios</title>
+      <link>/categories/apple-ios/</link>
+      <pubDate>Tue, 25 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/apple-ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vcdx-process</title>
+      <link>/categories/vcdx-process/</link>
+      <pubDate>Fri, 31 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/vcdx-process/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmware-vc-ops</title>
+      <link>/categories/vmware-vc-ops/</link>
+      <pubDate>Wed, 18 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/vmware-vc-ops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmware-vcm</title>
+      <link>/categories/vmware-vcm/</link>
+      <pubDate>Thu, 12 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/vmware-vcm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>microsoft-hyper-v</title>
+      <link>/categories/microsoft-hyper-v/</link>
+      <pubDate>Thu, 01 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/microsoft-hyper-v/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

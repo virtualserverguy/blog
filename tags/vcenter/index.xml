@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vcenter on blog... things...</title>
+    <link>/tags/vcenter/</link>
+    <description>Recent content in vcenter on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 23 Jan 2013 00:00:00 +0000</lastBuildDate><atom:link href="/tags/vcenter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recovering the Embedded DB Password on VCVA</title>
+      <link>/posts/2013-01-23-2013123recovering-the-embedded-db-password-on-vcva/</link>
+      <pubDate>Wed, 23 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2013-01-23-2013123recovering-the-embedded-db-password-on-vcva/</guid>
+      <description>Here is how to recover the embedded DB password on the VMware vCenter Virtual Appliance (VCVA):
+From the console (or SSH) of the VCVA run this command:
+ grep EMB_DB_PASSWORD /etc/vmware-vpx/embedded_db.cfg
+ From: http://kb.vmware.com/selfservice/microsites/search.do?language=en _US&amp;amp;cmd=displayKC&amp;amp;externalId=2004506</description>
+    </item>
+    
+    <item>
+      <title>vCenter Operations Manager 5 Guides</title>
+      <link>/posts/2012-04-18-2012417vcenter-operations-manager-5-guides-html/</link>
+      <pubDate>Wed, 18 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-04-18-2012417vcenter-operations-manager-5-guides-html/</guid>
+      <description>Here is a compliation of links for vCenter Operations Manager 5 or Vc Ops for short.
+Official VMware Documentation http://www.vmware.com/support/pubs/vcops-pubs.html &amp;hellip;especially the Advanced Getting Started guide http://www.vmware.com/pdf/vcops-5-getting-started-guide.pdf VMware Community Site http://communities.vmware.com/community/vmtn/server/vcenter/vcops VMware TV on YouTube - several videos: VMware vCenter Operations 5.0 - Introduction Video http://www.youtube.com/watch?v=Z-DJuTiqKag VMware vCenter Operations Manager 5.0 - Install and Configure http://www.youtube.com/watch?v=pwRdGDhI0lc&amp;amp;feature=relmfu TheSaffaGeek.co.uk http://thesaffageek.co.uk/tag/vcenter-operations-manager/ vExperienced.co.uk http://www.vexperienced.co.uk/2012/04/10/vcenter-operations-v5-intro/ http://www.vexperienced.co.uk/2012/04/12/using-vcenter-operations-v5-crazy-cool/ http://www.vexperienced.co.uk/2012/04/16/using-vcenter-operations-v5-capacity-features-and-conclusions-33/ Iwan Rahabok technical deep-dive @ Community site (large PPT) http://communities.</description>
+    </item>
+    
+    <item>
+      <title>vCenter Configuration Manager Split Install Issues</title>
+      <link>/posts/2012-04-12-2012411vcenter-configuration-manager-split-install-issues-html/</link>
+      <pubDate>Thu, 12 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-04-12-2012411vcenter-configuration-manager-split-install-issues-html/</guid>
+      <description>vCM or vCenter Configuration Manager 5.5 was released in March by VMware with a few new features. First of all and the topic of this blog post, is the re-inclusion of a split install. Split install being the database, application and web page can be on different servers.You ask didn&amp;rsquo;t vCM or SCM or ECM (depending on when you used vCM last) have this feature before? It did back in the 5.</description>
+    </item>
+    
+    <item>
+      <title>vCenter Server Appliance Database</title>
+      <link>/posts/2012-02-24-2012223vcenter-server-appliance-database-html/</link>
+      <pubDate>Fri, 24 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-02-24-2012223vcenter-server-appliance-database-html/</guid>
+      <description>The vCenter Server Appliance comes with a built-in DB2 database for use as an all-in-one solution for small lab environments. The sizing is supposed to be less than 5 hosts and 50 VMs. But it can work much higher than that if given enough resources, :-).
+One issue that occurs when using this appliance is that the DB2 log settings are too small for any extended operation. This is due to stat roll-up jobs taking more log space to complete than the DB2 instanace is set for.</description>
+    </item>
+    
+    <item>
+      <title>Error in vCenter when creating a PvDC in vCloud Director</title>
+      <link>/posts/2011-07-22-2011722error-in-vcenter-when-creating-a-pvdc-in-vcloud-director-1-html/</link>
+      <pubDate>Fri, 22 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-07-22-2011722error-in-vcenter-when-creating-a-pvdc-in-vcloud-director-1-html/</guid>
+      <description>If your vCloud Director machine is on the same vCenter as the Compute Clusters are (not a best practice but it does work), you can not have the same vCloud Director machine name in vCenter as you named the vCloud installation during installation.
+This will produce an error such as “The already exists.”
+This is because vCenter Folders and Virtual Machines can not have identical names. Can the host name be the same?</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vshield on blog... things...</title>
+    <link>/tags/vshield/</link>
+    <description>Recent content in vshield on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 25 Sep 2012 00:00:00 +0000</lastBuildDate><atom:link href="/tags/vshield/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vCNS App - Spoofguard Deployment</title>
+      <link>/posts/2012-09-25-2012925vcns-app-spoofguard-deployment/</link>
+      <pubDate>Tue, 25 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-09-25-2012925vcns-app-spoofguard-deployment/</guid>
+      <description>Spoofguard records the IP address of each vNIC secured by vShield App. Spoofguard can be configured in two different modes, automatic and manual.
+In Automatic mode the first IP that is presented for each vNIC is recorded and allowed to communicate without authorization. If the IP of the vNIC changes, the machine will no longer be able to communicate on the network until the new IP is approved.
+In manual mode all IPs must be approved prior to being allowed to communicate; even existing virtual machines will be blocked until approved.</description>
+    </item>
+    
+    <item>
+      <title>VMworld Sessions</title>
+      <link>/posts/2012-05-30-2012530vmworld-sessions-html/</link>
+      <pubDate>Wed, 30 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-05-30-2012530vmworld-sessions-html/</guid>
+      <description>Consider voting for session 1314, 1315 and 1628 here . Here is a brief on what you will learn&amp;hellip;
+Session 1314 Will cover how vShield App can make use of a single Layer 3 network with multiple security zones in the same network with access control and auditing from server to server communications. It will also cover how vShield App will assist with passing audits and security tests.
+Session 1315 Will cover how to recover from a site outage and how to restore services in a DR or BC scenario.</description>
+    </item>
+    
+  </channel>
+</rss>

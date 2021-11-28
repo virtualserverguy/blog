@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vcloud on blog... things...</title>
+    <link>/tags/vcloud/</link>
+    <description>Recent content in vcloud on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Mon, 21 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="/tags/vcloud/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mass Update Media in vCloud Dicrector</title>
+      <link>/posts/2014-04-21-2014421mass-update-media-in-vcloud-dicrector/</link>
+      <pubDate>Mon, 21 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-04-21-2014421mass-update-media-in-vcloud-dicrector/</guid>
+      <description>In vCloud 5.1 it is very difficult to move media from LUN to LUN once it is uploaded. In vCloud 5.5 this gets better but it is still a pain.
+One method I have found that works is to disable the LUN you want the media moved off of, and change something on the media record. Something such as adding a &#39; &#39; (space) to the description will cause vCloud Director to copy the media to a new LUN.</description>
+    </item>
+    
+    <item>
+      <title>Relocating a VM in vCloud Director</title>
+      <link>/posts/2014-04-16-2014416relocating-a-vm-in-vcloud-director/</link>
+      <pubDate>Wed, 16 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-04-16-2014416relocating-a-vm-in-vcloud-director/</guid>
+      <description>Occasionally I need to move a VM or vApp from datastore to datastore, various reasons why. Sometimes I need to break the linked clone tree and force vCenter to consolidate it. Sure I can power off the VM and execute a &amp;lsquo;consolidate&amp;rsquo; via the UI, but what if I need to keep the VM powered on? A storage vMotion does just that.
+Sure you can fire up your vCenter Client or WebClient and move the VM that way.</description>
+    </item>
+    
+    <item>
+      <title>Remove vApp Template With No Catalog Item Link</title>
+      <link>/posts/2014-04-14-2014414remove-vapp-template-with-no-catalog-item-link/</link>
+      <pubDate>Mon, 14 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-04-14-2014414remove-vapp-template-with-no-catalog-item-link/</guid>
+      <description>First&amp;hellip; Did you know that vApp Templates and Catalog Items are two different things in vCloud Director? If so, did you know that you can have a vApp Tempalte that does not link to a catalog item? Finally, you can&amp;rsquo;t have a Catalog Item without a vApp Tempalte backing though.
+Well I guess you could. If you manage to get one of those, you will want to follow my guide on fixing that here .</description>
+    </item>
+    
+    <item>
+      <title>Detecting and Removing Invalid vApps</title>
+      <link>/posts/2014-04-09-201449detecting-and-removing-invalid-vapps/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-04-09-201449detecting-and-removing-invalid-vapps/</guid>
+      <description>After you run vCloud for a while, heck run any management product for a while, and you will have left overs, hung items, or even corrupt vApps.
+With vCloud Director you can run the below to find those items and remove them.
+ $badvapp = Search-Cloud -QueryType AdminVapp | Where-Object { $_.Status -eq “UNRESOLVED&amp;quot; }
+foreach ( $id in $badvapp ) {
+Get-CIVApp -Id $id.id | Remove-CIVApp
+}
+ This probably wont remove everything, those items that are left, generally can only be removed via editing the database (I would not recommend that).</description>
+    </item>
+    
+    <item>
+      <title>Detecting and Removing Invalid vApp Templates</title>
+      <link>/posts/2014-04-07-201447detecting-and-removing-vapp-templates/</link>
+      <pubDate>Mon, 07 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-04-07-201447detecting-and-removing-vapp-templates/</guid>
+      <description>In the event that a vApp Template or Catalog Item fails during the upload process parts of that vApp Template can be left behind. To find and remove those items run the following:
+ $badvappt = Search-Cloud -QueryType AdminVappTemplate | Where-Object { $_.Status -eq &amp;ldquo;FAILED_Creation&amp;rdquo; }
+foreach ( $id in $badvappt ) {
+Get-CIVAppTemplate -Id $id.id | Remove-CIVAppTemplate -RemoveCatalogItem $false
+}
+ Run the first part to see what there is, run it all to remove broken vApp Templates.</description>
+    </item>
+    
+    <item>
+      <title>Modify Bulk vApp Network Attachments</title>
+      <link>/posts/2014-04-02-201442modify-bulk-vapps-network-attachments/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-04-02-201442modify-bulk-vapps-network-attachments/</guid>
+      <description>With vCloud Director if you need to change the Organization vDC Network, for instance you run out of IP addresses. You can use the script below to change the attached network of all powered off vApps.
+ $vapps = search-cloud -QueryType VAppOrgNetworkRelation | Where-Object { $.OrgNetworkName -eq &amp;ldquo;Old Network Name&amp;rdquo; -and $.Status -eq &amp;ldquo;Stopped” }
+foreach ($vapp in $vapps) {
+get-civapp -id $vapp.id | Get-CIVAppNetwork -ErrorAction SilentlyContinue | Where-Object { $_.</description>
+    </item>
+    
+    <item>
+      <title>Query vCloud Director for Storage Profile Usage</title>
+      <link>/posts/2014-04-01-2014422query-vcloud-director-for-storage-profile-usage/</link>
+      <pubDate>Tue, 01 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-04-01-2014422query-vcloud-director-for-storage-profile-usage/</guid>
+      <description>Often times an organization will have multiple Storage Profiles, different class fo storage, etc. The simple command of:
+ Get-OrgVDC
+ Returns a summary or cummulative view of the storage profile usage. To get the actual usage for each profile, execute this command:
+ $OrgVdc = get-orgvdc (Org VDC Name)
+search-cloud -querytype AdminOrgVdcStorageProfile | where { $_.VdcName -eq $orgvdc } | get-ciview
+ </description>
+    </item>
+    
+    <item>
+      <title>Find Broken Catalog Items in vCloud 5.x</title>
+      <link>/posts/2014-03-31-2014331find-broken-catalog-items-in-vcloud-5x/</link>
+      <pubDate>Mon, 31 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-03-31-2014331find-broken-catalog-items-in-vcloud-5x/</guid>
+      <description>Sometimes when uploading content into vCloud there is a chance that the content can be broken. This can cause programs to have errors. To find these items, run the following in PowerShell as the a &amp;lsquo;system administrator&amp;rsquo;.
+ search-cloud -QueryType AdminCatalogItem | Where-Object { $_.Status -eq &amp;ldquo;Unknown&amp;rdquo; }
+ You can now remove them utilizing the API or vCO and the &amp;lsquo;Remove Catalog Item&amp;rsquo; workflow.</description>
+    </item>
+    
+    <item>
+      <title>Monitoring Compute Performance of a VM</title>
+      <link>/posts/2014-03-31-2014331monitoring-compute-performance-of-a-vm/</link>
+      <pubDate>Mon, 31 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-03-31-2014331monitoring-compute-performance-of-a-vm/</guid>
+      <description>Even when using vC Ops from VMware, vCenter metrics, vCloud Metrics, and Hyperic Montoring there are things that can be missed.
+What if the datastore shows 1ms latency on the vSphere host, the CPU usage is low, the Memory is not being swapped, but a user insists it is just &amp;lsquo;slow&amp;rsquo;. What would you check?
+In our cloud deployment (25,000 VMs in a single vCloud instance, and we have 4); I have deployed 4 - 6 VMs per vCenter across differnet datastores, on different hosts.</description>
+    </item>
+    
+    <item>
+      <title>Ejecting CD ISO&#39;s in vCloud Director</title>
+      <link>/posts/2014-03-28-2014327ejecting-cd-isos-in-vcloud-director/</link>
+      <pubDate>Fri, 28 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-03-28-2014327ejecting-cd-isos-in-vcloud-director/</guid>
+      <description>With vCloud Director 5.1 every once in a while a CD will refuse to eject, or worse it will say it ejected the CD but it will not make the change in vCenter.
+To get around this with PowerCLI connected to the vCenter use this command:
+ get-folder | get-VM | Get-CDDrive | Set-CDDrive -NoMedia -Confirm:$false
+ This will allow the CD to be ejected without having to Deploy, Eject, Re-Capture the vApp Template.</description>
+    </item>
+    
+    <item>
+      <title>Enabling SAML Providers in vCloud 5.1</title>
+      <link>/posts/2013-02-23-2013222enabling-saml-providers-in-vcloud-51/</link>
+      <pubDate>Sat, 23 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2013-02-23-2013222enabling-saml-providers-in-vcloud-51/</guid>
+      <description>As a system or organization administrator head to the &amp;lsquo;Administration&amp;rsquo; page, and then the federation tab. Paste or upload the SAML configuration XML. Ensure the certificate at the bottom of the page is recent, if not click re-generate certificate. It will produce a certificate for 1 year.
+After the certificate is re-newed enter this URL in to the web browser: cloud/org/[orgName]/saml/metadata/alias/vcd ; save the XML file on that page. This is the file you will need to provide the SAML or 3rd party authentication service with in order to authenticate you.</description>
+    </item>
+    
+    <item>
+      <title>vCNS App - Spoofguard Deployment</title>
+      <link>/posts/2012-09-25-2012925vcns-app-spoofguard-deployment/</link>
+      <pubDate>Tue, 25 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-09-25-2012925vcns-app-spoofguard-deployment/</guid>
+      <description>Spoofguard records the IP address of each vNIC secured by vShield App. Spoofguard can be configured in two different modes, automatic and manual.
+In Automatic mode the first IP that is presented for each vNIC is recorded and allowed to communicate without authorization. If the IP of the vNIC changes, the machine will no longer be able to communicate on the network until the new IP is approved.
+In manual mode all IPs must be approved prior to being allowed to communicate; even existing virtual machines will be blocked until approved.</description>
+    </item>
+    
+    <item>
+      <title>Changing the auto generated passwords in vCloud</title>
+      <link>/posts/2011-09-15-2011915changing-the-auto-generated-passwords-in-vcloud-html/</link>
+      <pubDate>Thu, 15 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-09-15-2011915changing-the-auto-generated-passwords-in-vcloud-html/</guid>
+      <description>In VMware&amp;rsquo;s vCloud Director, when a VM is deployed using the guest customization, you can either supply a password for the administrator user or have vCloud auto-generate a password. The auto-generated passwords are 8 characters long and use upper-case, lower-case, numbers and special characters for example &amp;ldquo;q#Tv21*a&amp;rdquo;. If the 8 characters is not long enough for you you can increase the character length by changing a field in the database.</description>
+    </item>
+    
+    <item>
+      <title>vCloud 1.5 Bios.UUID Changes</title>
+      <link>/posts/2011-09-08-201198vcloud-15-biosuuid-changes-html/</link>
+      <pubDate>Thu, 08 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-09-08-201198vcloud-15-biosuuid-changes-html/</guid>
+      <description>With vCloud 1.x and even back in Lab Manager 3.x and 4.x the default behavior for capturing and deploying VMs to the Library (LM term) or Catalog (vCloud term) has been to keep the BIOS.UUID the same for all subsequent VMs. This allows those products that tie their license to the machine serial number to keep workign when re-deployed on vCloud or LM. Let&amp;rsquo;s back up what is the BIOS.UUID? The BIOS.</description>
+    </item>
+    
+    <item>
+      <title>Removing the vCloud agent from ESXi hosts</title>
+      <link>/posts/2011-08-29-2011829removing-the-vcloud-agent-from-esxi-hosts-html/</link>
+      <pubDate>Mon, 29 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-08-29-2011829removing-the-vcloud-agent-from-esxi-hosts-html/</guid>
+      <description>In order to remove the vCloud agents from vSphere 5 hosts you need to execute the following command on the console:
+ esxcli software vib remove –n vcloud-agent
+ This can be ran by the PowerCLI or the vSphereCLI or on the SSH console with tech support mode enabled.
+Reboot the hosts after this step to complete the removal.</description>
+    </item>
+    
+    <item>
+      <title>Importing vApp from vCenter Error</title>
+      <link>/posts/2011-08-24-2011824importing-vapp-from-vcenter-error-html/</link>
+      <pubDate>Wed, 24 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-08-24-2011824importing-vapp-from-vcenter-error-html/</guid>
+      <description>When importing a VM or vApp from vCenter into vCloud you may see an error like this:
+  A specified parameter was not correct.
+ spec.deviceChange.device.port.switchUuid
+ This can happen when comign from a Cisco Nexus 1000v Portgroup, to solve this either remove the network adapter for importing into the cloud, or move the network card to a portgroup that is not a Nexus 1000v Portgroup.
+If you are using a dVS and see this error move the NIC to a standard vSwitch or delete the NIC and re-add it once it is in the cloud.</description>
+    </item>
+    
+    <item>
+      <title>Error in vCenter when creating a PvDC in vCloud Director</title>
+      <link>/posts/2011-07-22-2011722error-in-vcenter-when-creating-a-pvdc-in-vcloud-director-1-html/</link>
+      <pubDate>Fri, 22 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-07-22-2011722error-in-vcenter-when-creating-a-pvdc-in-vcloud-director-1-html/</guid>
+      <description>If your vCloud Director machine is on the same vCenter as the Compute Clusters are (not a best practice but it does work), you can not have the same vCloud Director machine name in vCenter as you named the vCloud installation during installation.
+This will produce an error such as “The already exists.”
+This is because vCenter Folders and Virtual Machines can not have identical names. Can the host name be the same?</description>
+    </item>
+    
+  </channel>
+</rss>

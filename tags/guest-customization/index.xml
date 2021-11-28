@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>guest-customization on blog... things...</title>
+    <link>/tags/guest-customization/</link>
+    <description>Recent content in guest-customization on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 15 Sep 2011 00:00:00 +0000</lastBuildDate><atom:link href="/tags/guest-customization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Changing the auto generated passwords in vCloud</title>
+      <link>/posts/2011-09-15-2011915changing-the-auto-generated-passwords-in-vcloud-html/</link>
+      <pubDate>Thu, 15 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-09-15-2011915changing-the-auto-generated-passwords-in-vcloud-html/</guid>
+      <description>In VMware&amp;rsquo;s vCloud Director, when a VM is deployed using the guest customization, you can either supply a password for the administrator user or have vCloud auto-generate a password. The auto-generated passwords are 8 characters long and use upper-case, lower-case, numbers and special characters for example &amp;ldquo;q#Tv21*a&amp;rdquo;. If the 8 characters is not long enough for you you can increase the character length by changing a field in the database.</description>
+    </item>
+    
+  </channel>
+</rss>

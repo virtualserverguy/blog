@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vmware on blog... things...</title>
+    <link>/tags/vmware/</link>
+    <description>Recent content in vmware on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 30 May 2012 00:00:00 +0000</lastBuildDate><atom:link href="/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VMworld Sessions</title>
+      <link>/posts/2012-05-30-2012530vmworld-sessions-html/</link>
+      <pubDate>Wed, 30 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-05-30-2012530vmworld-sessions-html/</guid>
+      <description>Consider voting for session 1314, 1315 and 1628 here . Here is a brief on what you will learn&amp;hellip;
+Session 1314 Will cover how vShield App can make use of a single Layer 3 network with multiple security zones in the same network with access control and auditing from server to server communications. It will also cover how vShield App will assist with passing audits and security tests.
+Session 1315 Will cover how to recover from a site outage and how to restore services in a DR or BC scenario.</description>
+    </item>
+    
+    <item>
+      <title>vSphere 5 vRam Licensing Changes</title>
+      <link>/posts/2011-08-03-201183vsphere-5-vram-licensing-changes-html/</link>
+      <pubDate>Wed, 03 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-08-03-201183vsphere-5-vram-licensing-changes-html/</guid>
+      <description>When VMware released the vRam pricing models and limits last week there was quite an uproar over the limitations being set to low. It appears that VMware was listening and has responded with a hefty increase in vRam allocations.
+That is nearly double the entitlements.
+Also changing is how the usage is calculated for a high water mark (think bursting for a day) to a rolling 12 month average!
+Finally the last news and some major news at that, is that a single VM can only consume 96GB of vRam, no matter how you set the VM up!</description>
+    </item>
+    
+  </channel>
+</rss>

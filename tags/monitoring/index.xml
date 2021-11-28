@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>monitoring on blog... things...</title>
+    <link>/tags/monitoring/</link>
+    <description>Recent content in monitoring on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Mon, 31 Mar 2014 00:00:00 +0000</lastBuildDate><atom:link href="/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monitoring Compute Performance of a VM</title>
+      <link>/posts/2014-03-31-2014331monitoring-compute-performance-of-a-vm/</link>
+      <pubDate>Mon, 31 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-03-31-2014331monitoring-compute-performance-of-a-vm/</guid>
+      <description>Even when using vC Ops from VMware, vCenter metrics, vCloud Metrics, and Hyperic Montoring there are things that can be missed.
+What if the datastore shows 1ms latency on the vSphere host, the CPU usage is low, the Memory is not being swapped, but a user insists it is just &amp;lsquo;slow&amp;rsquo;. What would you check?
+In our cloud deployment (25,000 VMs in a single vCloud instance, and we have 4); I have deployed 4 - 6 VMs per vCenter across differnet datastores, on different hosts.</description>
+    </item>
+    
+  </channel>
+</rss>

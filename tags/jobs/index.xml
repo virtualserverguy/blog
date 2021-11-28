@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jobs on blog... things...</title>
+    <link>/tags/jobs/</link>
+    <description>Recent content in jobs on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 01 Jan 2013 00:00:00 +0000</lastBuildDate><atom:link href="/tags/jobs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New Year... Brings Changes</title>
+      <link>/posts/2013-01-01-20121231new-year-brings-changes/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2013-01-01-20121231new-year-brings-changes/</guid>
+      <description>With the New Year brings some new changes; I am transferring inside of VMware to a new group that is focusing on Cloud Consumption.
+Cloud Consumption&amp;hellip; WTH is that?
+For the past, well as long as I have been in IT, I have been doing &amp;lsquo;Ping, Power and Pipe&amp;rsquo;. With IaaS it is in my opinion it has been done, most any experienced IT person could stand up IaaS.
+In my new role I will be focusing on methods to consume the cloud offerings.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gtd on blog... things...</title>
+    <link>/tags/gtd/</link>
+    <description>Recent content in gtd on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 16 Aug 2012 00:00:00 +0000</lastBuildDate><atom:link href="/tags/gtd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How I Get Things Done</title>
+      <link>/posts/2012-08-16-2012816how-i-get-things-done/</link>
+      <pubDate>Thu, 16 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-08-16-2012816how-i-get-things-done/</guid>
+      <description>Here are the programs and things that I need on a daily business to get my job done.
+1. Instapaper - While reading blogs, security news and other information; I log the pages to instapaper.
+2. Evernote - I have an AppleScript that takes items from Instapaper and places them into Evernote for later retrieval. I also use Evernote to keep wikis and other documents for easy search and access.</description>
+    </item>
+    
+  </channel>
+</rss>

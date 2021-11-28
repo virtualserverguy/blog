@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vcdx-process on blog... things...</title>
+    <link>/categories/vcdx-process/</link>
+    <description>Recent content in vcdx-process on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Fri, 31 Aug 2012 00:00:00 +0000</lastBuildDate><atom:link href="/categories/vcdx-process/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What does it take to achieve a VCDX certification?</title>
+      <link>/posts/2012-08-31-201291what-does-it-take-to-achieve-a-vcdx-certification/</link>
+      <pubDate>Fri, 31 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-08-31-201291what-does-it-take-to-achieve-a-vcdx-certification/</guid>
+      <description>There have been lots of articles on the defense and the process… so I will not waste space on that. This is going to be focused on &amp;lsquo;What is a VCDX?&amp;rsquo;
+It means that you are an expert at designing and architecting VMware virtual environments; more specifically vSphere environments. Of course to achieve this level of certification you had to pass a VCP test, a VMware Certified Advanced Professional Datacenter Design (VCAP-DCD) and Datacenter Administrator (VCAP-DCA) test.</description>
+    </item>
+    
+    <item>
+      <title>How to become a VCDX... Or at least have a less painful defense</title>
+      <link>/posts/2011-09-10-201199how-to-become-a-vcdx-or-at-least-have-a-less-painful-defense-html/</link>
+      <pubDate>Sat, 10 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-09-10-201199how-to-become-a-vcdx-or-at-least-have-a-less-painful-defense-html/</guid>
+      <description>I have been asked many times about the VCDX Defense process. Especially, what to do and what not to do? What is the defense really like? Are the panelists really mean? Do they throw flaming daggers at candidates? and the such&amp;hellip; So here are some pointers, tips and other information.
+Design Defense First off, the panelists do NOT have flaming daggers that get thrown at the candidates. The panelists use soft squishy Nerf balls.</description>
+    </item>
+    
+  </channel>
+</rss>

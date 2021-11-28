@@ -27,5 +27,691 @@
 try git hub action&amp;hellip;</description>
     </item>
     
+    <item>
+      <title>vSphere 6.5 - Top KB Articles for Upgrade Prep</title>
+      <link>/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/</guid>
+      <description>Here are the top KB articles for upgrading to vSphere 6.5:
+KB 2146420 – Estimating vCenter Server 5.5 to vCenter Server Appliance 6.x migration time KB 2147711 – Estimating vCenter Server 5.5 or 6.0 to vCenter Server Appliance 6.5 migration time KB 2112283 – Regenerate vCenter Certificates KB 2147548 – Important information before upgrading to vSphere 6.5 KB 2147686 – vCenter Server 6.5 upgrade best practices KB 2147824 – Migrating VMFS 5 datastore to VMFS 6 datastore KB 2147289 – Update Sequence for vSphere 6.</description>
+    </item>
+    
+    <item>
+      <title>Mass Update Media in vCloud Dicrector</title>
+      <link>/posts/2014-04-21-2014421mass-update-media-in-vcloud-dicrector/</link>
+      <pubDate>Mon, 21 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-04-21-2014421mass-update-media-in-vcloud-dicrector/</guid>
+      <description>In vCloud 5.1 it is very difficult to move media from LUN to LUN once it is uploaded. In vCloud 5.5 this gets better but it is still a pain.
+One method I have found that works is to disable the LUN you want the media moved off of, and change something on the media record. Something such as adding a &#39; &#39; (space) to the description will cause vCloud Director to copy the media to a new LUN.</description>
+    </item>
+    
+    <item>
+      <title>Relocating a VM in vCloud Director</title>
+      <link>/posts/2014-04-16-2014416relocating-a-vm-in-vcloud-director/</link>
+      <pubDate>Wed, 16 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-04-16-2014416relocating-a-vm-in-vcloud-director/</guid>
+      <description>Occasionally I need to move a VM or vApp from datastore to datastore, various reasons why. Sometimes I need to break the linked clone tree and force vCenter to consolidate it. Sure I can power off the VM and execute a &amp;lsquo;consolidate&amp;rsquo; via the UI, but what if I need to keep the VM powered on? A storage vMotion does just that.
+Sure you can fire up your vCenter Client or WebClient and move the VM that way.</description>
+    </item>
+    
+    <item>
+      <title>Remove vApp Template With No Catalog Item Link</title>
+      <link>/posts/2014-04-14-2014414remove-vapp-template-with-no-catalog-item-link/</link>
+      <pubDate>Mon, 14 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-04-14-2014414remove-vapp-template-with-no-catalog-item-link/</guid>
+      <description>First&amp;hellip; Did you know that vApp Templates and Catalog Items are two different things in vCloud Director? If so, did you know that you can have a vApp Tempalte that does not link to a catalog item? Finally, you can&amp;rsquo;t have a Catalog Item without a vApp Tempalte backing though.
+Well I guess you could. If you manage to get one of those, you will want to follow my guide on fixing that here .</description>
+    </item>
+    
+    <item>
+      <title>Detecting and Removing Invalid vApps</title>
+      <link>/posts/2014-04-09-201449detecting-and-removing-invalid-vapps/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-04-09-201449detecting-and-removing-invalid-vapps/</guid>
+      <description>After you run vCloud for a while, heck run any management product for a while, and you will have left overs, hung items, or even corrupt vApps.
+With vCloud Director you can run the below to find those items and remove them.
+ $badvapp = Search-Cloud -QueryType AdminVapp | Where-Object { $_.Status -eq “UNRESOLVED&amp;quot; }
+foreach ( $id in $badvapp ) {
+Get-CIVApp -Id $id.id | Remove-CIVApp
+}
+ This probably wont remove everything, those items that are left, generally can only be removed via editing the database (I would not recommend that).</description>
+    </item>
+    
+    <item>
+      <title>Detecting and Removing Invalid vApp Templates</title>
+      <link>/posts/2014-04-07-201447detecting-and-removing-vapp-templates/</link>
+      <pubDate>Mon, 07 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-04-07-201447detecting-and-removing-vapp-templates/</guid>
+      <description>In the event that a vApp Template or Catalog Item fails during the upload process parts of that vApp Template can be left behind. To find and remove those items run the following:
+ $badvappt = Search-Cloud -QueryType AdminVappTemplate | Where-Object { $_.Status -eq &amp;ldquo;FAILED_Creation&amp;rdquo; }
+foreach ( $id in $badvappt ) {
+Get-CIVAppTemplate -Id $id.id | Remove-CIVAppTemplate -RemoveCatalogItem $false
+}
+ Run the first part to see what there is, run it all to remove broken vApp Templates.</description>
+    </item>
+    
+    <item>
+      <title>Modify Bulk vApp Network Attachments</title>
+      <link>/posts/2014-04-02-201442modify-bulk-vapps-network-attachments/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-04-02-201442modify-bulk-vapps-network-attachments/</guid>
+      <description>With vCloud Director if you need to change the Organization vDC Network, for instance you run out of IP addresses. You can use the script below to change the attached network of all powered off vApps.
+ $vapps = search-cloud -QueryType VAppOrgNetworkRelation | Where-Object { $.OrgNetworkName -eq &amp;ldquo;Old Network Name&amp;rdquo; -and $.Status -eq &amp;ldquo;Stopped” }
+foreach ($vapp in $vapps) {
+get-civapp -id $vapp.id | Get-CIVAppNetwork -ErrorAction SilentlyContinue | Where-Object { $_.</description>
+    </item>
+    
+    <item>
+      <title>Query vCloud Director for Storage Profile Usage</title>
+      <link>/posts/2014-04-01-2014422query-vcloud-director-for-storage-profile-usage/</link>
+      <pubDate>Tue, 01 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-04-01-2014422query-vcloud-director-for-storage-profile-usage/</guid>
+      <description>Often times an organization will have multiple Storage Profiles, different class fo storage, etc. The simple command of:
+ Get-OrgVDC
+ Returns a summary or cummulative view of the storage profile usage. To get the actual usage for each profile, execute this command:
+ $OrgVdc = get-orgvdc (Org VDC Name)
+search-cloud -querytype AdminOrgVdcStorageProfile | where { $_.VdcName -eq $orgvdc } | get-ciview
+ </description>
+    </item>
+    
+    <item>
+      <title>Find Broken Catalog Items in vCloud 5.x</title>
+      <link>/posts/2014-03-31-2014331find-broken-catalog-items-in-vcloud-5x/</link>
+      <pubDate>Mon, 31 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-03-31-2014331find-broken-catalog-items-in-vcloud-5x/</guid>
+      <description>Sometimes when uploading content into vCloud there is a chance that the content can be broken. This can cause programs to have errors. To find these items, run the following in PowerShell as the a &amp;lsquo;system administrator&amp;rsquo;.
+ search-cloud -QueryType AdminCatalogItem | Where-Object { $_.Status -eq &amp;ldquo;Unknown&amp;rdquo; }
+ You can now remove them utilizing the API or vCO and the &amp;lsquo;Remove Catalog Item&amp;rsquo; workflow.</description>
+    </item>
+    
+    <item>
+      <title>Monitoring Compute Performance of a VM</title>
+      <link>/posts/2014-03-31-2014331monitoring-compute-performance-of-a-vm/</link>
+      <pubDate>Mon, 31 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-03-31-2014331monitoring-compute-performance-of-a-vm/</guid>
+      <description>Even when using vC Ops from VMware, vCenter metrics, vCloud Metrics, and Hyperic Montoring there are things that can be missed.
+What if the datastore shows 1ms latency on the vSphere host, the CPU usage is low, the Memory is not being swapped, but a user insists it is just &amp;lsquo;slow&amp;rsquo;. What would you check?
+In our cloud deployment (25,000 VMs in a single vCloud instance, and we have 4); I have deployed 4 - 6 VMs per vCenter across differnet datastores, on different hosts.</description>
+    </item>
+    
+    <item>
+      <title>Ejecting CD ISO&#39;s in vCloud Director</title>
+      <link>/posts/2014-03-28-2014327ejecting-cd-isos-in-vcloud-director/</link>
+      <pubDate>Fri, 28 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2014-03-28-2014327ejecting-cd-isos-in-vcloud-director/</guid>
+      <description>With vCloud Director 5.1 every once in a while a CD will refuse to eject, or worse it will say it ejected the CD but it will not make the change in vCenter.
+To get around this with PowerCLI connected to the vCenter use this command:
+ get-folder | get-VM | Get-CDDrive | Set-CDDrive -NoMedia -Confirm:$false
+ This will allow the CD to be ejected without having to Deploy, Eject, Re-Capture the vApp Template.</description>
+    </item>
+    
+    <item>
+      <title>vCloud Director and VMware Horizon Intergration</title>
+      <link>/posts/2013-03-20-2013319vcloud-director-and-vmware-horizon-intergration/</link>
+      <pubDate>Wed, 20 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2013-03-20-2013319vcloud-director-and-vmware-horizon-intergration/</guid>
+      <description>Requirements for SSO in vCloud Director The SAML process and parties using them have formal roles and responsibilities:
+ Service Provider – An entity that receives the SAML Message from an Idenity Provider (vCloud Director ) Identity Provider – An entity that authenticates an user (Horizon)  The Identity provider must provide these fields in the response (case sensitive):
+ UserName EmailAddress FullName Groups  While the only required field is UserName it is recommended that all fields be returned with proper information to allow for ease of management and administration of the users and their rights.</description>
+    </item>
+    
+    <item>
+      <title>Enabling SAML Providers in vCloud 5.1</title>
+      <link>/posts/2013-02-23-2013222enabling-saml-providers-in-vcloud-51/</link>
+      <pubDate>Sat, 23 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2013-02-23-2013222enabling-saml-providers-in-vcloud-51/</guid>
+      <description>As a system or organization administrator head to the &amp;lsquo;Administration&amp;rsquo; page, and then the federation tab. Paste or upload the SAML configuration XML. Ensure the certificate at the bottom of the page is recent, if not click re-generate certificate. It will produce a certificate for 1 year.
+After the certificate is re-newed enter this URL in to the web browser: cloud/org/[orgName]/saml/metadata/alias/vcd ; save the XML file on that page. This is the file you will need to provide the SAML or 3rd party authentication service with in order to authenticate you.</description>
+    </item>
+    
+    <item>
+      <title>vCloud Network Security 5.1.2a Release</title>
+      <link>/posts/2013-02-08-201328vcloud-network-security-512a-release/</link>
+      <pubDate>Fri, 08 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2013-02-08-201328vcloud-network-security-512a-release/</guid>
+      <description>Heads up&amp;hellip; VMware released vCloud Network Security 5.1.2a this morning, it is a MUST upgrade if you are on 5.1.2. Fixes a pretty big show stopper bug where a vShield Manager can stop responding to requests without warning/error and the only fix is to bounce the entire vShield Manager.
+Release notes here .
+Doumentation here .
+vCloud Network Security Product page here .</description>
+    </item>
+    
+    <item>
+      <title>Recovering the Embedded DB Password on VCVA</title>
+      <link>/posts/2013-01-23-2013123recovering-the-embedded-db-password-on-vcva/</link>
+      <pubDate>Wed, 23 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2013-01-23-2013123recovering-the-embedded-db-password-on-vcva/</guid>
+      <description>Here is how to recover the embedded DB password on the VMware vCenter Virtual Appliance (VCVA):
+From the console (or SSH) of the VCVA run this command:
+ grep EMB_DB_PASSWORD /etc/vmware-vpx/embedded_db.cfg
+ From: http://kb.vmware.com/selfservice/microsites/search.do?language=en _US&amp;amp;cmd=displayKC&amp;amp;externalId=2004506</description>
+    </item>
+    
+    <item>
+      <title>New Year... Brings Changes</title>
+      <link>/posts/2013-01-01-20121231new-year-brings-changes/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2013-01-01-20121231new-year-brings-changes/</guid>
+      <description>With the New Year brings some new changes; I am transferring inside of VMware to a new group that is focusing on Cloud Consumption.
+Cloud Consumption&amp;hellip; WTH is that?
+For the past, well as long as I have been in IT, I have been doing &amp;lsquo;Ping, Power and Pipe&amp;rsquo;. With IaaS it is in my opinion it has been done, most any experienced IT person could stand up IaaS.
+In my new role I will be focusing on methods to consume the cloud offerings.</description>
+    </item>
+    
+    <item>
+      <title>Symform Security Analysis</title>
+      <link>/posts/2012-12-19-20121219symform-security-analysis/</link>
+      <pubDate>Wed, 19 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-12-19-20121219symform-security-analysis/</guid>
+      <description>This morning on twitter I was asked if Symform &amp;ldquo;Secure Online Backup&amp;rdquo; was as secure as SpiderOak (my favorite online storage/backup solution). Here is my analysis from reading Symform&amp;rsquo;s publically facing documents.
+How it works: According to Symform&amp;rsquo;s website, your data is processed at the folder level. Meaning that all files in a folder are encrypted together. This does give the benefit of being able to de-duplicate the files inside that folder, it is not clear if this is at the block or file level though.</description>
+    </item>
+    
+    <item>
+      <title>Host Isolation Response Settings</title>
+      <link>/posts/2012-10-14-20121014host-isolation-response-settings/</link>
+      <pubDate>Sun, 14 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-10-14-20121014host-isolation-response-settings/</guid>
+      <description>Over the past few weeks I have had some people ask what I would recommend for host isolation addresses and responses, when using vSphere x.x with high availability (HA) enabled.
+First off as with most everything in computers &amp;lsquo;It depends&amp;rsquo;.
+Items to consider with host isolation response is what type of storage is being utilized? Is it considered an outage if the vSphere hosts can talk to each other but the virtual machines (VMs) cannot?</description>
+    </item>
+    
+    <item>
+      <title>iOS 6 - Ad Tracking</title>
+      <link>/posts/2012-09-25-2012924ios-6-ad-tracking/</link>
+      <pubDate>Tue, 25 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-09-25-2012924ios-6-ad-tracking/</guid>
+      <description>You can disable (well limit) the ad tracking that is done in iOS 6. This setting turns off the ability for advertisers to use what is called the &amp;lsquo;Advertising Identifier&amp;rsquo;. This replaces the devices UUID which is a non-anonymous way of tracking usage. The advertising identifier is &amp;lsquo;anonymous&amp;rsquo; (though further research needs to be done).
+Here is how to disable the ability for advertisers to track you at all (once they move from the old deprecated UUID model).</description>
+    </item>
+    
+    <item>
+      <title>vCNS App - Spoofguard Deployment</title>
+      <link>/posts/2012-09-25-2012925vcns-app-spoofguard-deployment/</link>
+      <pubDate>Tue, 25 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-09-25-2012925vcns-app-spoofguard-deployment/</guid>
+      <description>Spoofguard records the IP address of each vNIC secured by vShield App. Spoofguard can be configured in two different modes, automatic and manual.
+In Automatic mode the first IP that is presented for each vNIC is recorded and allowed to communicate without authorization. If the IP of the vNIC changes, the machine will no longer be able to communicate on the network until the new IP is approved.
+In manual mode all IPs must be approved prior to being allowed to communicate; even existing virtual machines will be blocked until approved.</description>
+    </item>
+    
+    <item>
+      <title>vCNS Edge 5.1 VIX_E_DISK_FULL ERROR Fix</title>
+      <link>/posts/2012-09-24-2012924vcns-edge-51-vixediskfull-error-fix/</link>
+      <pubDate>Mon, 24 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-09-24-2012924vcns-edge-51-vixediskfull-error-fix/</guid>
+      <description>VMware this morning released a KB article and a fix for the Edge devices filling up on disk space. While it did not kill the edge or cause an outage, it did stop you from being able to make changes to the Edge&amp;rsquo;s configuration.
+The official fix will be released on this site: https://my.vmware.com/web/vmware/info/slug/security_products/vmware_vcloud_networking_and_security/5_1 The upgrade/patch will require the standard vCloud Network Security (vShield) upgrade process where the Edge device will need to be replaced with the new code.</description>
+    </item>
+    
+    <item>
+      <title>Network as a Service</title>
+      <link>/posts/2012-09-12-2012912network-as-a-service/</link>
+      <pubDate>Wed, 12 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-09-12-2012912network-as-a-service/</guid>
+      <description>What the heck is Network as a Service (NaaS)?
+Wait I know&amp;hellip; it is one of those catchy new jargons that the marketing people use.
+Actually, they will; someday.
+Right now though I am referring to the idea that what was done for compute, virtualization, can be done for networking. Think quickly of how networking is tied to the physical.
+If you want to add a new server to your datacenter&amp;hellip; You have to rack it, power it, and connect it to the physical network.</description>
+    </item>
+    
+    <item>
+      <title>Time for a change... Well a new direction at least</title>
+      <link>/posts/2012-09-12-2012912time-for-a-change-well-a-new-direction-at-least/</link>
+      <pubDate>Wed, 12 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-09-12-2012912time-for-a-change-well-a-new-direction-at-least/</guid>
+      <description>I started working at VMware just under two years ago. In that time I have gone for a Cloud Practice, where we developed the services and solutions that are being implemented today. Which transitioned into a group developing bleeding edge documentation, processes, and ultimately &amp;lsquo;making the marketing world a reality&amp;rsquo;.
+Since then I have transitioned to a more security in the cloud role. For example, how can a workload in the cloud be secured and audited against, no matter where it is running?</description>
+    </item>
+    
+    <item>
+      <title>What does it take to achieve a VCDX certification?</title>
+      <link>/posts/2012-08-31-201291what-does-it-take-to-achieve-a-vcdx-certification/</link>
+      <pubDate>Fri, 31 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-08-31-201291what-does-it-take-to-achieve-a-vcdx-certification/</guid>
+      <description>There have been lots of articles on the defense and the process… so I will not waste space on that. This is going to be focused on &amp;lsquo;What is a VCDX?&amp;rsquo;
+It means that you are an expert at designing and architecting VMware virtual environments; more specifically vSphere environments. Of course to achieve this level of certification you had to pass a VCP test, a VMware Certified Advanced Professional Datacenter Design (VCAP-DCD) and Datacenter Administrator (VCAP-DCA) test.</description>
+    </item>
+    
+    <item>
+      <title>vCenter and vSphere 5.1</title>
+      <link>/posts/2012-08-27-2012827vcenter-and-vsphere-51/</link>
+      <pubDate>Mon, 27 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-08-27-2012827vcenter-and-vsphere-51/</guid>
+      <description>The latest versions of VMware&amp;rsquo;s vCenter, vSphere, vCloud Director, and vShield are now at version 5.1. The first major, ground breaking change&amp;hellip;
+vRAM is GONE!
+That is right, a year after making the very unpopular choice to limit the amount of &amp;lsquo;vRAM&amp;rsquo; you could use per license, VMware has heard the screams of pain and completely tossed the idea. While it only really effected a handful of the thousands of customer of VMware, it was a complexity that caused more confusion than answers.</description>
+    </item>
+    
+    <item>
+      <title>vCloud Network Security (formerly vShield)</title>
+      <link>/posts/2012-08-27-2012822vcenter-network-security-formerly-vshield/</link>
+      <pubDate>Mon, 27 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-08-27-2012822vcenter-network-security-formerly-vshield/</guid>
+      <description>Those of you that used the former product vShield that is OLD news, VMware&amp;rsquo;s marketing team has renamed it to be VMware vCloud Network Security, which is really what it is. vShield EndPoint is now free with vSphere host licenses, Enterprise Plus is needed of course.
+Here is a highlight of what is new in vCloud Network Security:
+ The Edge product finally supports more than two interfaces, and becomes a more flexible and usable product.</description>
+    </item>
+    
+    <item>
+      <title>How I Get Things Done</title>
+      <link>/posts/2012-08-16-2012816how-i-get-things-done/</link>
+      <pubDate>Thu, 16 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-08-16-2012816how-i-get-things-done/</guid>
+      <description>Here are the programs and things that I need on a daily business to get my job done.
+1. Instapaper - While reading blogs, security news and other information; I log the pages to instapaper.
+2. Evernote - I have an AppleScript that takes items from Instapaper and places them into Evernote for later retrieval. I also use Evernote to keep wikis and other documents for easy search and access.</description>
+    </item>
+    
+    <item>
+      <title>VCDX 5</title>
+      <link>/posts/2012-07-18-2012718vcdx-5/</link>
+      <pubDate>Wed, 18 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-07-18-2012718vcdx-5/</guid>
+      <description>Barcelona is going to be the first VCDX5 defenses, meaning you can submit a vSphere design and only be questioned on vSphere 5.x features. Sure with the current program you can submit vSphere 5 designs, but you will only receive a VCDX4 certification. So the real question what changes with VCDX 5?
+The short answer is nothing. Nothing changes from all the blog posts and information that is out there for VCDX 5.</description>
+    </item>
+    
+    <item>
+      <title>VMworld Sessions</title>
+      <link>/posts/2012-05-30-2012530vmworld-sessions-html/</link>
+      <pubDate>Wed, 30 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-05-30-2012530vmworld-sessions-html/</guid>
+      <description>Consider voting for session 1314, 1315 and 1628 here . Here is a brief on what you will learn&amp;hellip;
+Session 1314 Will cover how vShield App can make use of a single Layer 3 network with multiple security zones in the same network with access control and auditing from server to server communications. It will also cover how vShield App will assist with passing audits and security tests.
+Session 1315 Will cover how to recover from a site outage and how to restore services in a DR or BC scenario.</description>
+    </item>
+    
+    <item>
+      <title>SpiderOak v. Sugar Sync</title>
+      <link>/posts/2012-04-27-2012427spideroak-v-sugar-sync-html/</link>
+      <pubDate>Fri, 27 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-04-27-2012427spideroak-v-sugar-sync-html/</guid>
+      <description>I recently moved from Sugar Sync with over 60GB stored to SpiderOak for cloud based storage of documents, pictures and other data. Before I explain why here is a quick overview on how they work differently (based on the documentation on their web sites).
+SugarSync Data is transmitted unencrypted to SugarSync through a encrypted SSL/TLS connection to the SugarSync servers. The data is then encrypted and stored on the SugarSync servers for later retrieval.</description>
+    </item>
+    
+    <item>
+      <title>vCenter Operations Manager 5 Guides</title>
+      <link>/posts/2012-04-18-2012417vcenter-operations-manager-5-guides-html/</link>
+      <pubDate>Wed, 18 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-04-18-2012417vcenter-operations-manager-5-guides-html/</guid>
+      <description>Here is a compliation of links for vCenter Operations Manager 5 or Vc Ops for short.
+Official VMware Documentation http://www.vmware.com/support/pubs/vcops-pubs.html &amp;hellip;especially the Advanced Getting Started guide http://www.vmware.com/pdf/vcops-5-getting-started-guide.pdf VMware Community Site http://communities.vmware.com/community/vmtn/server/vcenter/vcops VMware TV on YouTube - several videos: VMware vCenter Operations 5.0 - Introduction Video http://www.youtube.com/watch?v=Z-DJuTiqKag VMware vCenter Operations Manager 5.0 - Install and Configure http://www.youtube.com/watch?v=pwRdGDhI0lc&amp;amp;feature=relmfu TheSaffaGeek.co.uk http://thesaffageek.co.uk/tag/vcenter-operations-manager/ vExperienced.co.uk http://www.vexperienced.co.uk/2012/04/10/vcenter-operations-v5-intro/ http://www.vexperienced.co.uk/2012/04/12/using-vcenter-operations-v5-crazy-cool/ http://www.vexperienced.co.uk/2012/04/16/using-vcenter-operations-v5-capacity-features-and-conclusions-33/ Iwan Rahabok technical deep-dive @ Community site (large PPT) http://communities.</description>
+    </item>
+    
+    <item>
+      <title>vCenter Configuration Manager Split Install Issues</title>
+      <link>/posts/2012-04-12-2012411vcenter-configuration-manager-split-install-issues-html/</link>
+      <pubDate>Thu, 12 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-04-12-2012411vcenter-configuration-manager-split-install-issues-html/</guid>
+      <description>vCM or vCenter Configuration Manager 5.5 was released in March by VMware with a few new features. First of all and the topic of this blog post, is the re-inclusion of a split install. Split install being the database, application and web page can be on different servers.You ask didn&amp;rsquo;t vCM or SCM or ECM (depending on when you used vCM last) have this feature before? It did back in the 5.</description>
+    </item>
+    
+    <item>
+      <title>vCenter Server Appliance Database</title>
+      <link>/posts/2012-02-24-2012223vcenter-server-appliance-database-html/</link>
+      <pubDate>Fri, 24 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-02-24-2012223vcenter-server-appliance-database-html/</guid>
+      <description>The vCenter Server Appliance comes with a built-in DB2 database for use as an all-in-one solution for small lab environments. The sizing is supposed to be less than 5 hosts and 50 VMs. But it can work much higher than that if given enough resources, :-).
+One issue that occurs when using this appliance is that the DB2 log settings are too small for any extended operation. This is due to stat roll-up jobs taking more log space to complete than the DB2 instanace is set for.</description>
+    </item>
+    
+    <item>
+      <title>netstat for ESXi</title>
+      <link>/posts/2012-01-31-2012131netstat-for-esxi-html/</link>
+      <pubDate>Tue, 31 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-01-31-2012131netstat-for-esxi-html/</guid>
+      <description>With the removal of the service console with vSphere 5, in the form of ESXi, netstat went by the way side. The way to get that information is by executing this on the console. Either in tech support mode (SSH) or at the console.
+ esxcli network ip connection list
+ </description>
+    </item>
+    
+    <item>
+      <title>Nesting Resource Pools; Good Idea or Bad?</title>
+      <link>/posts/2011-12-15-20111215nesting-resource-pools-good-idea-or-bad-html/</link>
+      <pubDate>Thu, 15 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-12-15-20111215nesting-resource-pools-good-idea-or-bad-html/</guid>
+      <description>I was asked recently on my opinion on nesting resource pools with VMs inter-mixed, well what should you do?
+Well here is an easy example; if I have a Resource Pool with 9 VMs and 1 nested Resource Pool, what level of resources are each given? 10% each.
+Think about that, each of the VMs have 10% of the resources and the ENTIRE nested Resource Pool has 10% of the resources.</description>
+    </item>
+    
+    <item>
+      <title>Changing the auto generated passwords in vCloud</title>
+      <link>/posts/2011-09-15-2011915changing-the-auto-generated-passwords-in-vcloud-html/</link>
+      <pubDate>Thu, 15 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-09-15-2011915changing-the-auto-generated-passwords-in-vcloud-html/</guid>
+      <description>In VMware&amp;rsquo;s vCloud Director, when a VM is deployed using the guest customization, you can either supply a password for the administrator user or have vCloud auto-generate a password. The auto-generated passwords are 8 characters long and use upper-case, lower-case, numbers and special characters for example &amp;ldquo;q#Tv21*a&amp;rdquo;. If the 8 characters is not long enough for you you can increase the character length by changing a field in the database.</description>
+    </item>
+    
+    <item>
+      <title>How to become a VCDX... Or at least have a less painful defense</title>
+      <link>/posts/2011-09-10-201199how-to-become-a-vcdx-or-at-least-have-a-less-painful-defense-html/</link>
+      <pubDate>Sat, 10 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-09-10-201199how-to-become-a-vcdx-or-at-least-have-a-less-painful-defense-html/</guid>
+      <description>I have been asked many times about the VCDX Defense process. Especially, what to do and what not to do? What is the defense really like? Are the panelists really mean? Do they throw flaming daggers at candidates? and the such&amp;hellip; So here are some pointers, tips and other information.
+Design Defense First off, the panelists do NOT have flaming daggers that get thrown at the candidates. The panelists use soft squishy Nerf balls.</description>
+    </item>
+    
+    <item>
+      <title>vCloud 1.5 Bios.UUID Changes</title>
+      <link>/posts/2011-09-08-201198vcloud-15-biosuuid-changes-html/</link>
+      <pubDate>Thu, 08 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-09-08-201198vcloud-15-biosuuid-changes-html/</guid>
+      <description>With vCloud 1.x and even back in Lab Manager 3.x and 4.x the default behavior for capturing and deploying VMs to the Library (LM term) or Catalog (vCloud term) has been to keep the BIOS.UUID the same for all subsequent VMs. This allows those products that tie their license to the machine serial number to keep workign when re-deployed on vCloud or LM. Let&amp;rsquo;s back up what is the BIOS.UUID? The BIOS.</description>
+    </item>
+    
+    <item>
+      <title>vSphere Disk Write Process</title>
+      <link>/posts/2011-09-01-201191vsphere-disk-write-process-html/</link>
+      <pubDate>Thu, 01 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-09-01-201191vsphere-disk-write-process-html/</guid>
+      <description>Recently I have seen quite a bit of question and discussion of how vSphere handles disk writes from the guest OS and performance questions about limiting the writes.
+The question started off innocently as &amp;ldquo;How can we gaurantee vSphere disk writes happen and are not cached?&amp;rdquo;
+First lets analyze where this may have started SQL Solutions posted this article , in which they tested SQL server on a VMware virtual machine and tested the write caching of the DB and the virtual machine.</description>
+    </item>
+    
+    <item>
+      <title>Removing the vCloud agent from ESXi hosts</title>
+      <link>/posts/2011-08-29-2011829removing-the-vcloud-agent-from-esxi-hosts-html/</link>
+      <pubDate>Mon, 29 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-08-29-2011829removing-the-vcloud-agent-from-esxi-hosts-html/</guid>
+      <description>In order to remove the vCloud agents from vSphere 5 hosts you need to execute the following command on the console:
+ esxcli software vib remove –n vcloud-agent
+ This can be ran by the PowerCLI or the vSphereCLI or on the SSH console with tech support mode enabled.
+Reboot the hosts after this step to complete the removal.</description>
+    </item>
+    
+    <item>
+      <title>Importing vApp from vCenter Error</title>
+      <link>/posts/2011-08-24-2011824importing-vapp-from-vcenter-error-html/</link>
+      <pubDate>Wed, 24 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-08-24-2011824importing-vapp-from-vcenter-error-html/</guid>
+      <description>When importing a VM or vApp from vCenter into vCloud you may see an error like this:
+  A specified parameter was not correct.
+ spec.deviceChange.device.port.switchUuid
+ This can happen when comign from a Cisco Nexus 1000v Portgroup, to solve this either remove the network adapter for importing into the cloud, or move the network card to a portgroup that is not a Nexus 1000v Portgroup.
+If you are using a dVS and see this error move the NIC to a standard vSwitch or delete the NIC and re-add it once it is in the cloud.</description>
+    </item>
+    
+    <item>
+      <title>vSphere 5 vRam Licensing Changes</title>
+      <link>/posts/2011-08-03-201183vsphere-5-vram-licensing-changes-html/</link>
+      <pubDate>Wed, 03 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-08-03-201183vsphere-5-vram-licensing-changes-html/</guid>
+      <description>When VMware released the vRam pricing models and limits last week there was quite an uproar over the limitations being set to low. It appears that VMware was listening and has responded with a hefty increase in vRam allocations.
+That is nearly double the entitlements.
+Also changing is how the usage is calculated for a high water mark (think bursting for a day) to a rolling 12 month average!
+Finally the last news and some major news at that, is that a single VM can only consume 96GB of vRam, no matter how you set the VM up!</description>
+    </item>
+    
+    <item>
+      <title>Error in vCenter when creating a PvDC in vCloud Director</title>
+      <link>/posts/2011-07-22-2011722error-in-vcenter-when-creating-a-pvdc-in-vcloud-director-1-html/</link>
+      <pubDate>Fri, 22 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-07-22-2011722error-in-vcenter-when-creating-a-pvdc-in-vcloud-director-1-html/</guid>
+      <description>If your vCloud Director machine is on the same vCenter as the Compute Clusters are (not a best practice but it does work), you can not have the same vCloud Director machine name in vCenter as you named the vCloud installation during installation.
+This will produce an error such as “The already exists.”
+This is because vCenter Folders and Virtual Machines can not have identical names. Can the host name be the same?</description>
+    </item>
+    
+    <item>
+      <title>vCloud on ESXi with Lockdown mode</title>
+      <link>/posts/2011-04-19-2011419vcloud-on-esxi-with-lockdown-mode-html/</link>
+      <pubDate>Tue, 19 Apr 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-04-19-2011419vcloud-on-esxi-with-lockdown-mode-html/</guid>
+      <description>Can vCloud Director be installed with ESXi in lockdown mode?
+The short answer is &amp;lsquo;No&amp;rsquo;&amp;hellip; But the longer answer is &amp;lsquo;Yes&amp;rsquo;.
+To allow the vCloud agents to be installed on the ESXi host, lock down mode has to be disabled; BUT after the vCloud agents are installed feel free to lock it down again.
+See with vCloud all answers have a but. :-)</description>
+    </item>
+    
+    <item>
+      <title>How to change the UUID of a VM via the PowerCLI</title>
+      <link>/posts/2011-02-18-2011218how-to-change-the-uuid-of-a-vm-via-the-powercli-html/</link>
+      <pubDate>Fri, 18 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-02-18-2011218how-to-change-the-uuid-of-a-vm-via-the-powercli-html/</guid>
+      <description>In vCloud director it may be necessary to deploy an identical vApp, when this happens everything is identical (including UUID&amp;rsquo;s), to help vSM differentiate the VMs changing the UUID may help.
+$date = get-date -format &amp;ldquo;dd hh mm ss&amp;rdquo;
+$newUuid = &amp;ldquo;56 4d 50 2e 9e df e5 e4-a7 f4 21 3b &amp;quot; + $date
+$spec = New-Object VMware.Vim.VirtualMachineConfigSpec
+$spec.uuid = $newUuid
+$vm = get-vm echo &amp;ldquo;VM: &amp;quot; $VM.name &amp;ldquo;New UUID: &amp;quot; $newuuid</description>
+    </item>
+    
+    <item>
+      <title>Increasing the heap size for VMFS</title>
+      <link>/posts/2011-02-15-2011215increasing-the-heap-size-for-vmfs-html/</link>
+      <pubDate>Tue, 15 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-02-15-2011215increasing-the-heap-size-for-vmfs-html/</guid>
+      <description>ESX 3.0 thru ESX 4.0 limit the heap size for VMFS to 16MB which allows for just 4TB of VMFS files to be open at a time. Once this threshold is crossed the ESX host start to behave eradically, possible crashing the VMs that were powered on at the time. To avoid this problem you can increase the heap size to 128MB which will allow for 32TB of storage open on a single ESX host.</description>
+    </item>
+    
+    <item>
+      <title>Limiting vCenter TomCat Usage</title>
+      <link>/posts/2011-02-11-2011211limiting-vcenter-tomcat-usage-html/</link>
+      <pubDate>Fri, 11 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-02-11-2011211limiting-vcenter-tomcat-usage-html/</guid>
+      <description>Here is how to limit the memory usage for VMware&amp;rsquo;s vCenter&amp;hellip;
+First vCenter relies on a customized Apache Tomcat to run its vCenter product (mostly graphs, Web Interface and other items), while limiting the memory hasn&amp;rsquo;t proven to have a negative effect this procedure should be done with caution. This can cause slowness in portions of the application since it will no longer be able to store large amounts of data in RAM and will have to access the database for this information.</description>
+    </item>
+    
+    <item>
+      <title>vSphere 4.1 Update 1</title>
+      <link>/posts/2011-02-11-2011211vsphere-41-update-1-html/</link>
+      <pubDate>Fri, 11 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-02-11-2011211vsphere-41-update-1-html/</guid>
+      <description>Just released from VMware vSphere 4.1 Update 1 is now out and ready for download from VMware.com.
+Or click here .
+Here is a list of the bugs and items fixed/corrected in the newest release. ESXi, ESX (with Service Console) and vCenter all have updates!
+The number of patch definitions downloaded (15 critical/28 total):
+ID: ESX410-201101201-SG Impact: HostSecurity Release date: 2011-02-10 Products: esx 4.1.0 Updates ESX 4.1 Core and CIM components</description>
+    </item>
+    
+    <item>
+      <title>New Job...</title>
+      <link>/posts/2011-01-27-2011127new-job-html/</link>
+      <pubDate>Thu, 27 Jan 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2011-01-27-2011127new-job-html/</guid>
+      <description>Back in October (October 25th) to be more exact; I left my old company for VMware. Not that my previous employer wasn&amp;rsquo;t a good place to work I had just outgrown them and needed a new greener pasture to continue growing professionally.
+My new role at VMware is as a Sr. Consultant with the vCloud Services Team. What does that mean exactly? In a nutshell I will be helping VMware customers plan, develop and deploy their own Private, Hybrid and/or Public Clouds.</description>
+    </item>
+    
+    <item>
+      <title>vCenter Database Optimization Thoughts...</title>
+      <link>/posts/2010-10-20-20101020vcenter-database-optimization-thoughts-html/</link>
+      <pubDate>Wed, 20 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-10-20-20101020vcenter-database-optimization-thoughts-html/</guid>
+      <description>For the past few weeks I have been working on an issue with a vCenter 4.1 database to work properly and to complete stat roll-ups without error. Here are some of the tricks and things that I have found to help identify the problem and possibly fix it for some.
+ Check the HIST_STAT tables for fragmented indexes and possible performance issues (execute the following in the SQL Management Studio targeting your vCenter database):</description>
+    </item>
+    
+    <item>
+      <title>Modify vSphere Path Selection Policy in Bulk</title>
+      <link>/posts/2010-09-22-2010922modify-vsphere-path-selection-policy-in-bulk-html/</link>
+      <pubDate>Wed, 22 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-09-22-2010922modify-vsphere-path-selection-policy-in-bulk-html/</guid>
+      <description>Recently, we upgraded a customer from ESX 4.0 update 2 to ESX 4.1 – except they didn’t want to upgrade, they insisted on clean installs. Kickstart makes the deployment of new hosts easy, but they had around 40 of their hosts connected to 15 LUNs on an IBM XiV array. Best practice for the XiV suggests a “round robin” path selection policy, but it defaults to MRU (Most Recently Used) on install – so they all needed to be changed.</description>
+    </item>
+    
+    <item>
+      <title>vCenter 4.1 ADAM_VMwareVCMSDS Error</title>
+      <link>/posts/2010-09-21-2010921vcenter-41-adam_vmwarevcmsds-error-html/</link>
+      <pubDate>Tue, 21 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-09-21-2010921vcenter-41-adam_vmwarevcmsds-error-html/</guid>
+      <description>Recently after upgrading to vCenter for a few customers the following started to appear in their Windows Event logs:
+Active Directory Web Services encountered an error while reading the settings for the specified Active Directory Lightweight Directory Services instance. Active Directory Web Services will retry this operation periodically. In the meantime, this instance will be ignored. Instance name: ADAM_VMwareVCMSDS
+To correct this you need to add the following to the registry:</description>
+    </item>
+    
+    <item>
+      <title>vCenter 4.1 Upgrade Woes</title>
+      <link>/posts/2010-09-09-201099vcenter-41-upgrade-woes-html/</link>
+      <pubDate>Thu, 09 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-09-09-201099vcenter-41-upgrade-woes-html/</guid>
+      <description>Recently while upgrading a customers vCenter database to 4.1 from 4.0 I ran in to this gem of a problem. The problem is created when you change the schema of the account that accesses the database. So if you have a user that is in the dbo schema then you change that user to something like VPXAdmin for the schema the upgrade will break on you. When using the regular installer we received a message that the schema&amp;rsquo;s did not match.</description>
+    </item>
+    
+    <item>
+      <title>VCDX 51</title>
+      <link>/posts/2010-09-07-201097vcdx-51-html/</link>
+      <pubDate>Tue, 07 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-09-07-201097vcdx-51-html/</guid>
+      <description>I came back from a good lunch with HP talking about the G7 servers that should be released any month now to find:
+Congratulations! You have achieved the VMware Certified Design Expert on VI3 (VCDX3) certification.
+Your VCDX number is: VCDX51
+After I stopped jumping up and down cheering and causing quite a scare, I was able to really grasp what this means.
+I would like to thank everyone that has helped me along with this certification, from my manager to my former supervisor and of course previous employers that allowed me to experiment with VMware while saving them vast sums of money in hardware.</description>
+    </item>
+    
+    <item>
+      <title>VMware&#39;s New License Structure</title>
+      <link>/posts/2010-09-03-201093vmwares-new-license-structure-html/</link>
+      <pubDate>Fri, 03 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-09-03-201093vmwares-new-license-structure-html/</guid>
+      <description>As they announced in early August, they are now licensing SRM (as of Sept 1st, 2010) as a per protected VM model. Meaning that you no longer have to license the entire cluster of VM&amp;rsquo;s for SRM, you can select individual VM&amp;rsquo;s to be protected by SRM. So with that and the introduction of DRS Affinity inside of vSphere 4.1.
+DRS Affinity allows you to select which hosts the VM is allowed to be on inside the cluster (think DRS rules but super-fied)</description>
+    </item>
+    
+    <item>
+      <title>VMworld 2010 is over... So?</title>
+      <link>/posts/2010-09-03-201093vmworld-2010-is-over-so-html/</link>
+      <pubDate>Fri, 03 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-09-03-201093vmworld-2010-is-over-so-html/</guid>
+      <description>As you know VMworld 2010 is all over, they are ripping doing the signs in the Mascone Center. The hotels are emptying out of the geeks, nerds and technology enthusiasts, and promptly refilling with vacationing Labor Day weekend get-a-ways. So what was learned in this 4 day conference where VMware took center stage and did a dance in the spot light? Well&amp;hellip;
+  VMware View 4.5 was released
+  VMware ThinApp 4.</description>
+    </item>
+    
+    <item>
+      <title>How to test vmKernel connectivity</title>
+      <link>/posts/2010-08-19-2010819how-to-test-vmkernel-connectivity-html/</link>
+      <pubDate>Thu, 19 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-08-19-2010819how-to-test-vmkernel-connectivity-html/</guid>
+      <description>In case you are ever stuck trying to get our iSCSI Initiator to link up to the target or just troubleshooting some vMotion problems you can do the following:
+From the console or terminal on a ESX host (CLI will work for ESXi as well) do teh following:
+ vmkping  This will use the vmk port groups to test connectivity to the iSCSI or other vSphere servers. A good ping will result in a result like this:</description>
+    </item>
+    
+    <item>
+      <title>vMotion Changes in vSphere 4.1</title>
+      <link>/posts/2010-08-19-2010819vmotion-changes-in-vsphere-41-html/</link>
+      <pubDate>Thu, 19 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-08-19-2010819vmotion-changes-in-vsphere-41-html/</guid>
+      <description>From VMware:
+ In vSphere 4.1:
+VMDirectPath and USB Device Passthrough with vMotion is supported
+Migration with vMotion and DRS for virtual machines configured with USB device passthrough from an ESX/ESXi host is supported
+Fault Tolerant (FT) protected virtual machines can now vMotion via DRS. However, Storage vMotion is unsupported at this time.
+Note: Ensure that the ESX hosts are at the same version and build.
+In addition to the above, vSphere 4.</description>
+    </item>
+    
+    <item>
+      <title>vSphere 4.x iSCSI Heap Usage</title>
+      <link>/posts/2010-08-19-2010819vsphere-4x-iscsi-heap-usage-html/</link>
+      <pubDate>Thu, 19 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-08-19-2010819vsphere-4x-iscsi-heap-usage-html/</guid>
+      <description>When using more than 64 devices with the software iSCSI initiator the vmkernel logs will start to produce errors such as:
+ Jul 19 08:01:01 esx vmkernel: 0:03:38:54.053 cpu2:1039)iSCSI: bus 0 target 46 cannot allocate new session (size %Zu) at 10464
+Jul 19 08:01:01 esx vmkernel: 0:03:38:54.054 cpu4:1040)WARNING: Heap: 1419: Heap vmk-iscsi (6288144/6291456): Maximum allowed growth (3320) too small for size (20480)
+ I most recently saw this problem crop up with a customer and a large XIV deployment to 32 vSphere hosts.</description>
+    </item>
+    
+    <item>
+      <title>vSphere 4.1 ESX(i) Major Security Flaw</title>
+      <link>/posts/2010-07-21-2010721vsphere-41-esxi-major-security-flaw-html/</link>
+      <pubDate>Wed, 21 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-07-21-2010721vsphere-41-esxi-major-security-flaw-html/</guid>
+      <description>About a week ago while testing vSphere 4.1 upgrades and deployment methods, I signed into a host&amp;rsquo;s service console as root, and I could have swore that I typed the password incorrectly. So I signed back out and tried it again, and it let me in with an extra digit at the end of the password. Some more testing led me to see that the PAM software was only checking the first 8 characters of the password and ignoring the rest of it.</description>
+    </item>
+    
+    <item>
+      <title>VCDX Application Status</title>
+      <link>/posts/2010-07-20-2010720vcdx-application-status-html/</link>
+      <pubDate>Tue, 20 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-07-20-2010720vcdx-application-status-html/</guid>
+      <description>The best news a guy could get&amp;hellip;
+Thomas,
+Congratulations! We have completed a preliminary technical review of your VCDX Application, and you have been accepted to advance to the next and final step: the VCDX Defense.
+The VCDX Defense will be conducted at the VMware headquarters:
+3401 Hillview Ave
+Palo Alto, CA 94304
+XXX has been reserved for your defense. Please confirm that this date works for you, an a specific timeslot will be communicated to you at a later time.</description>
+    </item>
+    
+    <item>
+      <title>vCenter Installation Tips</title>
+      <link>/posts/2010-07-13-2010713vcenter-installation-tips-html/</link>
+      <pubDate>Tue, 13 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2010-07-13-2010713vcenter-installation-tips-html/</guid>
+      <description>Since the vCenter now requires a 64 bit operating system to install, the DSN must be upgraded as well to support the 64bit application. Currently vCenter 4.0 and older all required a 32 bit DSN. To change to the proper DSN you will need to remove the old one from the 32-bit DSN application and create a new DSN.
+  Remove the old DSN if it exists from: %windir%SysWoW64ODBCAD32.exe</description>
+    </item>
+    
   </channel>
 </rss>

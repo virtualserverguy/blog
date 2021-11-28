@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vcloud-network-security on blog... things...</title>
+    <link>/tags/vcloud-network-security/</link>
+    <description>Recent content in vcloud-network-security on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 25 Sep 2012 00:00:00 +0000</lastBuildDate><atom:link href="/tags/vcloud-network-security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vCNS App - Spoofguard Deployment</title>
+      <link>/posts/2012-09-25-2012925vcns-app-spoofguard-deployment/</link>
+      <pubDate>Tue, 25 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-09-25-2012925vcns-app-spoofguard-deployment/</guid>
+      <description>Spoofguard records the IP address of each vNIC secured by vShield App. Spoofguard can be configured in two different modes, automatic and manual.
+In Automatic mode the first IP that is presented for each vNIC is recorded and allowed to communicate without authorization. If the IP of the vNIC changes, the machine will no longer be able to communicate on the network until the new IP is approved.
+In manual mode all IPs must be approved prior to being allowed to communicate; even existing virtual machines will be blocked until approved.</description>
+    </item>
+    
+  </channel>
+</rss>

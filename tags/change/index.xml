@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>change on blog... things...</title>
+    <link>/tags/change/</link>
+    <description>Recent content in change on blog... things...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 12 Sep 2012 00:00:00 +0000</lastBuildDate><atom:link href="/tags/change/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Time for a change... Well a new direction at least</title>
+      <link>/posts/2012-09-12-2012912time-for-a-change-well-a-new-direction-at-least/</link>
+      <pubDate>Wed, 12 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2012-09-12-2012912time-for-a-change-well-a-new-direction-at-least/</guid>
+      <description>I started working at VMware just under two years ago. In that time I have gone for a Cloud Practice, where we developed the services and solutions that are being implemented today. Which transitioned into a group developing bleeding edge documentation, processes, and ultimately &amp;lsquo;making the marketing world a reality&amp;rsquo;.
+Since then I have transitioned to a more security in the cloud role. For example, how can a workload in the cloud be secured and audited against, no matter where it is running?</description>
+    </item>
+    
+  </channel>
+</rss>
