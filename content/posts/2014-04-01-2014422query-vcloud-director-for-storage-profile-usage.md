@@ -18,5 +18,5 @@ Returns a summary or cummulative view of the storage profile usage. To get the a
 
 ```PowerShell
 $OrgVdc = get-orgvdc (Org VDC Name)
-Search-Cloud -querytype AdminOrgVdcStorageProfile | where { $\_.VdcName -eq $orgvdc } | get-ciview
+Search-Cloud -querytype AdminOrgVdcStorageProfile | where { $_.VdcName -eq $orgvdc } | get-ciview
 ```
