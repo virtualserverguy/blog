@@ -7,26 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2020-{year} Tom Ralph. All Rights Reserved.</copyright>
-    <lastBuildDate>Fri, 26 Nov 2021 21:17:07 -0600</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Second post</title>
-      <link>/posts/secondpost/</link>
-      <pubDate>Fri, 26 Nov 2021 21:17:07 -0600</pubDate>
-      
-      <guid>/posts/secondpost/</guid>
-      <description>This is a GH page test</description>
-    </item>
-    
-    <item>
-      <title>Firstpost</title>
-      <link>/posts/firstpost/</link>
-      <pubDate>Thu, 28 Oct 2021 21:17:07 -0600</pubDate>
-      
-      <guid>/posts/firstpost/</guid>
-      <description>trying shit&amp;hellip; now forcing git&amp;hellip; with tags.
-try git hub action&amp;hellip;</description>
-    </item>
-    
+    <lastBuildDate>Wed, 30 Aug 2017 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>vSphere 6.5 - Top KB Articles for Upgrade Prep</title>
       <link>/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/</link>
@@ -34,7 +15,7 @@ try git hub action&amp;hellip;</description>
       
       <guid>/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/</guid>
       <description>Here are the top KB articles for upgrading to vSphere 6.5:
-KB 2146420 – Estimating vCenter Server 5.5 to vCenter Server Appliance 6.x migration time KB 2147711 – Estimating vCenter Server 5.5 or 6.0 to vCenter Server Appliance 6.5 migration time KB 2112283 – Regenerate vCenter Certificates KB 2147548 – Important information before upgrading to vSphere 6.5 KB 2147686 – vCenter Server 6.5 upgrade best practices KB 2147824 – Migrating VMFS 5 datastore to VMFS 6 datastore KB 2147289 – Update Sequence for vSphere 6.</description>
+ KB 2146420 – Estimating vCenter Server 5.5 to vCenter Server Appliance 6.x migration time KB 2147711 – Estimating vCenter Server 5.5 or 6.0 to vCenter Server Appliance 6.5 migration time KB 2112283 – Regenerate vCenter Certificates KB 2147548 – Important information before upgrading to vSphere 6.5 KB 2147686 – vCenter Server 6.5 upgrade best practices KB 2147824 – Migrating VMFS 5 datastore to VMFS 6 datastore KB 2147289 – Update Sequence for vSphere 6.</description>
     </item>
     
     <item>
@@ -75,11 +56,7 @@ Well I guess you could. If you manage to get one of those, you will want to foll
       <guid>/posts/2014-04-09-201449detecting-and-removing-invalid-vapps/</guid>
       <description>After you run vCloud for a while, heck run any management product for a while, and you will have left overs, hung items, or even corrupt vApps.
 With vCloud Director you can run the below to find those items and remove them.
- $badvapp = Search-Cloud -QueryType AdminVapp | Where-Object { $_.Status -eq “UNRESOLVED&amp;quot; }
-foreach ( $id in $badvapp ) {
-Get-CIVApp -Id $id.id | Remove-CIVApp
-}
- This probably wont remove everything, those items that are left, generally can only be removed via editing the database (I would not recommend that).</description>
+1$badvapp = Search-Cloud -QueryType AdminVapp | Where-Object { $\_.Status -eq “UNRESOLVED&amp;#34; } 2foreach ( $id in $badvapp ) { 3Get-CIVApp -Id $id.id | Remove-CIVApp 4} This probably wont remove everything, those items that are left, generally can only be removed via editing the database though, I would not recommend that.</description>
     </item>
     
     <item>
@@ -89,11 +66,7 @@ Get-CIVApp -Id $id.id | Remove-CIVApp
       
       <guid>/posts/2014-04-07-201447detecting-and-removing-vapp-templates/</guid>
       <description>In the event that a vApp Template or Catalog Item fails during the upload process parts of that vApp Template can be left behind. To find and remove those items run the following:
- $badvappt = Search-Cloud -QueryType AdminVappTemplate | Where-Object { $_.Status -eq &amp;ldquo;FAILED_Creation&amp;rdquo; }
-foreach ( $id in $badvappt ) {
-Get-CIVAppTemplate -Id $id.id | Remove-CIVAppTemplate -RemoveCatalogItem $false
-}
- Run the first part to see what there is, run it all to remove broken vApp Templates.</description>
+1$badvappt = Search-Cloud -QueryType AdminVappTemplate | Where-Object { $_.Status -eq &amp;#34;FAILED_Creation&amp;#34; } 2foreach ( $id in $badvappt ) { 3 Get-CIVAppTemplate -Id $id.id | Remove-CIVAppTemplate -RemoveCatalogItem $false 4} Run the first part to see what there is, run it all to remove broken vApp Templates.</description>
     </item>
     
     <item>
@@ -103,9 +76,7 @@ Get-CIVAppTemplate -Id $id.id | Remove-CIVAppTemplate -RemoveCatalogItem $false
       
       <guid>/posts/2014-04-02-201442modify-bulk-vapps-network-attachments/</guid>
       <description>With vCloud Director if you need to change the Organization vDC Network, for instance you run out of IP addresses. You can use the script below to change the attached network of all powered off vApps.
- $vapps = search-cloud -QueryType VAppOrgNetworkRelation | Where-Object { $.OrgNetworkName -eq &amp;ldquo;Old Network Name&amp;rdquo; -and $.Status -eq &amp;ldquo;Stopped” }
-foreach ($vapp in $vapps) {
-get-civapp -id $vapp.id | Get-CIVAppNetwork -ErrorAction SilentlyContinue | Where-Object { $_.</description>
+1$vapps = search-cloud -QueryType VAppOrgNetworkRelation | Where-Object { $_.OrgNetworkName -eq &amp;#34;Old Network Name&amp;#34; -and $_.Status -eq &amp;#34;Stopped” } 2foreach ($vapp in $vapps) { 3get-civapp -id $vapp.id | Get-CIVAppNetwork -ErrorAction SilentlyContinue | Where-Object { $\_.ConnectionType -eq &amp;#34;Routed&amp;#34; } | Set-CIVAppNetwork -ParentOrgNetwork &amp;#34;New Network Name&amp;#34; 4Write-Host &amp;#34;Updated &amp;#34; $vapp.</description>
     </item>
     
     <item>
@@ -115,11 +86,8 @@ get-civapp -id $vapp.id | Get-CIVAppNetwork -ErrorAction SilentlyContinue | Wher
       
       <guid>/posts/2014-04-01-2014422query-vcloud-director-for-storage-profile-usage/</guid>
       <description>Often times an organization will have multiple Storage Profiles, different class fo storage, etc. The simple command of:
- Get-OrgVDC
- Returns a summary or cummulative view of the storage profile usage. To get the actual usage for each profile, execute this command:
- $OrgVdc = get-orgvdc (Org VDC Name)
-search-cloud -querytype AdminOrgVdcStorageProfile | where { $_.VdcName -eq $orgvdc } | get-ciview
- </description>
+1Get-OrgVDC Returns a summary or cummulative view of the storage profile usage. To get the actual usage for each profile, execute this command:
+1$OrgVdc = get-orgvdc (Org VDC Name) 2Search-Cloud -querytype AdminOrgVdcStorageProfile | where { $\_.VdcName -eq $orgvdc } | get-ciview </description>
     </item>
     
     <item>
@@ -129,8 +97,7 @@ search-cloud -querytype AdminOrgVdcStorageProfile | where { $_.VdcName -eq $orgv
       
       <guid>/posts/2014-03-31-2014331find-broken-catalog-items-in-vcloud-5x/</guid>
       <description>Sometimes when uploading content into vCloud there is a chance that the content can be broken. This can cause programs to have errors. To find these items, run the following in PowerShell as the a &amp;lsquo;system administrator&amp;rsquo;.
- search-cloud -QueryType AdminCatalogItem | Where-Object { $_.Status -eq &amp;ldquo;Unknown&amp;rdquo; }
- You can now remove them utilizing the API or vCO and the &amp;lsquo;Remove Catalog Item&amp;rsquo; workflow.</description>
+1search-cloud -QueryType AdminCatalogItem | Where-Object { $\_.Status -eq &amp;#34;Unknown&amp;#34; } You can now remove them utilizing the API or vCO and the &amp;lsquo;Remove Catalog Item&amp;rsquo; workflow.</description>
     </item>
     
     <item>
@@ -152,8 +119,7 @@ In our cloud deployment (25,000 VMs in a single vCloud instance, and we have 4);
       <guid>/posts/2014-03-28-2014327ejecting-cd-isos-in-vcloud-director/</guid>
       <description>With vCloud Director 5.1 every once in a while a CD will refuse to eject, or worse it will say it ejected the CD but it will not make the change in vCenter.
 To get around this with PowerCLI connected to the vCenter use this command:
- get-folder | get-VM | Get-CDDrive | Set-CDDrive -NoMedia -Confirm:$false
- This will allow the CD to be ejected without having to Deploy, Eject, Re-Capture the vApp Template.</description>
+1get-folder | get-VM | Get-CDDrive | Set-CDDrive -NoMedia -Confirm:$false This will allow the CD to be ejected without having to Deploy, Eject, Re-Capture the vApp Template.</description>
     </item>
     
     <item>
@@ -174,7 +140,7 @@ To get around this with PowerCLI connected to the vCenter use this command:
       
       <guid>/posts/2013-02-23-2013222enabling-saml-providers-in-vcloud-51/</guid>
       <description>As a system or organization administrator head to the &amp;lsquo;Administration&amp;rsquo; page, and then the federation tab. Paste or upload the SAML configuration XML. Ensure the certificate at the bottom of the page is recent, if not click re-generate certificate. It will produce a certificate for 1 year.
-After the certificate is re-newed enter this URL in to the web browser: cloud/org/[orgName]/saml/metadata/alias/vcd ; save the XML file on that page. This is the file you will need to provide the SAML or 3rd party authentication service with in order to authenticate you.</description>
+After the certificate is re-newed enter this URL in to the web browser: cloud/org/\[orgName\]/saml/metadata/alias/vcd ; save the XML file on that page. This is the file you will need to provide the SAML or 3rd party authentication service with in order to authenticate you.</description>
     </item>
     
     <item>
@@ -197,8 +163,8 @@ vCloud Network Security Product page here .</description>
       <guid>/posts/2013-01-23-2013123recovering-the-embedded-db-password-on-vcva/</guid>
       <description>Here is how to recover the embedded DB password on the VMware vCenter Virtual Appliance (VCVA):
 From the console (or SSH) of the VCVA run this command:
- grep EMB_DB_PASSWORD /etc/vmware-vpx/embedded_db.cfg
- From: http://kb.vmware.com/selfservice/microsites/search.do?language=en _US&amp;amp;cmd=displayKC&amp;amp;externalId=2004506</description>
+grep EMB_DB_PASSWORD /etc/vmware-vpx/embedded\_db.cfg
+From: http://kb.vmware.com/selfservice/microsites/search.do?language=en _US&amp;amp;cmd=displayKC&amp;amp;externalId=2004506</description>
     </item>
     
     <item>

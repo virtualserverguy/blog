@@ -12,7 +12,7 @@
 <meta name="description" content="" /><meta itemprop="name" content="vSphere 4.1 ESX(i) Major Security Flaw">
 <meta itemprop="description" content="About a week ago while testing vSphere 4.1 upgrades and deployment methods, I signed into a host&rsquo;s service console as root, and I could have swore that I typed the password incorrectly. So I signed back out and tried it again, and it let me in with an extra digit at the end of the password. Some more testing led me to see that the PAM software was only checking the first 8 characters of the password and ignoring the rest of it."><meta itemprop="datePublished" content="2010-07-21T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2010-07-21T00:00:00+00:00" />
-<meta itemprop="wordCount" content="291">
+<meta itemprop="wordCount" content="287">
 <meta itemprop="keywords" content="" /><meta property="og:title" content="vSphere 4.1 ESX(i) Major Security Flaw" />
 <meta property="og:description" content="About a week ago while testing vSphere 4.1 upgrades and deployment methods, I signed into a host&rsquo;s service console as root, and I could have swore that I typed the password incorrectly. So I signed back out and tried it again, and it let me in with an extra digit at the end of the password. Some more testing led me to see that the PAM software was only checking the first 8 characters of the password and ignoring the rest of it." />
 <meta property="og:type" content="article" />
@@ -218,9 +218,9 @@ Add md5 to the file /etc/pam.d/system-auth.</p>
 <li>Use a text editor to open the file system-auth.</li>
 <li>Add md5 to the following line, as shown:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="ln">1</span> password sufficient /lib/security/<span class="nv">$ISA</span>/pam<span class="se">\_</span>unix.so use<span class="se">\_</span>authtok nullok shadow md5
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="ln">1</span>password sufficient /lib/security/<span class="nv">$ISA</span>/pam_unix.so use_authtok nullok shadow md5
 </code></pre></div><p>Optionally, you can use the following sed command to accomplish this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="ln">1</span>&gt; sed -e /password.<span class="se">\*</span>pam<span class="se">\_</span>unix.so/s/$/ md5/ -i /etc/pam.d/system-auth
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="ln">1</span>sed -e /password.*pam_unix.so/s/$/ md5/ -i /etc/pam.d/system-auth
 </code></pre></div><p><strong>For ESXi</strong>:</p>
 <p>Add md5 to the file /etc/pam.d/system-auth.</p>
 <ol>
@@ -229,9 +229,9 @@ Add md5 to the file /etc/pam.d/system-auth.</p>
 <li>Use a text editor to open the file system-auth.</li>
 <li>Add md5 to the following line, as shown:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="ln">1</span>&gt; password sufficient /lib/security/<span class="nv">$ISA</span>/pam<span class="se">\_</span>unix.so use<span class="se">\_</span>authtok nullok shadow md5  
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="ln">1</span>password sufficient /lib/security/<span class="nv">$ISA</span>/pam<span class="se">\_</span>unix.so use<span class="se">\_</span>authtok nullok shadow md5  
 </code></pre></div><p>(Optional) If you want the change to persist when you restart ESXi, you must add the following line to the file /etc/rc.local:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="ln">1</span>&gt; sed -e <span class="s1">&#39;/password.\*pam\_unix.so.\* md5/q&#39;</span> -e <span class="s1">&#39;/password.\*pam\_unix.so/s/$/ md5/&#39;</span> -i /etc/pam.d/system-auth
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="ln">1</span>sed -e <span class="s1">&#39;/password.*pam_unix.so.* md5/q&#39;</span> -e <span class="s1">&#39;/password.*pam_unix.so/s/$/ md5/&#39;</span> -i /etc/pam.d/system-auth
 </code></pre></div><p>VMware expects to release a permanent solution to this issue sometime in the future. We recommend that you remove the workaround from ESXi systems when you install the permanent solution.</p>
 </div><hr /><div class="post-navs d-flex mb-3 justify-content-evenly">
   <div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
@@ -265,11 +265,11 @@ Add md5 to the file /etc/pam.d/system-auth.</p>
   <section class="recent-posts row card component">
   <div class="card-body">
     <h2 class="card-title">Recent Posts</h2>
-    <ul><li><a href="/posts/secondpost/">Second post
-</a></li><li><a href="/posts/firstpost/">Firstpost
-</a></li><li><a href="/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/">vSphere 6.5 - Top KB Articles for Upgrade Prep
+    <ul><li><a href="/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/">vSphere 6.5 - Top KB Articles for Upgrade Prep
 </a></li><li><a href="/posts/2014-04-21-2014421mass-update-media-in-vcloud-dicrector/">Mass Update Media in vCloud Dicrector
 </a></li><li><a href="/posts/2014-04-16-2014416relocating-a-vm-in-vcloud-director/">Relocating a VM in vCloud Director
+</a></li><li><a href="/posts/2014-04-14-2014414remove-vapp-template-with-no-catalog-item-link/">Remove vApp Template With No Catalog Item Link
+</a></li><li><a href="/posts/2014-04-09-201449detecting-and-removing-invalid-vapps/">Detecting and Removing Invalid vApps
 </a></li></ul>
   </div>
 </section><section class="taxonomies row card component">

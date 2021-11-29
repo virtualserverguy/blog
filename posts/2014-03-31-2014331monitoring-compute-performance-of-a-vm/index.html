@@ -14,7 +14,7 @@
 What if the datastore shows 1ms latency on the vSphere host, the CPU usage is low, the Memory is not being swapped, but a user insists it is just &lsquo;slow&rsquo;. What would you check?
 In our cloud deployment (25,000 VMs in a single vCloud instance, and we have 4); I have deployed 4 - 6 VMs per vCenter across differnet datastores, on different hosts."><meta itemprop="datePublished" content="2014-03-31T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2014-03-31T00:00:00+00:00" />
-<meta itemprop="wordCount" content="453">
+<meta itemprop="wordCount" content="452">
 <meta itemprop="keywords" content="monitoring,performance,vcloud," /><meta property="og:title" content="Monitoring Compute Performance of a VM" />
 <meta property="og:description" content="Even when using vC Ops from VMware, vCenter metrics, vCloud Metrics, and Hyperic Montoring there are things that can be missed.
 What if the datastore shows 1ms latency on the vSphere host, the CPU usage is low, the Memory is not being swapped, but a user insists it is just &lsquo;slow&rsquo;. What would you check?
@@ -201,16 +201,14 @@ blog... things...
 <p>You will also need to install iSQL for CentOS, to write your data to a SQL server (if that is your target), those instructions can be found <a href="http://wiki.sysconfig.org.uk/display/howto/OBDC&#43;on&#43;CentOS&#43;5.2" target="_blank" rel="noopener noreferrer">here</a>
 .</p>
 <p>After you have the above installed and ready, you can run the following to get a report on the status of your VMs performance:</p>
-<blockquote>
-<p>sysbench &ndash;num-threads=16 &ndash;max-requests=10000 &ndash;test=oltp &ndash;oltp-table-size=500000 &ndash;mysql-socket=/var/lib/mysql/mysql.sock &ndash;oltp-test-mode=complex &ndash;mysql-user=root &ndash;mysql-password=VMware1! run &gt; mysql.sysbench</p>
-<p>$testvaule = cat mysql.sysbench | egrep &quot; cat|transactions:&quot; | awk {&lsquo;print substr($3,2) &lsquo;}</p>
-<p>$date = date -u &ldquo;+%F %R&rdquo;</p>
-<p>$machine = ifconfig eth0 | grep inet | awk &lsquo;{ print substr($2,6) }’</p>
-<p>$hostname = hostname</p>
-<p>inssql=&ldquo;insert into TABLENAME VALUES (‘$date&rsquo;, ‘$machine&rsquo;, ‘$testvalue’,’$hostname&rsquo;)&rdquo;</p>
-<p>echo $inssql | isql HOSTNAME USERNAME PASSWORD</p>
-</blockquote>
-<p>The above will insert the data in to a SQL table, for later reporting.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="ln">1</span>sysbench --num-threads<span class="o">=</span><span class="m">16</span> --max-requests<span class="o">=</span><span class="m">10000</span> --test<span class="o">=</span>oltp --oltp-table-size<span class="o">=</span><span class="m">500000</span> --mysql-socket<span class="o">=</span>/var/lib/mysql/mysql.sock --oltp-test-mode<span class="o">=</span>complex --mysql-user<span class="o">=</span>root --mysql-password<span class="o">=</span>VMware1! run &gt; mysql.sysbench
+<span class="ln">2</span><span class="nv">$testvaule</span> <span class="o">=</span> cat mysql.sysbench <span class="p">|</span> egrep <span class="s2">&#34; cat|transactions:&#34;</span> <span class="p">|</span> awk <span class="o">{</span><span class="s1">&#39;print substr($3,2) &#39;</span><span class="o">}</span>
+<span class="ln">3</span><span class="nv">$date</span> <span class="o">=</span> date -u <span class="s2">&#34;+%F %R&#34;</span>
+<span class="ln">4</span><span class="nv">$machine</span> <span class="o">=</span> ifconfig eth0 <span class="p">|</span> grep inet <span class="p">|</span> awk <span class="s1">&#39;{ print substr($2,6) }’
+</span><span class="ln">5</span><span class="s1">$hostname = hostname
+</span><span class="ln">6</span><span class="s1">inssql=&#34;insert into TABLENAME VALUES (‘$date&#39;</span>, ‘<span class="nv">$machine</span><span class="s1">&#39;, ‘$testvalue’,’$hostname&#39;</span><span class="o">)</span><span class="s2">&#34;
+</span><span class="ln">7</span><span class="s2">echo </span><span class="nv">$inssql</span><span class="s2"> | isql HOSTNAME USERNAME PASSWORD
+</span></code></pre></div><p>The above will insert the data in to a SQL table, for later reporting.</p>
 <p>Keep in mind you do not want to make a &lsquo;monster&rsquo; VM, the smaller the better, you want to tax all of the components. If you give it 4GB of RAM, then MySQL will cache all of the disk I/O in RAM and not report an accurate number. If you give it 4 vCPU&rsquo;s you may actually artificially lower your score by causing the hypervisor to schedule 4 vCPUs worth of tasks. In this case smaller is most definitely better.</p>
 <p>This will not replace the other monitoring solutions you may have, but it will help to augment those solutions.</p>
 </div><hr /><div class="post-navs d-flex mb-3 justify-content-evenly">
@@ -248,11 +246,11 @@ blog... things...
   <section class="recent-posts row card component">
   <div class="card-body">
     <h2 class="card-title">Recent Posts</h2>
-    <ul><li><a href="/posts/secondpost/">Second post
-</a></li><li><a href="/posts/firstpost/">Firstpost
-</a></li><li><a href="/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/">vSphere 6.5 - Top KB Articles for Upgrade Prep
+    <ul><li><a href="/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/">vSphere 6.5 - Top KB Articles for Upgrade Prep
 </a></li><li><a href="/posts/2014-04-21-2014421mass-update-media-in-vcloud-dicrector/">Mass Update Media in vCloud Dicrector
 </a></li><li><a href="/posts/2014-04-16-2014416relocating-a-vm-in-vcloud-director/">Relocating a VM in vCloud Director
+</a></li><li><a href="/posts/2014-04-14-2014414remove-vapp-template-with-no-catalog-item-link/">Remove vApp Template With No Catalog Item Link
+</a></li><li><a href="/posts/2014-04-09-201449detecting-and-removing-invalid-vapps/">Detecting and Removing Invalid vApps
 </a></li></ul>
   </div>
 </section><section class="taxonomies row card component">

@@ -11,16 +11,12 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" /><meta itemprop="name" content="Modify Bulk vApp Network Attachments">
 <meta itemprop="description" content="With vCloud Director if you need to change the Organization vDC Network, for instance you run out of IP addresses. You can use the script below to change the attached network of all powered off vApps.
- $vapps = search-cloud -QueryType VAppOrgNetworkRelation | Where-Object { $.OrgNetworkName -eq &ldquo;Old Network Name&rdquo; -and $.Status -eq &ldquo;Stopped” }
-foreach ($vapp in $vapps) {
-get-civapp -id $vapp.id | Get-CIVAppNetwork -ErrorAction SilentlyContinue | Where-Object { $_."><meta itemprop="datePublished" content="2014-04-02T00:00:00+00:00" />
+1$vapps = search-cloud -QueryType VAppOrgNetworkRelation | Where-Object { $_.OrgNetworkName -eq &#34;Old Network Name&#34; -and $_.Status -eq &#34;Stopped” } 2foreach ($vapp in $vapps) { 3get-civapp -id $vapp.id | Get-CIVAppNetwork -ErrorAction SilentlyContinue | Where-Object { $\_.ConnectionType -eq &#34;Routed&#34; } | Set-CIVAppNetwork -ParentOrgNetwork &#34;New Network Name&#34; 4Write-Host &#34;Updated &#34; $vapp."><meta itemprop="datePublished" content="2014-04-02T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2014-04-02T00:00:00+00:00" />
 <meta itemprop="wordCount" content="103">
 <meta itemprop="keywords" content="powershell,vcloud," /><meta property="og:title" content="Modify Bulk vApp Network Attachments" />
 <meta property="og:description" content="With vCloud Director if you need to change the Organization vDC Network, for instance you run out of IP addresses. You can use the script below to change the attached network of all powered off vApps.
- $vapps = search-cloud -QueryType VAppOrgNetworkRelation | Where-Object { $.OrgNetworkName -eq &ldquo;Old Network Name&rdquo; -and $.Status -eq &ldquo;Stopped” }
-foreach ($vapp in $vapps) {
-get-civapp -id $vapp.id | Get-CIVAppNetwork -ErrorAction SilentlyContinue | Where-Object { $_." />
+1$vapps = search-cloud -QueryType VAppOrgNetworkRelation | Where-Object { $_.OrgNetworkName -eq &#34;Old Network Name&#34; -and $_.Status -eq &#34;Stopped” } 2foreach ($vapp in $vapps) { 3get-civapp -id $vapp.id | Get-CIVAppNetwork -ErrorAction SilentlyContinue | Where-Object { $\_.ConnectionType -eq &#34;Routed&#34; } | Set-CIVAppNetwork -ParentOrgNetwork &#34;New Network Name&#34; 4Write-Host &#34;Updated &#34; $vapp." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2014-04-02-201442modify-bulk-vapps-network-attachments/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2014-04-02T00:00:00+00:00" />
@@ -29,9 +25,7 @@ get-civapp -id $vapp.id | Get-CIVAppNetwork -ErrorAction SilentlyContinue | Wher
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Modify Bulk vApp Network Attachments"/>
 <meta name="twitter:description" content="With vCloud Director if you need to change the Organization vDC Network, for instance you run out of IP addresses. You can use the script below to change the attached network of all powered off vApps.
- $vapps = search-cloud -QueryType VAppOrgNetworkRelation | Where-Object { $.OrgNetworkName -eq &ldquo;Old Network Name&rdquo; -and $.Status -eq &ldquo;Stopped” }
-foreach ($vapp in $vapps) {
-get-civapp -id $vapp.id | Get-CIVAppNetwork -ErrorAction SilentlyContinue | Where-Object { $_."/>
+1$vapps = search-cloud -QueryType VAppOrgNetworkRelation | Where-Object { $_.OrgNetworkName -eq &#34;Old Network Name&#34; -and $_.Status -eq &#34;Stopped” } 2foreach ($vapp in $vapps) { 3get-civapp -id $vapp.id | Get-CIVAppNetwork -ErrorAction SilentlyContinue | Where-Object { $\_.ConnectionType -eq &#34;Routed&#34; } | Set-CIVAppNetwork -ParentOrgNetwork &#34;New Network Name&#34; 4Write-Host &#34;Updated &#34; $vapp."/>
 <link rel="preload" href="/css/bundle.min.56f818f19e58c97481c8333650e24bf131abfada62c954646a72ae940adb3bf5.css" integrity="sha256-VvgY8Z5YyXSByDM2UOJL8TGr&#43;tpiyVRkanKulArbO/U=" crossorigin="anonymous" as="style" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="/css/bundle.min.56f818f19e58c97481c8333650e24bf131abfada62c954646a72ae940adb3bf5.css" integrity="sha256-VvgY8Z5YyXSByDM2UOJL8TGr&#43;tpiyVRkanKulArbO/U=" crossorigin="anonymous"></noscript></head>
   <body><script src="/js/bootstrap.min.b5d86dd3a5f60c90be38a252bb65fc1a2732f32e71dc12c051720f0c7aef3cde.js" integrity="sha256-tdht06X2DJC&#43;OKJSu2X8Gicy8y5x3BLAUXIPDHrvPN4=" crossorigin="anonymous"></script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
@@ -194,14 +188,12 @@ blog... things...
     <i class="fas fa-fw fa-coffee"></i>1 min read
   </span><a href="/categories/vmware-vcloud/" class="badge rounded-pill text-white bg-primary post-taxonomy">vmware-vcloud</a><a href="/tags/powershell/" class="badge rounded-pill text-white bg-primary post-taxonomy">powershell</a><a href="/tags/vcloud/" class="badge rounded-pill text-white bg-primary post-taxonomy">vcloud</a></div>
 <div class="post-content mb-3"><p>With vCloud Director if you need to change the Organization vDC Network, for instance you run out of IP addresses. You can use the script below to change the attached network of all powered off vApps.</p>
-<blockquote>
-<p>$vapps = search-cloud -QueryType VAppOrgNetworkRelation | Where-Object { $<em>.OrgNetworkName -eq &ldquo;Old Network Name&rdquo; -and $</em>.Status -eq &ldquo;Stopped” }</p>
-<p>foreach ($vapp in $vapps) {</p>
-<p>get-civapp -id $vapp.id | Get-CIVAppNetwork -ErrorAction SilentlyContinue | Where-Object { $_.ConnectionType -eq &ldquo;Routed&rdquo; } | Set-CIVAppNetwork -ParentOrgNetwork &ldquo;New Network Name&rdquo;</p>
-<p>Write-Host &ldquo;Updated &quot; $vapp.id &quot; Owned by: &quot; $Vapp.OwnerName</p>
-<p>}</p>
-</blockquote>
-<p>Simply change the New Network Name and Old Network Name in the commands above.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="ln">1</span><span class="nv">$vapps</span> <span class="p">=</span> <span class="nb">search-cloud</span> <span class="n">-QueryType</span> <span class="n">VAppOrgNetworkRelation</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">OrgNetworkName</span> <span class="o">-eq</span> <span class="s2">&#34;Old Network Name&#34;</span> <span class="o">-and</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Status</span> <span class="o">-eq</span> <span class="s2">&#34;Stopped” }
+</span><span class="ln">2</span><span class="s2">foreach ($vapp in $vapps) {
+</span><span class="ln">3</span><span class="s2">  get-civapp -id $vapp.id | Get-CIVAppNetwork -ErrorAction SilentlyContinue | Where-Object { $\_.ConnectionType -eq &#34;</span><span class="n">Routed</span><span class="s2">&#34; } | Set-CIVAppNetwork -ParentOrgNetwork &#34;</span><span class="n">New</span> <span class="n">Network</span> <span class="n">Name</span><span class="s2">&#34;
+</span><span class="ln">4</span><span class="s2">  Write-Host &#34;</span><span class="n">Updated</span> <span class="s2">&#34; $vapp.id &#34;</span> <span class="n">Owned</span> <span class="n">by</span><span class="err">:</span> <span class="s2">&#34; $Vapp.OwnerName
+</span><span class="ln">5</span><span class="s2">}
+</span></code></pre></div><p>Simply change the New Network Name and Old Network Name in the commands above.</p>
 </div><hr /><div class="post-navs d-flex mb-3 justify-content-evenly">
   <div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
     <a href="/posts/2014-04-01-2014422query-vcloud-director-for-storage-profile-usage/">Query vCloud Director for Storage Profile Usage
@@ -237,11 +229,11 @@ blog... things...
   <section class="recent-posts row card component">
   <div class="card-body">
     <h2 class="card-title">Recent Posts</h2>
-    <ul><li><a href="/posts/secondpost/">Second post
-</a></li><li><a href="/posts/firstpost/">Firstpost
-</a></li><li><a href="/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/">vSphere 6.5 - Top KB Articles for Upgrade Prep
+    <ul><li><a href="/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/">vSphere 6.5 - Top KB Articles for Upgrade Prep
 </a></li><li><a href="/posts/2014-04-21-2014421mass-update-media-in-vcloud-dicrector/">Mass Update Media in vCloud Dicrector
 </a></li><li><a href="/posts/2014-04-16-2014416relocating-a-vm-in-vcloud-director/">Relocating a VM in vCloud Director
+</a></li><li><a href="/posts/2014-04-14-2014414remove-vapp-template-with-no-catalog-item-link/">Remove vApp Template With No Catalog Item Link
+</a></li><li><a href="/posts/2014-04-09-201449detecting-and-removing-invalid-vapps/">Detecting and Removing Invalid vApps
 </a></li></ul>
   </div>
 </section><section class="taxonomies row card component">

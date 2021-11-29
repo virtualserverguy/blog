@@ -16,8 +16,8 @@
       <guid>/posts/2013-01-23-2013123recovering-the-embedded-db-password-on-vcva/</guid>
       <description>Here is how to recover the embedded DB password on the VMware vCenter Virtual Appliance (VCVA):
 From the console (or SSH) of the VCVA run this command:
- grep EMB_DB_PASSWORD /etc/vmware-vpx/embedded_db.cfg
- From: http://kb.vmware.com/selfservice/microsites/search.do?language=en _US&amp;amp;cmd=displayKC&amp;amp;externalId=2004506</description>
+grep EMB_DB_PASSWORD /etc/vmware-vpx/embedded\_db.cfg
+From: http://kb.vmware.com/selfservice/microsites/search.do?language=en _US&amp;amp;cmd=displayKC&amp;amp;externalId=2004506</description>
     </item>
     
     <item>

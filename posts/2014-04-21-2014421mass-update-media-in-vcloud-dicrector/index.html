@@ -13,7 +13,7 @@
 <meta itemprop="description" content="In vCloud 5.1 it is very difficult to move media from LUN to LUN once it is uploaded. In vCloud 5.5 this gets better but it is still a pain.
 One method I have found that works is to disable the LUN you want the media moved off of, and change something on the media record. Something such as adding a &#39; &#39; (space) to the description will cause vCloud Director to copy the media to a new LUN."><meta itemprop="datePublished" content="2014-04-21T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2014-04-21T00:00:00+00:00" />
-<meta itemprop="wordCount" content="153">
+<meta itemprop="wordCount" content="159">
 <meta itemprop="keywords" content="powershell,vcloud," /><meta property="og:title" content="Mass Update Media in vCloud Dicrector" />
 <meta property="og:description" content="In vCloud 5.1 it is very difficult to move media from LUN to LUN once it is uploaded. In vCloud 5.5 this gets better but it is still a pain.
 One method I have found that works is to disable the LUN you want the media moved off of, and change something on the media record. Something such as adding a &#39; &#39; (space) to the description will cause vCloud Director to copy the media to a new LUN." />
@@ -190,16 +190,16 @@ blog... things...
 <div class="post-content mb-3"><p>In vCloud 5.1 it is very difficult to move media from LUN to LUN once it is uploaded. In vCloud 5.5 this gets better but it is still a pain.</p>
 <p>One method I have found that works is to disable the LUN you want the media moved off of, and change something on the media record. Something such as adding a ' ' (space) to the description will cause vCloud Director to copy the media to a new LUN.</p>
 <p>Below is a script to mass update media entries to allow them to move easier.</p>
-<p>$MediaToUpdate = Get-Catalog -Org NAME | Get-Media
-Foreach ( $Media in $MediaToUpdate ) {
-$RefMedia = Get-Media -Id $Media.Id
-Write-Host “Updating “ $RefMedia.Name
-$OldDescription = $RefMedia.Description
-$OldDescription += &ldquo;.&rdquo;
-$Media.ExtensionData.Description = $OldDescription
-$Media.ExtensionData.UpdateServerData
-}</p>
-<p>Just make sure the LUN you want cleaned off is &lsquo;disabled&rsquo; and you have enough space on the other LUNs for the newly copied/moved media.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="ln">1</span><span class="nv">$MediaToUpdate</span> <span class="p">=</span> <span class="nb">Get-Catalog</span> <span class="n">-Org</span> <span class="n">NAME</span> <span class="p">|</span> <span class="nb">Get-Media</span> 
+<span class="ln">2</span><span class="k">Foreach</span> <span class="p">(</span> <span class="nv">$Media</span> <span class="k">in</span> <span class="nv">$MediaToUpdate</span> <span class="p">)</span> <span class="p">{</span> 
+<span class="ln">3</span>  <span class="nv">$RefMedia</span> <span class="p">=</span> <span class="nb">Get-Media</span> <span class="n">-Id</span> <span class="nv">$Media</span><span class="p">.</span><span class="n">Id</span>
+<span class="ln">4</span>  <span class="nb">Write-Host</span> <span class="err">“</span><span class="n">Updating</span> <span class="err">“</span> <span class="nv">$RefMedia</span><span class="p">.</span><span class="n">Name</span> 
+<span class="ln">5</span>  <span class="nv">$OldDescription</span> <span class="p">=</span> <span class="nv">$RefMedia</span><span class="p">.</span><span class="n">Description</span> 
+<span class="ln">6</span>  <span class="nv">$OldDescription</span> <span class="p">+=</span> <span class="s2">&#34;.&#34;</span> 
+<span class="ln">7</span>  <span class="nv">$Media</span><span class="p">.</span><span class="n">ExtensionData</span><span class="p">.</span><span class="n">Description</span> <span class="p">=</span> <span class="nv">$OldDescription</span> 
+<span class="ln">8</span>  <span class="nv">$Media</span><span class="p">.</span><span class="n">ExtensionData</span><span class="p">.</span><span class="n">UpdateServerData</span> 
+<span class="ln">9</span><span class="p">}</span>
+</code></pre></div><p>Just make sure the LUN you want cleaned off is &lsquo;disabled&rsquo; and you have enough space on the other LUNs for the newly copied/moved media.</p>
 </div><hr /><div class="post-navs d-flex mb-3 justify-content-evenly">
   <div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
     <a href="/posts/2014-04-16-2014416relocating-a-vm-in-vcloud-director/">Relocating a VM in vCloud Director
@@ -235,11 +235,11 @@ $Media.ExtensionData.UpdateServerData
   <section class="recent-posts row card component">
   <div class="card-body">
     <h2 class="card-title">Recent Posts</h2>
-    <ul><li><a href="/posts/secondpost/">Second post
-</a></li><li><a href="/posts/firstpost/">Firstpost
-</a></li><li><a href="/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/">vSphere 6.5 - Top KB Articles for Upgrade Prep
+    <ul><li><a href="/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/">vSphere 6.5 - Top KB Articles for Upgrade Prep
 </a></li><li><a href="/posts/2014-04-21-2014421mass-update-media-in-vcloud-dicrector/">Mass Update Media in vCloud Dicrector
 </a></li><li><a href="/posts/2014-04-16-2014416relocating-a-vm-in-vcloud-director/">Relocating a VM in vCloud Director
+</a></li><li><a href="/posts/2014-04-14-2014414remove-vapp-template-with-no-catalog-item-link/">Remove vApp Template With No Catalog Item Link
+</a></li><li><a href="/posts/2014-04-09-201449detecting-and-removing-invalid-vapps/">Detecting and Removing Invalid vApps
 </a></li></ul>
   </div>
 </section><section class="taxonomies row card component">

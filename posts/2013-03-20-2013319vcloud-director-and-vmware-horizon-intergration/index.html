@@ -223,12 +223,8 @@ blog... things...
 <h1 id="configuring-vcloud-director">Configuring vCloud Director</h1>
 <p>In vCloud director you will first need to enable the use of a SAML Identity provider.</p>
 <ol>
-<li>
-<p>Once logged in as a Organization Administrator or System Administrator go to the organization Administration page, click on Federation, then enable the ‘Use of SAML Identity Provider’</p>
-</li>
-<li>
-<p>The XML metadata file that you got from your SAML/SSO provider should be downloaded to the machine these actions are running from. Due to the use of special characters and copy/paste issues it is not recommended to paste in a value into the field. Instead use the upload function to upload the XML file in whole.</p>
-</li>
+<li>Once logged in as a Organization Administrator or System Administrator go to the organization Administration page, click on Federation, then enable the ‘Use of SAML Identity Provider’</li>
+<li>The XML metadata file that you got from your SAML/SSO provider should be downloaded to the machine these actions are running from. Due to the use of special characters and copy/paste issues it is not recommended to paste in a value into the field. Instead use the upload function to upload the XML file in whole.</li>
 </ol>
 <blockquote>
 <p>In the case of VMware&rsquo;s Horizon Product the metadata can be found here: https:///SAAS/API/1.0/GET/metadata/idp.xml</p>
@@ -244,30 +240,14 @@ blog... things...
 <h1 id="configuring-horizon-for-vcloud-director-sso">Configuring Horizon for vCloud Director SSO</h1>
 <p>First you will need to login to the administrator interface for Horizon and create a new Application, then follow these configuration items for that application.</p>
 <ol>
-<li>
-<p>Configure the Login Redirection URL to be the organization URL in vCloud Director. This is required for vCloud Director to work properly, since the authentication sequence must start with vCloud Director and not Horizon.</p>
-</li>
-<li>
-<p>Check the ‘Include the Destination in the response’</p>
-</li>
-<li>
-<p>Check the Sign the entire response.</p>
-</li>
-<li>
-<p>Check the ‘Sign the assertion’</p>
-</li>
-<li>
-<p>Remove the ‘Include Cert’ checkbox</p>
-</li>
-<li>
-<p>Select the configure via Meta-data XML option. Then upload the certificate (copy/paste) the certificate in to the text box given.</p>
-</li>
-<li>
-<p>Click on ‘Populate Attribute Mapping’</p>
-</li>
-<li>
-<p>Configure the Attribute Mapping to match your deployment of Hoizon.</p>
-</li>
+<li>Configure the Login Redirection URL to be the organization URL in vCloud Director. This is required for vCloud Director to work properly, since the authentication sequence must start with vCloud Director and not Horizon.</li>
+<li>Check the ‘Include the Destination in the response’</li>
+<li>Check the Sign the entire response.</li>
+<li>Check the ‘Sign the assertion’</li>
+<li>Remove the ‘Include Cert’ checkbox</li>
+<li>Select the configure via Meta-data XML option. Then upload the certificate (copy/paste) the certificate in to the text box given.</li>
+<li>Click on ‘Populate Attribute Mapping’</li>
+<li>Configure the Attribute Mapping to match your deployment of Hoizon.</li>
 </ol>
 </div><hr /><div class="post-navs d-flex mb-3 justify-content-evenly">
   <div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
@@ -304,11 +284,11 @@ blog... things...
   <section class="recent-posts row card component">
   <div class="card-body">
     <h2 class="card-title">Recent Posts</h2>
-    <ul><li><a href="/posts/secondpost/">Second post
-</a></li><li><a href="/posts/firstpost/">Firstpost
-</a></li><li><a href="/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/">vSphere 6.5 - Top KB Articles for Upgrade Prep
+    <ul><li><a href="/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/">vSphere 6.5 - Top KB Articles for Upgrade Prep
 </a></li><li><a href="/posts/2014-04-21-2014421mass-update-media-in-vcloud-dicrector/">Mass Update Media in vCloud Dicrector
 </a></li><li><a href="/posts/2014-04-16-2014416relocating-a-vm-in-vcloud-director/">Relocating a VM in vCloud Director
+</a></li><li><a href="/posts/2014-04-14-2014414remove-vapp-template-with-no-catalog-item-link/">Remove vApp Template With No Catalog Item Link
+</a></li><li><a href="/posts/2014-04-09-201449detecting-and-removing-invalid-vapps/">Detecting and Removing Invalid vApps
 </a></li></ul>
   </div>
 </section><section class="taxonomies row card component">

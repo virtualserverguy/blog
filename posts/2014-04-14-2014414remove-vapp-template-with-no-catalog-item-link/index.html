@@ -13,7 +13,7 @@
 <meta itemprop="description" content="First&hellip; Did you know that vApp Templates and Catalog Items are two different things in vCloud Director? If so, did you know that you can have a vApp Tempalte that does not link to a catalog item? Finally, you can&rsquo;t have a Catalog Item without a vApp Tempalte backing though.
 Well I guess you could. If you manage to get one of those, you will want to follow my guide on fixing that here ."><meta itemprop="datePublished" content="2014-04-14T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2014-04-14T00:00:00+00:00" />
-<meta itemprop="wordCount" content="209">
+<meta itemprop="wordCount" content="208">
 <meta itemprop="keywords" content="powershell,vcloud," /><meta property="og:title" content="Remove vApp Template With No Catalog Item Link" />
 <meta property="og:description" content="First&hellip; Did you know that vApp Templates and Catalog Items are two different things in vCloud Director? If so, did you know that you can have a vApp Tempalte that does not link to a catalog item? Finally, you can&rsquo;t have a Catalog Item without a vApp Tempalte backing though.
 Well I guess you could. If you manage to get one of those, you will want to follow my guide on fixing that here ." />
@@ -191,19 +191,16 @@ blog... things...
 <p>Well I guess you could. If you manage to get one of those, you will want to follow my guide on fixing that <a href="http://virtualserverguy.com/blog/2014/3/31/find-broken-catalog-items-in-vcloud-5x" target="_blank" rel="noopener noreferrer">here</a>
 .</p>
 <p>Okay back to detecting if you have a vApp Template that is not mapped to a Catalog Item. To detect these &lsquo;hung&rsquo; vApp Templates run the following script as a &lsquo;system administrator&rsquo;</p>
-<blockquote>
-<p>$VappTemplates = Search-Cloud -QueryType AdminVappTemplate</p>
-<p>foreach ( $VappT in $VappTemplates ) { $vAppTemplate = Get-CIVAppTemplate -ID $VappT.Id</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span> $vapptid = $vapptemplate.id
-<span class="ln">2</span> $CatItem = Search-Cloud -QueryType AdminCatalogItem -Filter Entity==$VappTId
-<span class="ln">3</span> if ( !$CatItem ) { Write-Host &#34;Get-CIVappTemplate -ID $($vAppTemplate.Id) &#34; }
-</code></pre></div><p>}</p>
-</blockquote>
-<p>This will procduce an out put of &lsquo;Get-CIVappTemplate&rsquo; and the ID of the hung vApp Template. It is up to you to pick what to do with that hung vApp Template. I recommend removing them and re-creating whatever they were. To do that append this to the output and run it in the same PowerShell window:</p>
-<blockquote>
-<p>| Remove-CIVappTemplate -RemoveCatalogItem $False</p>
-</blockquote>
-</div><hr /><div class="post-navs d-flex mb-3 justify-content-evenly">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Powershell" data-lang="Powershell"><span class="ln">1</span><span class="nv">$VappTemplates</span> <span class="p">=</span> <span class="nb">Search-Cloud</span> <span class="n">-QueryType</span> <span class="n">AdminVappTemplate</span>
+<span class="ln">2</span>
+<span class="ln">3</span><span class="k">foreach</span> <span class="p">(</span> <span class="nv">$VappT</span> <span class="k">in</span> <span class="nv">$VappTemplates</span> <span class="p">)</span> <span class="p">{</span> <span class="nv">$vAppTemplate</span> <span class="p">=</span> <span class="nb">Get-CIVAppTemplate</span> <span class="n">-ID</span> <span class="nv">$VappT</span><span class="p">.</span><span class="n">Id</span>
+<span class="ln">4</span>  <span class="nv">$vapptid</span> <span class="p">=</span> <span class="nv">$vapptemplate</span><span class="p">.</span><span class="n">id</span>
+<span class="ln">5</span>  <span class="nv">$CatItem</span> <span class="p">=</span> <span class="nb">Search-Cloud</span> <span class="n">-QueryType</span> <span class="n">AdminCatalogItem</span> <span class="n">-Filter</span> <span class="n">Entity</span><span class="p">==</span><span class="nv">$VappTId</span>
+<span class="ln">6</span>  <span class="k">if</span> <span class="p">(</span> <span class="p">!</span><span class="nv">$CatItem</span> <span class="p">)</span> <span class="p">{</span> <span class="nb">Write-Host</span> <span class="s2">&#34;Get-CIVappTemplate -ID </span><span class="p">$(</span><span class="nv">$vAppTemplate</span><span class="p">.</span><span class="n">Id</span><span class="p">)</span><span class="s2"> &#34;</span> <span class="p">}</span>
+<span class="ln">7</span><span class="p">}</span>
+</code></pre></div><p>This will procduce an out put of &lsquo;Get-CIVappTemplate&rsquo; and the ID of the hung vApp Template. It is up to you to pick what to do with that hung vApp Template. I recommend removing them and re-creating whatever they were. To do that append this to the output and run it in the same PowerShell window:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="ln">1</span><span class="nb">Remove-CIVappTemplate</span> <span class="n">-RemoveCatalogItem</span> <span class="nv">$False</span>
+</code></pre></div></div><hr /><div class="post-navs d-flex mb-3 justify-content-evenly">
   <div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
     <a href="/posts/2014-04-09-201449detecting-and-removing-invalid-vapps/">Detecting and Removing Invalid vApps
 </a>
@@ -238,11 +235,11 @@ blog... things...
   <section class="recent-posts row card component">
   <div class="card-body">
     <h2 class="card-title">Recent Posts</h2>
-    <ul><li><a href="/posts/secondpost/">Second post
-</a></li><li><a href="/posts/firstpost/">Firstpost
-</a></li><li><a href="/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/">vSphere 6.5 - Top KB Articles for Upgrade Prep
+    <ul><li><a href="/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/">vSphere 6.5 - Top KB Articles for Upgrade Prep
 </a></li><li><a href="/posts/2014-04-21-2014421mass-update-media-in-vcloud-dicrector/">Mass Update Media in vCloud Dicrector
 </a></li><li><a href="/posts/2014-04-16-2014416relocating-a-vm-in-vcloud-director/">Relocating a VM in vCloud Director
+</a></li><li><a href="/posts/2014-04-14-2014414remove-vapp-template-with-no-catalog-item-link/">Remove vApp Template With No Catalog Item Link
+</a></li><li><a href="/posts/2014-04-09-201449detecting-and-removing-invalid-vapps/">Detecting and Removing Invalid vApps
 </a></li></ul>
   </div>
 </section><section class="taxonomies row card component">

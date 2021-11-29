@@ -191,24 +191,20 @@ blog... things...
 <p>Sure you can fire up your vCenter Client or WebClient and move the VM that way. If you like your cloud / VM and like them running I would not do that.</p>
 <p>Instead run this tid-bit of code in a PowerShell window.</p>
 <p>To move a vApp:</p>
-<blockquote>
-<p>$destDatastoreName = “LUN NAME&quot;</p>
-<p>$vm_names = Get-CIVApp &ldquo;VAPP NAME&rdquo; | get-civm</p>
-<p>foreach ($vm in $vm_names) {</p>
-<p>$dsQuery = Search-Cloud -QueryType Datastore -Name $destDatastoreName</p>
-<p>$dsRef = New-Object vmware.vimautomation.cloud.views.reference</p>
-<p>$dsRef.Href = &ldquo;https://$($global:DefaultCIServers[0].name)/api/admin/extension/datastore/$($dsquery.id.split(':')[-1])&rdquo; $vm.ExtensionData.Relocate($dsRef)</p>
-<p>}</p>
-</blockquote>
-<p>To move a single VM:</p>
-<blockquote>
-<p>$destDatastoreName = “LUN NAME&quot;</p>
-<p>$vm_name = get-civm &ldquo;VM NAME&rdquo;</p>
-<p>$dsQuery = Search-Cloud -QueryType Datastore -Name $destDatastoreName</p>
-<p>$dsRef = New-Object vmware.vimautomation.cloud.views.reference</p>
-<p>$dsRef.Href = &ldquo;https://$($global:DefaultCIServers[0].name)/api/admin/extension/datastore/$($dsquery.id.split(':')[-1])&rdquo; $vm.ExtensionData.Relocate($dsRef)</p>
-</blockquote>
-<p>An important rule to remember&hellip; a VM can only live on 1 datastore, this means all VMDK&rsquo;s and the VMX of that VM must exist on the same datasore. Executing the above will make sure that happens. If you fell like breaking things and use the vSphere Client, keep this in mind.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="ln">1</span><span class="nv">$destDatastoreName</span> <span class="p">=</span> <span class="err">“</span><span class="n">LUN</span> <span class="n">NAME</span><span class="s2">&#34;
+</span><span class="ln">2</span><span class="s2">$vm\_names = Get-CIVApp &#34;</span><span class="n">VAPP</span> <span class="n">NAME</span><span class="s2">&#34; | get-civm
+</span><span class="ln">3</span><span class="s2">foreach ($vm in $vm\_names) {
+</span><span class="ln">4</span><span class="s2">  $dsQuery = Search-Cloud -QueryType Datastore -Name $destDatastoreName
+</span><span class="ln">5</span><span class="s2">  $dsRef = New-Object vmware.vimautomation.cloud.views.reference
+</span><span class="ln">6</span><span class="s2">  $dsRef.Href = &#34;</span><span class="n">https</span><span class="err">:</span><span class="p">//$(</span><span class="nv">$global:DefaultCIServers</span><span class="p">\[</span><span class="n">0</span><span class="p">\].</span><span class="n">name</span><span class="p">)/</span><span class="n">api</span><span class="p">/</span><span class="n">admin</span><span class="p">/</span><span class="n">extension</span><span class="p">/</span><span class="n">datastore</span><span class="p">/$(</span><span class="nv">$dsquery</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)\[-</span><span class="n">1</span><span class="p">\])</span><span class="s2">&#34; $vm.ExtensionData.Relocate($dsRef)
+</span><span class="ln">7</span><span class="s2">}
+</span></code></pre></div><p>To move a single VM:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="ln">1</span><span class="nv">$destDatastoreName</span> <span class="p">=</span> <span class="err">“</span><span class="n">LUN</span> <span class="n">NAME</span><span class="s2">&#34;
+</span><span class="ln">2</span><span class="s2">$vm\_name = get-civm &#34;</span><span class="n">VM</span> <span class="n">NAME</span><span class="s2">&#34;
+</span><span class="ln">3</span><span class="s2">$dsQuery = Search-Cloud -QueryType Datastore -Name $destDatastoreName
+</span><span class="ln">4</span><span class="s2">$dsRef = New-Object vmware.vimautomation.cloud.views.reference
+</span><span class="ln">5</span><span class="s2">$dsRef.Href = &#34;</span><span class="n">https</span><span class="err">:</span><span class="p">//$(</span><span class="nv">$global:DefaultCIServers</span><span class="p">\[</span><span class="n">0</span><span class="p">\].</span><span class="n">name</span><span class="p">)/</span><span class="n">api</span><span class="p">/</span><span class="n">admin</span><span class="p">/</span><span class="n">extension</span><span class="p">/</span><span class="n">datastore</span><span class="p">/$(</span><span class="nv">$dsquery</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)\[-</span><span class="n">1</span><span class="p">\])</span><span class="s2">&#34; $vm.ExtensionData.Relocate($dsRef)
+</span></code></pre></div><p>An important rule to remember&hellip; a VM can only live on 1 datastore, this means all VMDK&rsquo;s and the VMX of that VM must exist on the same datasore. Executing the above will make sure that happens. If you fell like breaking things and use the vSphere Client, keep this in mind.</p>
 </div><hr /><div class="post-navs d-flex mb-3 justify-content-evenly">
   <div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
     <a href="/posts/2014-04-14-2014414remove-vapp-template-with-no-catalog-item-link/">Remove vApp Template With No Catalog Item Link
@@ -244,11 +240,11 @@ blog... things...
   <section class="recent-posts row card component">
   <div class="card-body">
     <h2 class="card-title">Recent Posts</h2>
-    <ul><li><a href="/posts/secondpost/">Second post
-</a></li><li><a href="/posts/firstpost/">Firstpost
-</a></li><li><a href="/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/">vSphere 6.5 - Top KB Articles for Upgrade Prep
+    <ul><li><a href="/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/">vSphere 6.5 - Top KB Articles for Upgrade Prep
 </a></li><li><a href="/posts/2014-04-21-2014421mass-update-media-in-vcloud-dicrector/">Mass Update Media in vCloud Dicrector
 </a></li><li><a href="/posts/2014-04-16-2014416relocating-a-vm-in-vcloud-director/">Relocating a VM in vCloud Director
+</a></li><li><a href="/posts/2014-04-14-2014414remove-vapp-template-with-no-catalog-item-link/">Remove vApp Template With No Catalog Item Link
+</a></li><li><a href="/posts/2014-04-09-201449detecting-and-removing-invalid-vapps/">Detecting and Removing Invalid vApps
 </a></li></ul>
   </div>
 </section><section class="taxonomies row card component">

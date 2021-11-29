@@ -15,7 +15,7 @@
       
       <guid>/posts/2017-08-30-vsphere-6-5-top-kb-articles-for-upgrade-prep/</guid>
       <description>Here are the top KB articles for upgrading to vSphere 6.5:
-KB 2146420 – Estimating vCenter Server 5.5 to vCenter Server Appliance 6.x migration time KB 2147711 – Estimating vCenter Server 5.5 or 6.0 to vCenter Server Appliance 6.5 migration time KB 2112283 – Regenerate vCenter Certificates KB 2147548 – Important information before upgrading to vSphere 6.5 KB 2147686 – vCenter Server 6.5 upgrade best practices KB 2147824 – Migrating VMFS 5 datastore to VMFS 6 datastore KB 2147289 – Update Sequence for vSphere 6.</description>
+ KB 2146420 – Estimating vCenter Server 5.5 to vCenter Server Appliance 6.x migration time KB 2147711 – Estimating vCenter Server 5.5 or 6.0 to vCenter Server Appliance 6.5 migration time KB 2112283 – Regenerate vCenter Certificates KB 2147548 – Important information before upgrading to vSphere 6.5 KB 2147686 – vCenter Server 6.5 upgrade best practices KB 2147824 – Migrating VMFS 5 datastore to VMFS 6 datastore KB 2147289 – Update Sequence for vSphere 6.</description>
     </item>
     
     <item>
@@ -37,8 +37,8 @@ In our cloud deployment (25,000 VMs in a single vCloud instance, and we have 4);
       <guid>/posts/2013-01-23-2013123recovering-the-embedded-db-password-on-vcva/</guid>
       <description>Here is how to recover the embedded DB password on the VMware vCenter Virtual Appliance (VCVA):
 From the console (or SSH) of the VCVA run this command:
- grep EMB_DB_PASSWORD /etc/vmware-vpx/embedded_db.cfg
- From: http://kb.vmware.com/selfservice/microsites/search.do?language=en _US&amp;amp;cmd=displayKC&amp;amp;externalId=2004506</description>
+grep EMB_DB_PASSWORD /etc/vmware-vpx/embedded\_db.cfg
+From: http://kb.vmware.com/selfservice/microsites/search.do?language=en _US&amp;amp;cmd=displayKC&amp;amp;externalId=2004506</description>
     </item>
     
     <item>
