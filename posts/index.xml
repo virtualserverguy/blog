@@ -56,7 +56,7 @@ Well I guess you could. If you manage to get one of those, you will want to foll
       <guid>/posts/2014-04-09-201449detecting-and-removing-invalid-vapps/</guid>
       <description>After you run vCloud for a while, heck run any management product for a while, and you will have left overs, hung items, or even corrupt vApps.
 With vCloud Director you can run the below to find those items and remove them.
-1$badvapp = Search-Cloud -QueryType AdminVapp | Where-Object { $\_.Status -eq “UNRESOLVED&amp;#34; } 2foreach ( $id in $badvapp ) { 3Get-CIVApp -Id $id.id | Remove-CIVApp 4} This probably wont remove everything, those items that are left, generally can only be removed via editing the database though, I would not recommend that.</description>
+1$badvapp = Search-Cloud -QueryType AdminVapp | Where-Object { $_.Status -eq &amp;#34;UNRESOLVED&amp;#34; } 2foreach ( $id in $badvapp ) { 3 Get-CIVApp -Id $id.id | Remove-CIVApp 4} This probably wont remove everything, those items that are left, generally can only be removed via editing the database though, I would not recommend that.</description>
     </item>
     
     <item>
@@ -76,7 +76,7 @@ With vCloud Director you can run the below to find those items and remove them.
       
       <guid>/posts/2014-04-02-201442modify-bulk-vapps-network-attachments/</guid>
       <description>With vCloud Director if you need to change the Organization vDC Network, for instance you run out of IP addresses. You can use the script below to change the attached network of all powered off vApps.
-1$vapps = search-cloud -QueryType VAppOrgNetworkRelation | Where-Object { $_.OrgNetworkName -eq &amp;#34;Old Network Name&amp;#34; -and $_.Status -eq &amp;#34;Stopped” } 2foreach ($vapp in $vapps) { 3get-civapp -id $vapp.id | Get-CIVAppNetwork -ErrorAction SilentlyContinue | Where-Object { $\_.ConnectionType -eq &amp;#34;Routed&amp;#34; } | Set-CIVAppNetwork -ParentOrgNetwork &amp;#34;New Network Name&amp;#34; 4Write-Host &amp;#34;Updated &amp;#34; $vapp.</description>
+1$vapps = search-cloud -QueryType VAppOrgNetworkRelation | Where-Object { $_.OrgNetworkName -eq &amp;#34;Old Network Name&amp;#34; -and $_.Status -eq &amp;#34;Stopped” } 2foreach ($vapp in $vapps) { 3get-civapp -id $vapp.id | Get-CIVAppNetwork -ErrorAction SilentlyContinue | Where-Object { $_.ConnectionType -eq &amp;#34;Routed&amp;#34; } | Set-CIVAppNetwork -ParentOrgNetwork &amp;#34;New Network Name&amp;#34; 4Write-Host &amp;#34;Updated &amp;#34; $vapp.</description>
     </item>
     
     <item>
@@ -87,7 +87,7 @@ With vCloud Director you can run the below to find those items and remove them.
       <guid>/posts/2014-04-01-2014422query-vcloud-director-for-storage-profile-usage/</guid>
       <description>Often times an organization will have multiple Storage Profiles, different class fo storage, etc. The simple command of:
 1Get-OrgVDC Returns a summary or cummulative view of the storage profile usage. To get the actual usage for each profile, execute this command:
-1$OrgVdc = get-orgvdc (Org VDC Name) 2Search-Cloud -querytype AdminOrgVdcStorageProfile | where { $\_.VdcName -eq $orgvdc } | get-ciview </description>
+1$OrgVdc = get-orgvdc (Org VDC Name) 2Search-Cloud -querytype AdminOrgVdcStorageProfile | where { $_.VdcName -eq $orgvdc } | get-ciview </description>
     </item>
     
     <item>
@@ -97,7 +97,7 @@ With vCloud Director you can run the below to find those items and remove them.
       
       <guid>/posts/2014-03-31-2014331find-broken-catalog-items-in-vcloud-5x/</guid>
       <description>Sometimes when uploading content into vCloud there is a chance that the content can be broken. This can cause programs to have errors. To find these items, run the following in PowerShell as the a &amp;lsquo;system administrator&amp;rsquo;.
-1search-cloud -QueryType AdminCatalogItem | Where-Object { $\_.Status -eq &amp;#34;Unknown&amp;#34; } You can now remove them utilizing the API or vCO and the &amp;lsquo;Remove Catalog Item&amp;rsquo; workflow.</description>
+1search-cloud -QueryType AdminCatalogItem | Where-Object { $_.Status -eq &amp;#34;Unknown&amp;#34; } You can now remove them utilizing the API or vCO and the &amp;lsquo;Remove Catalog Item&amp;rsquo; workflow.</description>
     </item>
     
     <item>
