@@ -18,7 +18,7 @@ Below is a script to mass update media entries to allow them to move easier.
 $MediaToUpdate = Get-Catalog -Org NAME | Get-Media 
 Foreach ( $Media in $MediaToUpdate ) { 
   $RefMedia = Get-Media -Id $Media.Id
-  Write-Host “Updating “ $RefMedia.Name 
+  Write-Host "Updating " $RefMedia.Name 
   $OldDescription = $RefMedia.Description 
   $OldDescription += "." 
   $Media.ExtensionData.Description = $OldDescription 
